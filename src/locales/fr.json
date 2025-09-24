@@ -1,0 +1,45 @@
+{
+  "header": {
+    "brand": "UAE-VisaServices.com",
+    "tagline": "Investor Visa Platform",
+    "nav": {
+      "simulator": "Simulateur",
+      "eligibility": "Éligibilité",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "cta": "Commencer"
+  },
+  "hero": {
+    "title": "Obtenez votre résidence aux EAU par investissement immobilier",
+    "subtitle": "Golden Visa 10 ans ou résidence 2 ans – Simulez votre éligibilité en 2 minutes, accompagnement complet pour AED 3,500",
+    "benefits": {
+      "residence2": "≥ AED 750k → Résidence 2 ans",
+      "golden10": "≥ AED 2M → Golden Visa 10 ans", 
+      "support": "Accompagnement complet"
+    },
+    "cta": "Simuler mon éligibilité",
+    "trust": {
+      "cases": "+1,000 dossiers traités",
+      "multilingual": "Support multilingue",
+      "secure": "100% sécurisé"
+    }
+  },
+  "simulator": {
+    "badge": "Simulateur Officiel",
+    "title": "Simulez votre éligibilité en 2 minutes",
+    "description": "Répondez aux questions ci-dessous pour découvrir si vous pouvez obtenir votre résidence par investissement immobilier aux EAU.",
+    "form": {
+      "title": "Simulateur d'éligibilité",
+      "subtitle": "Toutes les informations sont traitées de manière confidentielle",
+      "step1": {
+        "title": "Informations sur votre propriété",
+        "propertyValue": {
+          "label": "Valeur de votre bien immobilier (AED)",
+          "placeholder": "ex: 1500000",
+          "hint": "💡 Seuils: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans"
+        }
+      }
+    }
+  }
+}

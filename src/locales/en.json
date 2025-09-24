@@ -1,0 +1,45 @@
+{
+  "header": {
+    "brand": "UAE-VisaServices.com",
+    "tagline": "Investor Visa Platform",
+    "nav": {
+      "simulator": "Simulator",
+      "eligibility": "Eligibility",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "cta": "Get Started"
+  },
+  "hero": {
+    "title": "Get your UAE residency through real estate investment",
+    "subtitle": "Golden Visa 10 years or investor residence 2 years – Check your eligibility in 2 minutes, complete assistance for AED 3,500",
+    "benefits": {
+      "residence2": "≥ AED 750k → 2-year Residence",
+      "golden10": "≥ AED 2M → 10-year Golden Visa",
+      "support": "Complete assistance"
+    },
+    "cta": "Check my eligibility",
+    "trust": {
+      "cases": "+1,000 cases processed",
+      "multilingual": "Multilingual support", 
+      "secure": "100% secure"
+    }
+  },
+  "simulator": {
+    "badge": "Official Simulator",
+    "title": "Check your eligibility in 2 minutes",
+    "description": "Answer the questions below to find out if you can obtain your residency through real estate investment in the UAE.",
+    "form": {
+      "title": "Eligibility Simulator",
+      "subtitle": "All information is processed confidentially",
+      "step1": {
+        "title": "Property Information",
+        "propertyValue": {
+          "label": "Your property value (AED)",
+          "placeholder": "e.g: 1500000",
+          "hint": "💡 Thresholds: ≥750k AED = 2-year Residence • ≥2M AED = 10-year Golden Visa"
+        }
+      }
+    }
+  }
+}
