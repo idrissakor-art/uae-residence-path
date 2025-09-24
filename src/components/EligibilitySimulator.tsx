@@ -189,9 +189,12 @@ const EligibilitySimulator = () => {
                       </Label>
                       <Input
                         id="propertyValue"
-                        placeholder="ex: 1,500,000 AED"
+                        placeholder="ex: 1500000"
                         value={formData.propertyValue}
-                        onChange={(e) => setFormData(prev => ({ ...prev, propertyValue: e.target.value }))}
+                        onChange={(e) => {
+                          const numericValue = e.target.value.replace(/[^\d]/g, '');
+                          setFormData(prev => ({ ...prev, propertyValue: numericValue }));
+                        }}
                         required
                         className="text-lg"
                       />
@@ -243,7 +246,10 @@ const EligibilitySimulator = () => {
                           id="amountPaid"
                           placeholder="Minimum 50% de la valeur totale"
                           value={formData.amountPaid}
-                          onChange={(e) => setFormData(prev => ({ ...prev, amountPaid: e.target.value }))}
+                          onChange={(e) => {
+                            const numericValue = e.target.value.replace(/[^\d]/g, '');
+                            setFormData(prev => ({ ...prev, amountPaid: numericValue }));
+                          }}
                           required
                           className="text-lg"
                         />
