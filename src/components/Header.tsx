@@ -5,8 +5,8 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="text-2xl font-bold gradient-text">
-            UAE Residence
+          <div className="text-2xl font-bold text-primary">
+            UAE-VisaServices.com
           </div>
           <span className="text-sm text-muted-foreground hidden sm:inline">
             Investor Visa Platform
