@@ -22,12 +22,6 @@ const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center text-white">
-          {/* Badge */}
-          <Badge variant="outline" className="mb-6 border-white/30 text-white bg-white/10">
-            <Shield className="w-4 h-4 mr-2" />
-            Plateforme Officielle Agréée
-          </Badge>
-
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Obtenez votre{" "}
@@ -58,12 +52,9 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex justify-center">
             <Button variant="premium" size="hero" className="shadow-luxury">
               Simuler mon éligibilité
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              En savoir plus
             </Button>
           </div>
 
