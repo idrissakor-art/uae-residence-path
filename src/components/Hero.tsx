@@ -22,59 +22,49 @@ const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center text-white">
+          {/* Badge */}
+          <Badge variant="outline" className="mb-6 border-white/30 text-white bg-white/10">
+            <Shield className="w-4 h-4 mr-2" />
+            Plateforme Officielle Agréée
+          </Badge>
+
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Obtenez votre résidence aux EAU par investissement immobilier
+            Obtenez votre{" "}
+            <span className="text-accent">résidence aux EAU</span>{" "}
+            par investissement immobilier
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Vérifiez votre éligibilité en 2 minutes, chargez vos documents et obtenez votre résidence.
+            Golden Visa 10 ans ou résidence 2 ans – Simulez votre éligibilité en 2 minutes, 
+            accompagnement complet pour AED 3,500
           </p>
 
-          {/* Benefits in translucent white card */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-10 border border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center justify-center space-x-3 text-white">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-lg">🏠</span>
-                </div>
-                <span className="font-medium">≥ AED 750k → Résidence 2 ans</span>
-              </div>
-              <div className="flex items-center justify-center space-x-3 text-white">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-lg">🏙️</span>
-                </div>
-                <span className="font-medium">≥ AED 2M → Golden Visa 10 ans</span>
-              </div>
-              <div className="flex items-center justify-center space-x-3 text-white">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-lg">📄</span>
-                </div>
-                <span className="font-medium">Accompagnement complet</span>
-              </div>
+          {/* Benefits */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div className="flex items-center justify-center space-x-2 text-white/90">
+              <CheckCircle className="w-5 h-5 text-accent" />
+              <span>≥ AED 750k → Résidence 2 ans</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-white/90">
+              <CheckCircle className="w-5 h-5 text-accent" />
+              <span>≥ AED 2M → Golden Visa 10 ans</span>
+            </div>
+            <div className="flex items-center justify-center space-x-2 text-white/90">
+              <CheckCircle className="w-5 h-5 text-accent" />
+              <span>Accompagnement complet</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex justify-center items-center mb-8">
-            <Button variant="premium" size="hero" className="bg-accent text-primary font-semibold px-8 py-4 text-lg shadow-luxury hover:bg-accent/90 transition-all duration-300">
-              ⚡ Simuler mon éligibilité
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button variant="premium" size="hero" className="shadow-luxury">
+              Simuler mon éligibilité
             </Button>
-          </div>
-
-          {/* Quick Input Form */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto border border-white/20">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input 
-                type="text" 
-                placeholder="Valeur de votre bien (AED)"
-                className="flex-1 px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-              />
-              <Button variant="premium" className="bg-accent text-primary font-semibold px-6 py-3 hover:bg-accent/90">
-                Vérifier
-              </Button>
-            </div>
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              En savoir plus
+            </Button>
           </div>
 
           {/* Trust Indicators */}
