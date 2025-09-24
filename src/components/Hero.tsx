@@ -24,9 +24,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center text-white">
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Votre résidence aux Émirats, simple et rapide –{" "}
-            <span className="text-accent">Golden Visa 10 ans</span>{" "}
-            ou résidence investisseur 2 ans
+            Obtenez votre résidence aux EAU par investissement immobilier
           </h1>
 
           {/* Subtitle */}
@@ -59,12 +57,9 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <div className="flex justify-center items-center mb-8">
             <Button variant="premium" size="hero" className="bg-accent text-primary font-semibold px-8 py-4 text-lg shadow-luxury hover:bg-accent/90 transition-all duration-300">
               ⚡ Simuler mon éligibilité
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 px-8 py-4">
-              En savoir plus
             </Button>
           </div>
 
