@@ -211,5 +211,91 @@
       "payment": "Payment",
       "confirmation": "Confirmation"
     }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find all answers about UAE residence by property investment",
+    "searchPlaceholder": "Search in questions...",
+    "categoriesTitle": "Categories",
+    "allCategories": "All categories",
+    "allQuestions": "All questions",
+    "questionsCount": "questions",
+    "noResults": "No results found",
+    "tryDifferentSearch": "Try different keywords",
+    "stillHaveQuestions": "Still have questions?",
+    "contactSupport": "Our expert team is here to help you",
+    "emailSupport": "Contact us by email",
+    "whatsappSupport": "WhatsApp",
+    "categories": {
+      "general": "General",
+      "requirements": "Requirements",
+      "family": "Family",
+      "process": "Process",
+      "payment": "Payment",
+      "guarantees": "Guarantees"
+    },
+    "questions": {
+      "q1": {
+        "question": "What is the Residence by Property Investment in the UAE?",
+        "answer": "The Residence by Property Investment (Investor Residence) allows an investor owning real estate in the UAE to obtain a residence permit (e.g. 2 years or 10-year Golden Visa), subject to meeting specific criteria and thresholds."
+      },
+      "q2": {
+        "question": "What are the minimum amounts required for 2-year residence and 10-year Golden Visa?",
+        "answer": "For 2-year residence: invest in a property worth at least AED 750,000 (or equivalent).\nFor the 10-year Golden Visa: the minimum investment is approximately AED 2,000,000 (which can be across multiple properties)."
+      },
+      "q3": {
+        "question": "Can a mortgaged property be accepted for the application?",
+        "answer": "Yes, a mortgaged property may be accepted, provided you supply a No Objection Certificate (NOC) from the bank and proof of the portion of the mortgage you have already paid."
+      },
+      "q4": {
+        "question": "Can I combine multiple properties to reach the Golden Visa threshold?",
+        "answer": "Yes, you may combine the values of several real estate assets to reach the required threshold for the 10-year residence, as long as the total meets the criteria."
+      },
+      "q5": {
+        "question": "Is physical presence in the UAE required to apply for residence?",
+        "answer": "In most cases, yes — you must be physically present in the UAE at the time of application (\"in country\"), depending on the rules in force at that time."
+      },
+      "q6": {
+        "question": "What documents do I need to submit for the application?",
+        "answer": "Typical required documents include:\n• Valid passport\n• Title deed / property certificate\n• Compliant ID photo\n• Bank NOC (if mortgaged property)\n• Police clearance / good conduct certificate\n• Health insurance proof\n• Proof that title deed is in your name or shared, under legal rules."
+      },
+      "q7": {
+        "question": "Can I sponsor my family under this investor residence?",
+        "answer": "Yes, a valid investor residence (2-year or Golden Visa) often enables you to sponsor your family (spouse, children, sometimes parents) subject to conditions (documentation, eligibility, age, etc.)."
+      },
+      "q8": {
+        "question": "What happens if the visa application is rejected?",
+        "answer": "We offer a \"satisfied or refunded\" guarantee: if your application is rejected, we refund the service fee (provided your dossier was complete and met the announced conditions)."
+      },
+      "q9": {
+        "question": "Is support / assistance included?",
+        "answer": "Yes. After eligibility is confirmed, our service includes full support: document verification, submission, and follow-up until the residency permit is issued."
+      },
+      "q10": {
+        "question": "How and when do I pay the service fee?",
+        "answer": "The service fee (AED 3,500) is paid after you confirm eligibility and upload all required documents, via a secure payment module (Stripe / credit card)."
+      },
+      "q11": {
+        "question": "How long does the application process take?",
+        "answer": "The processing time varies based on UAE authorities, but typically it ranges from a few weeks to a few months. We provide a status tracker for your application."
+      },
+      "q12": {
+        "question": "Can I work or get a business license with this investor residence?",
+        "answer": "Yes, in many cases you can request a temporary work permit from the UAE Ministry of Human Resources, and obtain a commercial license if you meet the relevant conditions."
+      },
+      "q13": {
+        "question": "Can I apply if I'm outside the UAE?",
+        "answer": "Some regulations require that the application be submitted from within the UAE. If you're abroad, there may be restrictions depending on the local authority rules."
+      },
+      "q14": {
+        "question": "Do I have to undergo medical exams / fingerprinting?",
+        "answer": "Yes, a medical test is often required. Also, for the Emirates ID, biometric procedures like fingerprint scanning may be required, especially on the first application."
+      },
+      "q15": {
+        "question": "What if the property is jointly owned with my spouse and not solely in my name?",
+        "answer": "It's acceptable in many cases: if the property is co-owned with your spouse, the dossier must include a valid marriage certificate recognized by UAE law, in compliance with requirements."
+      }
+    }
   }
 }

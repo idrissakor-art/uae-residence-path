@@ -211,5 +211,91 @@
       "payment": "Paiement",
       "confirmation": "Confirmation"
     }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fréquentes",
+    "subtitle": "Trouvez toutes les réponses concernant la résidence par investissement immobilier aux EAU",
+    "searchPlaceholder": "Rechercher dans les questions...",
+    "categoriesTitle": "Catégories",
+    "allCategories": "Toutes les catégories",
+    "allQuestions": "Toutes les questions",
+    "questionsCount": "questions",
+    "noResults": "Aucun résultat trouvé",
+    "tryDifferentSearch": "Essayez avec d'autres mots-clés",
+    "stillHaveQuestions": "Vous avez encore des questions ?",
+    "contactSupport": "Notre équipe d'experts est là pour vous aider",
+    "emailSupport": "Contactez-nous par email",
+    "whatsappSupport": "WhatsApp",
+    "categories": {
+      "general": "Général",
+      "requirements": "Exigences",
+      "family": "Famille",
+      "process": "Processus",
+      "payment": "Paiement",
+      "guarantees": "Garanties"
+    },
+    "questions": {
+      "q1": {
+        "question": "Qu'est-ce que la résidence par investissement immobilier aux EAU ?",
+        "answer": "La résidence par investissement immobilier (Investor Residence) permet à un investisseur possédant un bien immobilier aux Émirats Arabes Unis d'obtenir une autorisation de séjour (par exemple 2 ans ou Golden Visa 10 ans), à condition de respecter certains seuils et critères légaux."
+      },
+      "q2": {
+        "question": "Quels sont les montants minimum exigés pour la résidence 2 ans et le Golden Visa 10 ans ?",
+        "answer": "Pour la résidence 2 ans : vous devez investir dans un bien immobilier d'une valeur minimale d'environ AED 750 000 (ou son équivalent).\nPour le Golden Visa 10 ans : la valeur minimum est d'environ AED 2 000 000 (ou plusieurs biens cumulés)."
+      },
+      "q3": {
+        "question": "Un bien hypothéqué est-il accepté pour la demande ?",
+        "answer": "Oui, un bien avec hypothèque est souvent accepté, mais vous devez fournir une lettre de non objection de la banque (NOC) et prouver la part que vous avez déjà payée sur l'hypothèque."
+      },
+      "q4": {
+        "question": "Puis-je utiliser plusieurs propriétés pour atteindre le seuil du Golden Visa ?",
+        "answer": "Oui, il est possible de combiner la valeur de plusieurs biens immobiliers pour atteindre le seuil requis pour la résidence 10 ans, tant que la somme totale respecte les critères."
+      },
+      "q5": {
+        "question": "Doit-on être présent physiquement aux EAU pour demander la résidence ?",
+        "answer": "Dans la plupart des cas, il est nécessaire d'être physiquement présent aux Émirats lors du dépôt de la demande (\"in country\"), selon les règles en vigueur au moment de la demande."
+      },
+      "q6": {
+        "question": "Quels documents dois-je fournir pour la demande permanente ?",
+        "answer": "Voici les documents typiques requis :\n• Passeport valide\n• Titre de propriété / title deed ou certificat officiel du bien\n• Photo d'identité conforme\n• Lettre NOC de la banque (si hypothèque)\n• Certificat de bonne conduite ou casier judiciaire\n• Preuve d'assurance santé\n• Preuve que le titre de propriété est à votre nom ou partagé selon les règles."
+      },
+      "q7": {
+        "question": "Est-ce que je peux parrainer ma famille avec cette résidence ?",
+        "answer": "Oui, une résidence investisseur valide (2 ans ou Golden Visa) permet souvent de sponsoriser votre famille (épouse, enfants, parfois parents) sous réserve de certaines conditions (capacité, documents, âge, etc.)."
+      },
+      "q8": {
+        "question": "Que se passe-t-il si la demande de visa est refusée ?",
+        "answer": "Chez nous, nous proposons une garantie \"satisfait ou remboursé\" : si votre demande est refusée, nous remboursons la prestation (sous conditions de dossier complet et respect des conditions annoncées)."
+      },
+      "q9": {
+        "question": "Le service d'accompagnement est-il inclus ?",
+        "answer": "Oui, après validation de l'éligibilité, notre prestation comprend l'accompagnement complet du dossier : vérification des documents, soumission, suivi jusqu'à l'obtention de la résidence."
+      },
+      "q10": {
+        "question": "Comment se déroule le paiement de la prestation ?",
+        "answer": "Le paiement de la prestation (AED 3 500) est effectué après que vous ayez validé votre éligibilité et uploadé les documents requis, via un module de paiement sécurisé (Stripe / carte bancaire)."
+      },
+      "q11": {
+        "question": "Combien de temps prend le traitement du dossier ?",
+        "answer": "Le délai varie selon les autorités émiraties, mais généralement entre quelques semaines et quelques mois. Nous vous fournissons un suivi du dossier via notre interface."
+      },
+      "q12": {
+        "question": "Puis-je travailler ou obtenir une licence d'activité avec cette résidence investisseur ?",
+        "answer": "Oui, dans de nombreux cas vous pouvez demander un permis de travail temporaire via le ministère du travail des EAU. Vous pouvez aussi obtenir une licence commerciale si vous remplissez les conditions."
+      },
+      "q13": {
+        "question": "Puis-je demander cette résidence si je suis hors des EAU ?",
+        "answer": "Certaines règles exigent que la demande soit déposée depuis le territoire des Émirats Arabes Unis. Si vous êtes à l'étranger, des restrictions peuvent s'appliquer selon les autorités en place."
+      },
+      "q14": {
+        "question": "Dois-je passer des examens médicaux / empreintes digitales ?",
+        "answer": "Oui, un examen médical est souvent requis. De même, pour l'Emirates ID, des procédures biométriques (empreintes digitales) peuvent être nécessaires, notamment si c'est la première demande."
+      },
+      "q15": {
+        "question": "Que faire si mon titre de propriété n'est pas exactement à mon nom mais partagée avec mon conjoint(e) ?",
+        "answer": "C'est possible dans de nombreux cas : si le bien est partagé avec votre épouse ou époux, le dossier doit inclure un acte de mariage officiel, reconnu et conforme aux exigences légales."
+      }
+    }
   }
 }
