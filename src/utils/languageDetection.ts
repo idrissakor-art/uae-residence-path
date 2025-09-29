@@ -43,7 +43,7 @@ export const detectLanguageFromIP = async (): Promise<string> => {
       'MF': 'fr', // Saint-Martin
       
       // Pays arabophones
-      'AE': 'ar', // Émirats Arabes Unis
+      'AE': 'en', // Émirats Arabes Unis
       'SA': 'ar', // Arabie Saoudite
       'QA': 'ar', // Qatar
       'KW': 'ar', // Koweït
