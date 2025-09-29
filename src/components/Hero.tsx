@@ -29,9 +29,22 @@ const Hero = () => {
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
           {/* Guarantee Badge */}
           <div className="flex justify-center mb-4">
-            <Badge variant="secondary" className="bg-accent/20 text-accent border border-accent/30 text-sm font-medium px-4 py-2">
-              ✅ Démarche 100% garantie ou remboursée
-            </Badge>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-yellow-400 via-yellow-300 to-yellow-500 text-black px-6 py-3 rounded-full border-4 border-yellow-600 shadow-lg transform rotate-[-2deg] relative">
+                <div className="flex items-center space-x-2 font-bold text-sm">
+                  <span className="text-yellow-800">✓</span>
+                  <span>100% GARANTI</span>
+                </div>
+                <div className="text-xs font-medium mt-1 text-center text-yellow-800">
+                  SATISFAIT OU REMBOURSÉ
+                </div>
+                {/* Stars decoration */}
+                <div className="absolute -top-1 -left-1 text-yellow-600 text-xs">★</div>
+                <div className="absolute -top-1 -right-1 text-yellow-600 text-xs">★</div>
+                <div className="absolute -bottom-1 -left-2 text-yellow-600 text-xs">★</div>
+                <div className="absolute -bottom-1 -right-2 text-yellow-600 text-xs">★</div>
+              </div>
+            </div>
           </div>
 
           {/* Main Headline */}
