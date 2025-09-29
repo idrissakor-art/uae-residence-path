@@ -25,6 +25,29 @@
       "secure": "100% secure"
     }
   },
+  "whyChooseUs": {
+    "title": "Why choose us?",
+    "subtitle": "Complete, secure and guaranteed assistance for your UAE residence application.",
+    "features": {
+      "cases": {
+        "title": "+1,000 cases processed",
+        "description": "Successfully processed cases"
+      },
+      "multilingual": {
+        "title": "Multilingual support",
+        "description": "Service in French, English and Arabic"
+      },
+      "secure": {
+        "title": "100% secure",
+        "description": "Your data is protected"
+      },
+      "guarantee": {
+        "title": "Satisfaction guarantee",
+        "description": "Full refund in case of visa rejection"
+      }
+    },
+    "guaranteeBanner": "Satisfaction guarantee – Full refund in case of visa rejection."
+  },
   "simulator": {
     "badge": "Official Simulator",
     "title": "Check your eligibility in 2 minutes",

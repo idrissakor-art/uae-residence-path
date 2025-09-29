@@ -25,6 +25,29 @@
       "secure": "100% sécurisé"
     }
   },
+  "whyChooseUs": {
+    "title": "Pourquoi nous choisir ?",
+    "subtitle": "Un accompagnement complet, sécurisé et garanti pour votre demande de résidence aux Émirats.",
+    "features": {
+      "cases": {
+        "title": "+1 000 dossiers traités",
+        "description": "Dossiers déjà traités avec succès"
+      },
+      "multilingual": {
+        "title": "Support multilingue",
+        "description": "Service en français, anglais et arabe"
+      },
+      "secure": {
+        "title": "100% sécurisé",
+        "description": "Vos données sont protégées"
+      },
+      "guarantee": {
+        "title": "Garantie satisfait ou remboursé",
+        "description": "Remboursement intégral en cas de refus de visa"
+      }
+    },
+    "guaranteeBanner": "Garantie satisfait ou remboursé – Remboursement intégral en cas de refus de visa."
+  },
   "simulator": {
     "badge": "Simulateur Officiel",
     "title": "Simulez votre éligibilité en 2 minutes",
