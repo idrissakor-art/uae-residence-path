@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Features from "@/components/Features";
-import EligibilitySimulator from "@/components/EligibilitySimulator";
+import TypeformStyleSimulator from "@/components/TypeformStyleSimulator";
 
 const Index = () => {
   return (
@@ -10,7 +10,7 @@ const Index = () => {
       <Header />
       <Hero />
       <WhyChooseUs />
-      <EligibilitySimulator />
+      <TypeformStyleSimulator />
       <Features />
     </div>
   );
