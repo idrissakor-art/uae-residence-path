@@ -5,12 +5,35 @@ import type { Database } from './types';
 const SUPABASE_URL = "https://yinpfuvkvyohghpbtljp.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpbnBmdXZrdnlvaGdocGJ0bGpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxMzU4NDQsImV4cCI6MjA3NDcxMTg0NH0.X-QOEvTYLb5Rga6cmCpFRG79sPIY4_H1JgXuscDXJFk";
 
+// Storage fallback for iframe/cross-domain restrictions
+const createSafeStorage = () => {
+  try {
+    // Test if localStorage is accessible
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.setItem('__test__', '1');
+      window.localStorage.removeItem('__test__');
+      return window.localStorage;
+    }
+  } catch (e) {
+    console.warn('localStorage not available, falling back to memory storage');
+  }
+  
+  // Fallback to in-memory storage
+  const memoryStorage: Record<string, string> = {};
+  return {
+    getItem: (key: string) => memoryStorage[key] || null,
+    setItem: (key: string, value: string) => { memoryStorage[key] = value; },
+    removeItem: (key: string) => { delete memoryStorage[key]; },
+    clear: () => { Object.keys(memoryStorage).forEach(key => delete memoryStorage[key]); },
+  };
+};
+
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
-    storage: localStorage,
+    storage: createSafeStorage(),
     persistSession: true,
     autoRefreshToken: true,
   }
