@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -31,6 +32,7 @@ interface SimulationResult {
 
 const EligibilitySimulator = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({
     propertyValue: '',
     isMortgaged: '',
@@ -477,7 +479,12 @@ const EligibilitySimulator = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <Button variant="premium" size="lg" className="flex-1">
+                      <Button 
+                        variant="premium" 
+                        size="lg" 
+                        className="flex-1"
+                        onClick={() => navigate('/application')}
+                      >
                         Lancer ma demande
                       </Button>
                       <Button variant="outline" size="lg" className="flex-1">
