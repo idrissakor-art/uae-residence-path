@@ -64,7 +64,7 @@ const TypeformStyleSimulator = () => {
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [showResults, setShowResults] = useState(false);
 
-  const totalSteps = 8; // Ajout des étapes pour les informations de contact
+  const totalSteps = 7; // Étapes totales du formulaire
 
   const saveFormDataToDatabase = async (simulationResult: SimulationResult) => {
     try {
@@ -599,6 +599,7 @@ const TypeformStyleSimulator = () => {
           onPrevious={handlePrevious}
           canGoNext={canGoNext()}
           canGoPrevious={true}
+          isLoading={isLoading}
         >
           <div className="space-y-6">
             <TypeformInput
@@ -612,24 +613,7 @@ const TypeformStyleSimulator = () => {
               value={formData.clientEmail}
               onChange={(value) => setFormData(prev => ({ ...prev, clientEmail: value }))}
             />
-          </div>
-        </QuestionStep>
-      )}
 
-      {/* Step - Phone numbers */}
-      {((currentStep === 7 && formData.isMortgaged === 'no') || (currentStep === 8 && formData.isMortgaged === 'yes')) && (
-        <QuestionStep
-          step={getDisplayStep()}
-          totalSteps={getTotalDisplaySteps()}
-          title="Numéros de téléphone"
-          subtitle="Veuillez renseigner vos numéros de téléphone"
-          onNext={handleNext}
-          onPrevious={handlePrevious}
-          canGoNext={canGoNext()}
-          canGoPrevious={true}
-          isLoading={isLoading}
-        >
-          <div className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Numéro de téléphone
@@ -655,7 +639,7 @@ const TypeformStyleSimulator = () => {
             </div>
           </div>
         </QuestionStep>
-      )}
+       )}
     </div>
   );
 };
