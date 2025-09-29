@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
               <FileCheck className="w-8 h-8 text-blue-600" />
@@ -28,18 +28,6 @@ const WhyChooseUs = () => {
             </h3>
             <p className="text-sm text-muted-foreground">
               {t('whyChooseUs.features.cases.description')}
-            </p>
-          </div>
-
-          <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
-              <Users className="w-8 h-8 text-amber-600" />
-            </div>
-            <h3 className="font-semibold text-foreground mb-2">
-              {t('whyChooseUs.features.multilingual.title')}
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              {t('whyChooseUs.features.multilingual.description')}
             </p>
           </div>
 
