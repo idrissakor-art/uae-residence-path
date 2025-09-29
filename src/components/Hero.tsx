@@ -74,26 +74,10 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center">
             <Button variant="premium" size="hero" className="shadow-luxury">
               {t('hero.cta')}
             </Button>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 text-white/70">
-            <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5" />
-              <span>{t('hero.trust.cases')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="w-5 h-5" />
-              <span>{t('hero.trust.multilingual')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Shield className="w-5 h-5" />
-              <span>{t('hero.trust.secure')}</span>
-            </div>
           </div>
 
         </div>
