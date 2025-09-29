@@ -27,6 +27,13 @@ const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 py-8">
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
+          {/* Guarantee Badge */}
+          <div className="flex justify-center mb-4">
+            <Badge variant="secondary" className="bg-accent/20 text-accent border border-accent/30 text-sm font-medium px-4 py-2">
+              ✅ Démarche 100% garantie ou remboursée
+            </Badge>
+          </div>
+
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             {t('hero.title').split(' ').map((word, index, array) => {
