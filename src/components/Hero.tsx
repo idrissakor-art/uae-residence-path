@@ -25,7 +25,7 @@ const Hero = () => {
         <div className="hero-pattern absolute inset-0" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 py-20">
+      <div className="container relative z-10 mx-auto px-4 py-12">
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
