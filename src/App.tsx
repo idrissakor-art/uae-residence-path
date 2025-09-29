@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/admin/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminCases from "./pages/admin/Cases";
+import AdminCaseDetail from "./pages/admin/CaseDetail";
 import Application from "./pages/Application";
 
 const queryClient = new QueryClient({
@@ -37,6 +38,7 @@ const App = () => {
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="/admin/cases" element={<AdminCases />} />
+                <Route path="/admin/cases/:id" element={<AdminCaseDetail />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
