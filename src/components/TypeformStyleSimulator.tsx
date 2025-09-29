@@ -48,8 +48,9 @@ const TypeformStyleSimulator = () => {
   });
 
   const [result, setResult] = useState<SimulationResult | null>(null);
+  const [showResults, setShowResults] = useState(false);
 
-  const totalSteps = 7;
+  const totalSteps = 6; // Simplified step count
 
   const calculateEligibility = (): SimulationResult => {
     const propertyValue = parseInt(formData.propertyValue.replace(/[^\d]/g, ''));
@@ -126,7 +127,11 @@ const TypeformStyleSimulator = () => {
   };
 
   const handleNext = async () => {
-    if (currentStep === totalSteps) {
+    // Check if we're on the last step
+    const isLastStep = (formData.isMortgaged === 'no' && currentStep === 5) || 
+                       (formData.isMortgaged === 'yes' && currentStep === 6);
+    
+    if (isLastStep) {
       setIsLoading(true);
       
       // Simulate API call
@@ -135,7 +140,7 @@ const TypeformStyleSimulator = () => {
       const simulationResult = calculateEligibility();
       setResult(simulationResult);
       setIsLoading(false);
-      setCurrentStep(totalSteps + 1);
+      setShowResults(true);
 
       if (simulationResult.eligible) {
         toast({
@@ -176,25 +181,23 @@ const TypeformStyleSimulator = () => {
         return formData.presentInUAE.length > 0;
       case 6:
         return formData.hasValidPassport && formData.hasHealthInsurance;
-      case 7:
-        return true; // Family sponsoring is optional
       default:
         return false;
     }
   };
 
-  // Step 3 only shows if property is mortgaged
-  const getActualStep = () => {
-    if (currentStep <= 2) return currentStep;
-    if (formData.isMortgaged === 'no' && currentStep > 2) return currentStep - 1;
+  const getDisplayStep = () => {
+    if (formData.isMortgaged === 'no' && currentStep > 2) {
+      return currentStep - 1;
+    }
     return currentStep;
   };
 
-  const getActualTotalSteps = () => {
-    return formData.isMortgaged === 'no' ? totalSteps - 1 : totalSteps;
+  const getTotalDisplaySteps = () => {
+    return formData.isMortgaged === 'no' ? 5 : 6;
   };
 
-  if (currentStep === totalSteps + 1 && result) {
+  if (showResults && result) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="w-full max-w-4xl">
@@ -329,8 +332,8 @@ const TypeformStyleSimulator = () => {
       {/* Questions */}
       {currentStep === 1 && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
           title={t('simulator.form.step1.propertyValue.label')}
           subtitle={t('simulator.form.step1.propertyValue.hint')}
           onNext={handleNext}
@@ -348,8 +351,8 @@ const TypeformStyleSimulator = () => {
 
       {currentStep === 2 && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
           title={t('simulator.form.step1.isMortgaged.label')}
           onNext={handleNext}
           onPrevious={handlePrevious}
@@ -377,8 +380,8 @@ const TypeformStyleSimulator = () => {
 
       {currentStep === 3 && formData.isMortgaged === 'yes' && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
           title={t('simulator.form.step1.amountPaid.label')}
           subtitle={formData.propertyValue && formData.amountPaid ? 
             t('simulator.form.step1.amountPaid.percentage', { 
@@ -409,8 +412,8 @@ const TypeformStyleSimulator = () => {
 
       {((currentStep === 3 && formData.isMortgaged === 'no') || (currentStep === 4 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
           title={t('simulator.form.step2.propertyInName.label')}
           onNext={handleNext}
           onPrevious={handlePrevious}
@@ -443,8 +446,8 @@ const TypeformStyleSimulator = () => {
 
       {((currentStep === 4 && formData.isMortgaged === 'no') || (currentStep === 5 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
           title={t('simulator.form.step2.presentInUAE.label')}
           onNext={handleNext}
           onPrevious={handlePrevious}
@@ -472,8 +475,8 @@ const TypeformStyleSimulator = () => {
 
       {((currentStep === 5 && formData.isMortgaged === 'no') || (currentStep === 6 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
           title={t('simulator.form.step3.documentsLabel')}
           onNext={handleNext}
           onPrevious={handlePrevious}
@@ -498,15 +501,16 @@ const TypeformStyleSimulator = () => {
         </QuestionStep>
       )}
 
-      {((currentStep === 6 && formData.isMortgaged === 'no') || (currentStep === 7 && formData.isMortgaged === 'yes')) && (
+      {/* Final step - Family sponsoring (optional) */}
+      {((currentStep === 5 && formData.isMortgaged === 'no') || (currentStep === 6 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
-          step={getActualStep()}
-          totalSteps={getActualTotalSteps()}
-          title={t('simulator.form.step3.sponsorFamily.title')}
-          subtitle={t('simulator.form.step3.sponsorFamily.description')}
+          step={getDisplayStep()}
+          totalSteps={getTotalDisplaySteps()}
+          title="Family Sponsoring"
+          subtitle="Do you want to sponsor family members? (Optional)"
           onNext={handleNext}
           onPrevious={handlePrevious}
-          canGoNext={canGoNext()}
+          canGoNext={true}
           canGoPrevious={true}
           isLoading={isLoading}
         >
