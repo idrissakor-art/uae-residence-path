@@ -8,6 +8,7 @@ import { Calculator, CheckCircle, XCircle, AlertCircle, Crown, Clock } from "luc
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { QuestionStep, TypeformInput, TypeformRadioGroup, TypeformCheckbox } from "./simulator/QuestionStep";
+import { PhoneInput } from "./simulator/PhoneInput";
 
 interface FormData {
   propertyValue: string;
@@ -22,7 +23,9 @@ interface FormData {
   clientName: string;
   clientEmail: string;
   clientPhone: string;
+  clientPhoneCountry: string;
   whatsappNumber: string;
+  whatsappCountry: string;
 }
 
 interface SimulationResult {
@@ -53,7 +56,9 @@ const TypeformStyleSimulator = () => {
     clientName: '',
     clientEmail: '',
     clientPhone: '',
+    clientPhoneCountry: '+971',
     whatsappNumber: '',
+    whatsappCountry: '+971',
   });
 
   const [result, setResult] = useState<SimulationResult | null>(null);
@@ -625,17 +630,29 @@ const TypeformStyleSimulator = () => {
           isLoading={isLoading}
         >
           <div className="space-y-6">
-            <TypeformInput
-              placeholder="Numéro de téléphone"
-              value={formData.clientPhone}
-              onChange={(value) => setFormData(prev => ({ ...prev, clientPhone: value }))}
-            />
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Numéro de téléphone
+              </label>
+              <PhoneInput
+                placeholder="Numéro de téléphone"
+                value={formData.clientPhone}
+                onChange={(value) => setFormData(prev => ({ ...prev, clientPhone: value }))}
+                onCountryChange={(country) => setFormData(prev => ({ ...prev, clientPhoneCountry: country.dialCode }))}
+              />
+            </div>
             
-            <TypeformInput
-              placeholder="Numéro WhatsApp (optionnel)"
-              value={formData.whatsappNumber}
-              onChange={(value) => setFormData(prev => ({ ...prev, whatsappNumber: value }))}
-            />
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Numéro WhatsApp (optionnel)
+              </label>
+              <PhoneInput
+                placeholder="Numéro WhatsApp"
+                value={formData.whatsappNumber}
+                onChange={(value) => setFormData(prev => ({ ...prev, whatsappNumber: value }))}
+                onCountryChange={(country) => setFormData(prev => ({ ...prev, whatsappCountry: country.dialCode }))}
+              />
+            </div>
           </div>
         </QuestionStep>
       )}
