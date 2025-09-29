@@ -66,6 +66,14 @@ const TypeformStyleSimulator = () => {
 
   const totalSteps = 7; // Étapes totales du formulaire
 
+  // Fonction pour déterminer le type de visa selon le montant
+  const getVisaType = (propertyValue: string) => {
+    const value = parseInt(propertyValue.replace(/[^\d]/g, ''));
+    if (value >= 2000000) return 'Golden Visa (10 ans)';
+    if (value >= 750000) return 'Visa résidence (2 ans)';
+    return null;
+  };
+
   const saveFormDataToDatabase = async (simulationResult: SimulationResult) => {
     try {
       const propertyValue = parseInt(formData.propertyValue.replace(/[^\d]/g, ''));
@@ -404,11 +412,46 @@ const TypeformStyleSimulator = () => {
           canGoNext={canGoNext()}
           canGoPrevious={false}
         >
-          <TypeformInput
-            placeholder={t('simulator.form.step1.propertyValue.placeholder')}
-            value={formData.propertyValue}
-            onChange={(value) => setFormData(prev => ({ ...prev, propertyValue: value }))}
-          />
+          <div className="space-y-4">
+            <TypeformInput
+              placeholder={t('simulator.form.step1.propertyValue.placeholder')}
+              value={formData.propertyValue}
+              onChange={(value) => setFormData(prev => ({ ...prev, propertyValue: value }))}
+            />
+            
+            {/* Affichage du type de visa éligible */}
+            {formData.propertyValue && getVisaType(formData.propertyValue) && (
+              <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span className="text-green-700 font-medium">
+                    Éligible pour : {getVisaType(formData.propertyValue)}
+                  </span>
+                </div>
+                <p className="text-sm text-green-600 mt-1">
+                  {parseInt(formData.propertyValue.replace(/[^\d]/g, '')) >= 2000000 
+                    ? "Propriété de 2M AED+ = Golden Visa de 10 ans"
+                    : "Propriété de 750K-2M AED = Visa de résidence de 2 ans"
+                  }
+                </p>
+              </div>
+            )}
+
+            {/* Message si montant insuffisant */}
+            {formData.propertyValue && !getVisaType(formData.propertyValue) && parseInt(formData.propertyValue.replace(/[^\d]/g, '')) > 0 && (
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <span className="text-red-700 font-medium">
+                    Montant insuffisant
+                  </span>
+                </div>
+                <p className="text-sm text-red-600 mt-1">
+                  Minimum 750,000 AED requis pour obtenir un visa de résidence
+                </p>
+              </div>
+            )}
+          </div>
         </QuestionStep>
       )}
 
