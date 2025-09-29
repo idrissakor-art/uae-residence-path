@@ -15,7 +15,7 @@
       "line1": "Obtenez votre résidence aux Émirats",
       "line2": "par investissement immobilier"
     },
-    "subtitle": "Golden Visa 10 ans ou Résidence investisseur 2 ans. Vérifiez votre éligibilité en 2 minutes. Accompagnement complet pour AED 3 500.",
+    "subtitle": "Golden Visa 10 ans ou Résidence investisseur 2 ans. Vérifiez votre éligibilité en 2 minutes.",
     "benefits": {
       "residence2": "≥ AED 750k → Résidence 2 ans",
       "golden10": "≥ AED 2M → Golden Visa 10 ans", 
@@ -32,6 +32,22 @@
       }
     },
     "guarantee": "🛡️ Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa"
+  },
+  "whyChooseUs": {
+    "title": "Pourquoi nous choisir ?",
+    "residence": {
+      "title": "≥ AED 750k → Résidence 2 ans",
+      "description": "Investissement immobilier minimum pour obtenir une résidence investisseur de 2 ans aux Émirats."
+    },
+    "golden": {
+      "title": "≥ AED 2M → Golden Visa 10 ans",
+      "description": "Investissement immobilier pour obtenir la Golden Visa de 10 ans, renouvelable."
+    },
+    "support": {
+      "title": "Accompagnement complet",
+      "description": "Assistance juridique et administrative complète pour votre dossier de résidence."
+    },
+    "guarantee": "✅ Garantie satisfait ou remboursé – Remboursement intégral en cas de refus de visa."
   },
   "simulator": {
     "badge": "Simulateur Officiel",

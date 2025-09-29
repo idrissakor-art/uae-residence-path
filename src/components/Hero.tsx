@@ -38,29 +38,9 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle - Shorter and punchy */}
-          <h2 className="text-xl md:text-2xl mb-4 text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-xl md:text-2xl mb-10 text-white/90 max-w-3xl mx-auto leading-relaxed">
             {t('hero.subtitle')}
           </h2>
-
-          {/* Benefits - In translucent container */}
-          <div className="mt-4 mb-10">
-            <div className="bg-white/14 backdrop-blur-sm rounded-lg shadow-lg py-3 px-5 inline-block">
-              <div className="flex flex-wrap justify-center items-center gap-6 text-white/90">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span className="text-sm md:text-base">{t('hero.benefits.residence2')}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span className="text-sm md:text-base">{t('hero.benefits.golden10')}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-accent" />
-                  <span className="text-sm md:text-base">{t('hero.benefits.support')}</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* CTA Buttons */}
           <div className="flex justify-center">
@@ -69,8 +49,8 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust Indicators - 4 pillars including guarantee */}
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {/* Trust Indicators - 3 pillars */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
             <div className="text-center text-white/70">
               <Users className="w-5 h-5 mx-auto mb-2" />
               <div className="text-sm font-medium">{t('hero.trust.cases')}</div>
@@ -82,11 +62,6 @@ const Hero = () => {
             <div className="text-center text-white/70">
               <Shield className="w-5 h-5 mx-auto mb-2" />
               <div className="text-sm font-medium">{t('hero.trust.secure')}</div>
-            </div>
-            <div className="text-center text-white/70">
-              <Shield className="w-5 h-5 mx-auto mb-2 text-accent" />
-              <div className="text-sm font-medium">{t('hero.trust.guarantee.title')}</div>
-              <div className="text-xs text-white/60 mt-1">{t('hero.trust.guarantee.subtitle')}</div>
             </div>
           </div>
         </div>
