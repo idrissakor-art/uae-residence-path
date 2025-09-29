@@ -199,7 +199,7 @@ const EligibilitySimulator = () => {
                         className="text-lg"
                       />
                       <p className="text-xs text-muted-foreground">
-                        💡 Seuils: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans
+                        💡 Seuils d'investissement immobilier: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans
                       </p>
                     </div>
 
