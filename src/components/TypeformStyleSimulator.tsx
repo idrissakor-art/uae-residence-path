@@ -502,7 +502,6 @@ const TypeformStyleSimulator = () => {
               {
                 value: 'no',
                 label: t('simulator.form.step2.propertyInName.no.title'),
-                description: t('simulator.form.step2.propertyInName.no.description'),
                 warning: 'Non éligible'
               }
             ]}
@@ -533,7 +532,6 @@ const TypeformStyleSimulator = () => {
               {
                 value: 'no',
                 label: t('simulator.form.step2.presentInUAE.no.title'),
-                description: t('simulator.form.step2.presentInUAE.no.description'),
                 warning: 'Présence obligatoire aux EAU'
               }
             ]}
