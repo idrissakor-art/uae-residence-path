@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { initializeLanguageFromIP } from '@/utils/languageDetection';
 
 import fr from '@/locales/fr.json';
 import en from '@/locales/en.json';
@@ -22,11 +23,15 @@ i18n
       escapeValue: false // React already does escaping
     },
     
-    // Détection automatique de la langue du navigateur
+    // Détection automatique de la langue
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage']
     }
+  })
+  .then(() => {
+    // Initialiser la détection de langue par IP après l'initialisation d'i18n
+    initializeLanguageFromIP(i18n);
   });
 
 export default i18n;
