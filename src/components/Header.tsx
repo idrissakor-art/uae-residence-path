@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 
 const Header = () => {
   const { t } = useTranslation();
   const { currentLanguage, changeLanguage } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -43,7 +45,12 @@ const Header = () => {
             <option value="en">🇬🇧 EN</option>  
             <option value="ar">🇦🇪 AR</option>
           </select>
-          <Button variant="hero" size="sm" className="ml-4">
+          <Button 
+            variant="hero" 
+            size="sm" 
+            className="ml-4"
+            onClick={() => navigate('/application')}
+          >
             {t('header.cta')}
           </Button>
         </div>
