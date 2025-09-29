@@ -10,7 +10,7 @@ const Hero = () => {
   const { isRTL } = useLanguage();
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0"
@@ -25,7 +25,7 @@ const Hero = () => {
         <div className="hero-pattern absolute inset-0" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 py-12">
+      <div className="container relative z-10 mx-auto px-4 py-8">
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
