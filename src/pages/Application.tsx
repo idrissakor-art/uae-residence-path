@@ -14,11 +14,8 @@ const Application = () => {
 
   const requiredDocuments = [
     { id: 'passport', name: 'Copie du passeport', description: 'Pages principales et visa actuel si applicable' },
-    { id: 'photo', name: 'Photo d\'identité', description: 'Fond blanc, format passeport' },
-    { id: 'property_deed', name: 'Titre de propriété', description: 'Acte de propriété ou contrat d\'achat' },
-    { id: 'property_valuation', name: 'Évaluation immobilière', description: 'Rapport d\'évaluation officiel' },
-    { id: 'bank_statement', name: 'Relevé bancaire', description: '3 derniers mois' },
     { id: 'emirates_id', name: 'Emirates ID', description: 'Si vous en possédez déjà une' },
+    { id: 'property_deed', name: 'Titre de propriété', description: 'Acte de propriété ou contrat d\'achat' },
   ];
 
   const handleFileUpload = (documentId: string, file: File) => {
@@ -107,7 +104,7 @@ const Application = () => {
         </Button>
         <Button 
           onClick={() => setCurrentStep(2)}
-          disabled={Object.keys(uploadedDocuments).length < 4}
+          disabled={Object.keys(uploadedDocuments).length < 3}
         >
           Continuer
         </Button>
