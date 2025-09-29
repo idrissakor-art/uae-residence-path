@@ -132,7 +132,7 @@ export const TypeformRadioGroup: React.FC<{
   value: string;
   onValueChange: (value: string) => void;
   onNext?: () => void; // Nouvelle prop pour déclencher la navigation automatique
-  options: Array<{ value: string; label: string; description?: string }>;
+  options: Array<{ value: string; label: string; description?: string; warning?: string }>;
 }> = ({ value, onValueChange, onNext, options }) => {
 
   const handleOptionSelect = (selectedValue: string) => {
@@ -163,11 +163,16 @@ export const TypeformRadioGroup: React.FC<{
           <Label className="text-xl font-semibold cursor-pointer">
             {option.label}
           </Label>
-          {option.description && (
-            <p className="text-base text-muted-foreground mt-2">
-              {option.description}
-            </p>
-          )}
+           {option.description && (
+             <p className="text-base text-muted-foreground mt-2">
+               {option.description}
+             </p>
+           )}
+           {option.warning && (
+             <p className="text-base text-red-600 font-medium mt-2">
+               {option.warning}
+             </p>
+           )}
         </div>
       </div>
     ))}

@@ -484,7 +484,7 @@ const TypeformStyleSimulator = () => {
           canGoNext={canGoNext()}
           canGoPrevious={true}
         >
-          <TypeformRadioGroup
+           <TypeformRadioGroup
             value={formData.propertyInName}
             onValueChange={(value) => setFormData(prev => ({ ...prev, propertyInName: value }))}
             onNext={handleNext} // Ajout de la navigation automatique
@@ -502,7 +502,8 @@ const TypeformStyleSimulator = () => {
               {
                 value: 'no',
                 label: t('simulator.form.step2.propertyInName.no.title'),
-                description: t('simulator.form.step2.propertyInName.no.description')
+                description: t('simulator.form.step2.propertyInName.no.description'),
+                warning: 'Non éligible'
               }
             ]}
           />
@@ -519,7 +520,7 @@ const TypeformStyleSimulator = () => {
           canGoNext={canGoNext()}
           canGoPrevious={true}
         >
-          <TypeformRadioGroup
+           <TypeformRadioGroup
             value={formData.presentInUAE}
             onValueChange={(value) => setFormData(prev => ({ ...prev, presentInUAE: value }))}
             onNext={handleNext} // Ajout de la navigation automatique
@@ -532,7 +533,8 @@ const TypeformStyleSimulator = () => {
               {
                 value: 'no',
                 label: t('simulator.form.step2.presentInUAE.no.title'),
-                description: t('simulator.form.step2.presentInUAE.no.description')
+                description: t('simulator.form.step2.presentInUAE.no.description'),
+                warning: 'Présence obligatoire aux EAU'
               }
             ]}
           />
