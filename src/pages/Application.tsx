@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -9,13 +10,14 @@ import { useToast } from '@/hooks/use-toast';
 const Application = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [currentStep, setCurrentStep] = useState(1);
   const [uploadedDocuments, setUploadedDocuments] = useState<{[key: string]: File}>({});
 
   const requiredDocuments = [
-    { id: 'passport', name: 'Copie du passeport', description: 'Pages principales et visa actuel si applicable' },
-    { id: 'emirates_id', name: 'Emirates ID', description: 'Si vous en possédez déjà une' },
-    { id: 'property_deed', name: 'Titre de propriété', description: 'Acte de propriété ou contrat d\'achat' },
+    { id: 'passport', name: t('application.documents.passport.name'), description: t('application.documents.passport.description') },
+    { id: 'emirates_id', name: t('application.documents.emiratesId.name'), description: t('application.documents.emiratesId.description') },
+    { id: 'property_deed', name: t('application.documents.propertyDeed.name'), description: t('application.documents.propertyDeed.description') },
   ];
 
   const handleFileUpload = (documentId: string, file: File) => {
@@ -24,17 +26,16 @@ const Application = () => {
       [documentId]: file
     }));
     toast({
-      title: "Document téléchargé",
-      description: `${file.name} a été ajouté avec succès`,
+      title: t('application.uploaded'),
+      description: `${file.name} ${t('application.uploaded')}`,
     });
   };
 
   const handleSubmitApplication = () => {
     toast({
-      title: "Demande soumise avec succès !",
-      description: "Nous allons examiner votre dossier sous 48h",
+      title: t('application.confirmation.title'),
+      description: t('application.confirmation.description'),
     });
-    // Redirection vers une page de confirmation ou dashboard
     navigate('/');
   };
 
@@ -51,8 +52,8 @@ const Application = () => {
   const renderDocumentUpload = () => (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">Documents requis</h2>
-        <p className="text-muted-foreground">Téléchargez les documents nécessaires pour votre demande de visa</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">{t('application.title')}</h2>
+        <p className="text-muted-foreground">{t('application.description')}</p>
       </div>
 
       <div className="grid gap-4">
@@ -68,7 +69,7 @@ const Application = () => {
                   {uploadedDocuments[doc.id] ? (
                     <div className="flex items-center gap-2 text-green-600">
                       <Check className="w-5 h-5" />
-                      <span className="text-sm font-medium">Téléchargé</span>
+                      <span className="text-sm font-medium">{t('application.uploaded')}</span>
                     </div>
                   ) : (
                     <Button
@@ -88,7 +89,7 @@ const Application = () => {
                       }}
                     >
                       <Upload className="w-4 h-4 mr-2" />
-                      Télécharger
+                      {t('application.upload')}
                     </Button>
                   )}
                 </div>
@@ -100,13 +101,13 @@ const Application = () => {
 
       <div className="flex justify-between pt-6">
         <Button variant="outline" onClick={() => navigate('/')}>
-          Retour
+          {t('application.back')}
         </Button>
         <Button 
           onClick={() => setCurrentStep(2)}
           disabled={Object.keys(uploadedDocuments).length < 3}
         >
-          Continuer
+          {t('application.continue')}
         </Button>
       </div>
     </div>
@@ -115,15 +116,15 @@ const Application = () => {
   const renderReview = () => (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">Vérification du dossier</h2>
-        <p className="text-muted-foreground">Vérifiez vos informations avant soumission</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">{t('application.review.title')}</h2>
+        <p className="text-muted-foreground">{t('application.review.description')}</p>
       </div>
 
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <FileText className="w-5 h-5" />
-            Documents téléchargés
+            {t('application.review.documentsUploaded')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -146,10 +147,10 @@ const Application = () => {
 
       <div className="flex justify-between">
         <Button variant="outline" onClick={() => setCurrentStep(1)}>
-          Retour
+          {t('application.back')}
         </Button>
         <Button onClick={() => setCurrentStep(3)}>
-          Procéder au paiement
+          {t('application.review.proceedToPayment')}
         </Button>
       </div>
     </div>
@@ -158,31 +159,31 @@ const Application = () => {
   const renderPayment = () => (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-foreground mb-2">Paiement des frais de service</h2>
-        <p className="text-muted-foreground">Finaliser votre demande avec le paiement sécurisé</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">{t('application.payment.title')}</h2>
+        <p className="text-muted-foreground">{t('application.payment.description')}</p>
       </div>
 
       <Card className="border-primary">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <CreditCard className="w-5 h-5" />
-            Récapitulatif de commande
+            {t('application.payment.orderSummary')}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <span>Frais de service complet</span>
+              <span>{t('application.payment.totalFees')}</span>
               <span className="font-bold text-lg">3,500 AED</span>
             </div>
             <div className="pt-4 border-t">
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                 <Shield className="w-4 h-4" />
-                Paiement 100% sécurisé
+                {t('application.payment.securePayment')}
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
-                Traitement sous 48h garanties
+                {t('application.payment.guaranteedProcessing')}
               </div>
             </div>
           </div>
@@ -191,25 +192,25 @@ const Application = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Nos services inclus</CardTitle>
+          <CardTitle>{t('application.payment.servicesIncluded')}</CardTitle>
         </CardHeader>
         <CardContent>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-600" />
-              Vérification complète du dossier
+              {t('application.payment.services.verification')}
             </li>
             <li className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-600" />
-              Soumission officielle aux autorités
+              {t('application.payment.services.submission')}
             </li>
             <li className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-600" />
-              Suivi personnalisé jusqu'à l'obtention
+              {t('application.payment.services.tracking')}
             </li>
             <li className="flex items-center gap-2">
               <Check className="w-4 h-4 text-green-600" />
-              Garantie de remboursement en cas de refus
+              {t('application.payment.services.guarantee')}
             </li>
           </ul>
         </CardContent>
@@ -217,10 +218,10 @@ const Application = () => {
 
       <div className="flex justify-between">
         <Button variant="outline" onClick={() => setCurrentStep(2)}>
-          Retour
+          {t('application.back')}
         </Button>
         <Button onClick={handleSubmitApplication} className="bg-primary">
-          Payer maintenant - 3,500 AED
+          {t('application.payment.payNow')}
         </Button>
       </div>
     </div>
@@ -231,12 +232,12 @@ const Application = () => {
       <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
         <Check className="w-8 h-8 text-green-600" />
       </div>
-      <h2 className="text-2xl font-bold text-foreground">Demande soumise avec succès !</h2>
+      <h2 className="text-2xl font-bold text-foreground">{t('application.confirmation.title')}</h2>
       <p className="text-muted-foreground">
-        Votre dossier a été reçu et sera traité sous 48h. Vous recevrez un email de confirmation.
+        {t('application.confirmation.description')}
       </p>
       <Button onClick={() => navigate('/')}>
-        Retour à l'accueil
+        {t('application.confirmation.backToHome')}
       </Button>
     </div>
   );
@@ -247,10 +248,10 @@ const Application = () => {
         <div className="mb-8">
           <Progress value={getStepProgress()} className="mb-4" />
           <div className="flex justify-between text-sm text-muted-foreground">
-            <span className={currentStep >= 1 ? 'text-primary font-medium' : ''}>Documents</span>
-            <span className={currentStep >= 2 ? 'text-primary font-medium' : ''}>Vérification</span>
-            <span className={currentStep >= 3 ? 'text-primary font-medium' : ''}>Paiement</span>
-            <span className={currentStep >= 4 ? 'text-primary font-medium' : ''}>Confirmation</span>
+            <span className={currentStep >= 1 ? 'text-primary font-medium' : ''}>{t('application.steps.documents')}</span>
+            <span className={currentStep >= 2 ? 'text-primary font-medium' : ''}>{t('application.steps.verification')}</span>
+            <span className={currentStep >= 3 ? 'text-primary font-medium' : ''}>{t('application.steps.payment')}</span>
+            <span className={currentStep >= 4 ? 'text-primary font-medium' : ''}>{t('application.steps.confirmation')}</span>
           </div>
         </div>
 

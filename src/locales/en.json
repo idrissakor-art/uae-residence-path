@@ -56,9 +56,160 @@
         "propertyValue": {
           "label": "Your property value (AED)",
           "placeholder": "e.g: 1500000",
-          "hint": "💡 Thresholds: ≥750k AED = 2-year Residence • ≥2M AED = 10-year Golden Visa"
+          "hint": "💡 Real estate investment thresholds: ≥750k AED = 2-year Residence • ≥2M AED = 10-year Golden Visa"
+        },
+        "isMortgaged": {
+          "label": "Is your property mortgaged?",
+          "no": {
+            "title": "No, fully paid property",
+            "description": "You own 100%"
+          },
+          "yes": {
+            "title": "Yes, mortgaged property",
+            "description": "Minimum 50% paid required + NOC from bank"
+          }
+        },
+        "amountPaid": {
+          "label": "Amount already paid (AED)",
+          "placeholder": "Minimum 50% of total value",
+          "percentage": "Percentage paid: {percent}%"
+        },
+        "hasNOC": {
+          "title": "I have the no-objection letter (NOC) from my bank",
+          "description": "Mandatory document for mortgaged property"
         }
+      },
+      "step2": {
+        "title": "Legal Requirements",
+        "propertyInName": {
+          "label": "Is the property title in your name?",
+          "yes": {
+            "title": "Yes, in my name",
+            "description": "Title deed in your name only"
+          },
+          "shared": {
+            "title": "Shared with spouse",
+            "description": "Acceptable with marriage certificate"
+          },
+          "no": {
+            "title": "No",
+            "description": "Not eligible"
+          }
+        },
+        "presentInUAE": {
+          "label": "Are you currently present in the UAE?",
+          "yes": {
+            "title": "Yes",
+            "description": "Physical presence required for application"
+          },
+          "no": {
+            "title": "No",
+            "description": "Presence mandatory in UAE"
+          }
+        }
+      },
+      "step3": {
+        "title": "Documents and Family",
+        "documentsLabel": "Check the documents you have",
+        "hasValidPassport": {
+          "title": "Valid passport",
+          "description": "Minimum 6 months validity remaining"
+        },
+        "hasHealthInsurance": {
+          "title": "Valid health insurance in UAE",
+          "description": "Mandatory health coverage"
+        },
+        "sponsorFamily": {
+          "title": "I want to sponsor my family",
+          "description": "Spouse and children under 18"
+        }
+      },
+      "submit": "Calculate my eligibility",
+      "loading": "Calculating..."
+    },
+    "result": {
+      "eligible": "Eligible!",
+      "notEligible": "Not eligible",
+      "goldenVisa10": "Golden Visa 10 years",
+      "residence2": "Investor Residence 2 years",
+      "goldenVisaDesc": "Long-term residence with extended benefits",
+      "residenceDesc": "Renewable residence with property owner rights",
+      "documentsRequired": "Required documents:",
+      "totalCost": "Estimated total cost:",
+      "totalCostDesc": "Including service fees (AED 3,500) + estimated official fees",
+      "startApplication": "Start my application",
+      "downloadReport": "Download report",
+      "conditionsNotMet": "Conditions not met:",
+      "whatToDo": "What to do?",
+      "contactAdvice": "Contact our advisors to explore your options and get personalized recommendations to become eligible.",
+      "consultAdvisor": "Consult an advisor",
+      "congratulations": "🎉 Congratulations!",
+      "eligibleFor": "You are eligible for the {visaType}!",
+      "notEligibleMsg": "❌ Not eligible",
+      "seeConditions": "See conditions to meet below.",
+      "requirements": {
+        "goldenVisa": "Golden Visa 10 years eligible",
+        "residence": "Investor Residence 2 years eligible",
+        "goodConduct": "Good conduct certificate from country of origin",
+        "photos": "Photos meeting standards",
+        "application": "Completed application form",
+        "familyDocs": "Family documents for sponsoring (marriage certificate, birth certificates)"
       }
+    }
+  },
+  "application": {
+    "title": "Required Documents",
+    "description": "Upload the necessary documents for your visa application",
+    "documents": {
+      "passport": {
+        "name": "Passport copy",
+        "description": "Main pages and current visa if applicable"
+      },
+      "emiratesId": {
+        "name": "Emirates ID",
+        "description": "If you already have one"
+      },
+      "propertyDeed": {
+        "name": "Property title",
+        "description": "Property deed or purchase contract"
+      }
+    },
+    "upload": "Upload",
+    "uploaded": "Uploaded",
+    "continue": "Continue",
+    "back": "Back",
+    "review": {
+      "title": "File Verification",
+      "description": "Verify your information before submission",
+      "documentsUploaded": "Uploaded documents",
+      "proceedToPayment": "Proceed to payment"
+    },
+    "payment": {
+      "title": "Service Fee Payment",
+      "description": "Finalize your application with secure payment",
+      "orderSummary": "Order Summary",
+      "totalFees": "Complete service fees",
+      "securePayment": "100% secure payment",
+      "guaranteedProcessing": "48h processing guaranteed",
+      "servicesIncluded": "Our included services",
+      "services": {
+        "verification": "Complete file verification",
+        "submission": "Official submission to authorities",
+        "tracking": "Personalized tracking until approval",
+        "guarantee": "Refund guarantee in case of rejection"
+      },
+      "payNow": "Pay now - 3,500 AED"
+    },
+    "confirmation": {
+      "title": "Application submitted successfully!",
+      "description": "Your file has been received and will be processed within 48h. You will receive a confirmation email.",
+      "backToHome": "Back to home"
+    },
+    "steps": {
+      "documents": "Documents",
+      "verification": "Verification",
+      "payment": "Payment",
+      "confirmation": "Confirmation"
     }
   }
 }

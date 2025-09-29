@@ -56,9 +56,160 @@
         "propertyValue": {
           "label": "Valeur de votre bien immobilier (AED)",
           "placeholder": "ex: 1500000",
-          "hint": "💡 Seuils: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans"
+          "hint": "💡 Seuils d'investissement immobilier: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans"
+        },
+        "isMortgaged": {
+          "label": "Votre propriété est-elle hypothéquée ?",
+          "no": {
+            "title": "Non, propriété entièrement payée",
+            "description": "Vous êtes propriétaire à 100%"
+          },
+          "yes": {
+            "title": "Oui, propriété hypothéquée",
+            "description": "Minimum 50% payé requis + NOC banque"
+          }
+        },
+        "amountPaid": {
+          "label": "Montant déjà payé (AED)",
+          "placeholder": "Minimum 50% de la valeur totale",
+          "percentage": "Pourcentage payé: {percent}%"
+        },
+        "hasNOC": {
+          "title": "J'ai la lettre de non-objection (NOC) de ma banque",
+          "description": "Document obligatoire pour propriété hypothéquée"
         }
+      },
+      "step2": {
+        "title": "Conditions légales",
+        "propertyInName": {
+          "label": "Le titre de propriété est-il à votre nom ?",
+          "yes": {
+            "title": "Oui, à mon nom",
+            "description": "Title deed à votre nom uniquement"
+          },
+          "shared": {
+            "title": "Partagé avec époux/épouse",
+            "description": "Acceptable avec certificat de mariage"
+          },
+          "no": {
+            "title": "Non",
+            "description": "Non éligible"
+          }
+        },
+        "presentInUAE": {
+          "label": "Êtes-vous actuellement présent(e) aux EAU ?",
+          "yes": {
+            "title": "Oui",
+            "description": "Présence physique requise pour la demande"
+          },
+          "no": {
+            "title": "Non",
+            "description": "Présence obligatoire aux EAU"
+          }
+        }
+      },
+      "step3": {
+        "title": "Documents et famille",
+        "documentsLabel": "Cochez les documents que vous possédez",
+        "hasValidPassport": {
+          "title": "Passeport valide",
+          "description": "Minimum 6 mois de validité restante"
+        },
+        "hasHealthInsurance": {
+          "title": "Assurance santé valide aux EAU",
+          "description": "Couverture santé obligatoire"
+        },
+        "sponsorFamily": {
+          "title": "Je souhaite sponsoriser ma famille",
+          "description": "Époux/épouse et enfants de moins de 18 ans"
+        }
+      },
+      "submit": "Calculer mon éligibilité",
+      "loading": "Calcul en cours..."
+    },
+    "result": {
+      "eligible": "Éligible !",
+      "notEligible": "Non éligible",
+      "goldenVisa10": "Golden Visa 10 ans",
+      "residence2": "Résidence Investisseur 2 ans",
+      "goldenVisaDesc": "Résidence longue durée avec avantages étendus",
+      "residenceDesc": "Résidence renouvelable avec droits de propriétaire",
+      "documentsRequired": "Documents requis :",
+      "totalCost": "Coût total estimé :",
+      "totalCostDesc": "Incluant frais de service (AED 3,500) + frais officiels estimés",
+      "startApplication": "Lancer ma demande",
+      "downloadReport": "Télécharger le rapport",
+      "conditionsNotMet": "Conditions non remplies :",
+      "whatToDo": "Que faire ?",
+      "contactAdvice": "Contactez nos conseillers pour explorer vos options et obtenir des recommandations personnalisées pour devenir éligible.",
+      "consultAdvisor": "Consulter un conseiller",
+      "congratulations": "🎉 Félicitations !",
+      "eligibleFor": "Vous êtes éligible à la {visaType} !",
+      "notEligibleMsg": "❌ Non éligible",
+      "seeConditions": "Consultez les conditions à remplir ci-dessous.",
+      "requirements": {
+        "goldenVisa": "Golden Visa 10 ans éligible",
+        "residence": "Résidence Investisseur 2 ans éligible",
+        "goodConduct": "Certificat de bonne conduite du pays d'origine",
+        "photos": "Photos conformes aux standards",
+        "application": "Formulaire de demande complété",
+        "familyDocs": "Documents famille pour sponsoring (acte de mariage, actes de naissance)"
       }
+    }
+  },
+  "application": {
+    "title": "Documents requis",
+    "description": "Téléchargez les documents nécessaires pour votre demande de visa",
+    "documents": {
+      "passport": {
+        "name": "Copie du passeport",
+        "description": "Pages principales et visa actuel si applicable"
+      },
+      "emiratesId": {
+        "name": "Emirates ID",
+        "description": "Si vous en possédez déjà une"
+      },
+      "propertyDeed": {
+        "name": "Titre de propriété",
+        "description": "Acte de propriété ou contrat d'achat"
+      }
+    },
+    "upload": "Télécharger",
+    "uploaded": "Téléchargé",
+    "continue": "Continuer",
+    "back": "Retour",
+    "review": {
+      "title": "Vérification du dossier",
+      "description": "Vérifiez vos informations avant soumission",
+      "documentsUploaded": "Documents téléchargés",
+      "proceedToPayment": "Procéder au paiement"
+    },
+    "payment": {
+      "title": "Paiement des frais de service",
+      "description": "Finaliser votre demande avec le paiement sécurisé",
+      "orderSummary": "Récapitulatif de commande",
+      "totalFees": "Frais de service complet",
+      "securePayment": "Paiement 100% sécurisé",
+      "guaranteedProcessing": "Traitement sous 48h garanties",
+      "servicesIncluded": "Nos services inclus",
+      "services": {
+        "verification": "Vérification complète du dossier",
+        "submission": "Soumission officielle aux autorités",
+        "tracking": "Suivi personnalisé jusqu'à l'obtention",
+        "guarantee": "Garantie de remboursement en cas de refus"
+      },
+      "payNow": "Payer maintenant - 3,500 AED"
+    },
+    "confirmation": {
+      "title": "Demande soumise avec succès !",
+      "description": "Votre dossier a été reçu et sera traité sous 48h. Vous recevrez un email de confirmation.",
+      "backToHome": "Retour à l'accueil"
+    },
+    "steps": {
+      "documents": "Documents",
+      "verification": "Vérification",
+      "payment": "Paiement",
+      "confirmation": "Confirmation"
     }
   }
 }
