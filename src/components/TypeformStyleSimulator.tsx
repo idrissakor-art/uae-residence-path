@@ -313,17 +313,17 @@ const TypeformStyleSimulator = () => {
 
   return (
     <div>
-      {/* Header section */}
-      <section className="py-12 bg-background">
+      {/* Header section - More compact */}
+      <section className="py-8 bg-background">
         <div className="container mx-auto px-4 text-center">
           <Badge variant="outline" className="mb-4">
             <Calculator className="w-4 h-4 mr-2" />
             {t('simulator.badge')}
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
             {t('simulator.title')}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             {t('simulator.description')}
           </p>
         </div>

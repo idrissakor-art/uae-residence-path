@@ -36,11 +36,11 @@ export const QuestionStep: React.FC<QuestionStepProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl">
-        {/* Progress indicator */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-2">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 py-8">
+      <div className="w-full max-w-3xl">
+        {/* Progress indicator - More compact */}
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-3">
             <span className="text-sm text-muted-foreground">
               {step} of {totalSteps}
             </span>
@@ -48,42 +48,42 @@ export const QuestionStep: React.FC<QuestionStepProps> = ({
               {Math.round((step / totalSteps) * 100)}%
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-1">
-            <div 
-              className="bg-primary h-1 rounded-full transition-all duration-300" 
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div
+              className="bg-primary h-2 rounded-full transition-all duration-500" 
               style={{ width: `${(step / totalSteps) * 100}%` }}
             />
           </div>
         </div>
 
-        {/* Question Card */}
-        <Card className="p-8 bg-white shadow-sm border-0 animate-fade-in">
-          <div className="space-y-6">
-            <div className="space-y-3">
-              <h1 className="text-3xl font-semibold text-foreground leading-tight">
+        {/* Question Card - More compact */}
+        <Card className="p-10 bg-white shadow-xl border-0 animate-fade-in rounded-2xl">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-4xl font-bold text-foreground leading-tight">
                 {title}
               </h1>
               {subtitle && (
-                <p className="text-lg text-muted-foreground">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   {subtitle}
                 </p>
               )}
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {children}
             </div>
           </div>
         </Card>
 
-        {/* Navigation */}
-        <div className="flex justify-between mt-8">
+        {/* Navigation - Improved styling */}
+        <div className="flex justify-between mt-10">
           <Button
             variant="outline"
             size="lg"
             onClick={onPrevious}
             disabled={!canGoPrevious}
-            className="flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full"
+            className="flex items-center gap-3 border-2 border-primary/20 text-gray-600 hover:border-primary hover:text-primary hover:bg-primary/5 px-10 py-4 rounded-full text-lg font-medium transition-all duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
             Previous
@@ -93,7 +93,7 @@ export const QuestionStep: React.FC<QuestionStepProps> = ({
             size="lg"
             onClick={onNext}
             disabled={!canGoNext || isLoading}
-            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full min-w-[120px]"
+            className="flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full min-w-[160px] text-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             {isLoading ? (
               "Loading..."
@@ -124,7 +124,7 @@ export const TypeformInput: React.FC<{
     placeholder={placeholder}
     value={value}
     onChange={(e) => onChange(e.target.value)}
-    className="text-xl p-6 border-2 border-primary/20 focus:border-primary rounded-xl bg-white"
+    className="text-2xl p-8 border-2 border-gray-200 focus:border-primary rounded-2xl bg-white shadow-sm transition-all duration-200"
   />
 );
 
@@ -133,20 +133,20 @@ export const TypeformRadioGroup: React.FC<{
   onValueChange: (value: string) => void;
   options: Array<{ value: string; label: string; description?: string }>;
 }> = ({ value, onValueChange, options }) => (
-  <RadioGroup value={value} onValueChange={onValueChange} className="space-y-4">
+  <RadioGroup value={value} onValueChange={onValueChange} className="space-y-6">
     {options.map((option) => (
       <div
         key={option.value}
-        className="flex items-start space-x-4 p-4 border-2 border-gray-200 rounded-xl hover:border-primary/50 cursor-pointer transition-colors"
+        className="flex items-start space-x-5 p-6 border-2 border-gray-200 rounded-2xl hover:border-primary/50 hover:bg-primary/5 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md"
         onClick={() => onValueChange(option.value)}
       >
         <RadioGroupItem value={option.value} className="mt-1" />
         <div className="flex-1">
-          <Label className="text-lg font-medium cursor-pointer">
+          <Label className="text-xl font-semibold cursor-pointer">
             {option.label}
           </Label>
           {option.description && (
-            <p className="text-sm text-muted-foreground mt-1">
+            <p className="text-base text-muted-foreground mt-2">
               {option.description}
             </p>
           )}
@@ -163,16 +163,16 @@ export const TypeformCheckbox: React.FC<{
   description?: string;
 }> = ({ checked, onCheckedChange, label, description }) => (
   <div
-    className="flex items-start space-x-4 p-4 border-2 border-gray-200 rounded-xl hover:border-primary/50 cursor-pointer transition-colors"
+    className="flex items-start space-x-5 p-6 border-2 border-gray-200 rounded-2xl hover:border-primary/50 hover:bg-primary/5 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md"
     onClick={() => onCheckedChange(!checked)}
   >
     <Checkbox checked={checked} onCheckedChange={onCheckedChange} className="mt-1" />
     <div className="flex-1">
-      <Label className="text-lg font-medium cursor-pointer">
+      <Label className="text-xl font-semibold cursor-pointer">
         {label}
       </Label>
       {description && (
-        <p className="text-sm text-muted-foreground mt-1">
+        <p className="text-base text-muted-foreground mt-2">
           {description}
         </p>
       )}
