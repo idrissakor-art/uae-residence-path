@@ -272,6 +272,7 @@ export type Database = {
           submission_date: string
           updated_at: string
           visa_type: string
+          whatsapp_number: string | null
         }
         Insert: {
           amount_paid?: number | null
@@ -298,6 +299,7 @@ export type Database = {
           submission_date?: string
           updated_at?: string
           visa_type: string
+          whatsapp_number?: string | null
         }
         Update: {
           amount_paid?: number | null
@@ -324,6 +326,7 @@ export type Database = {
           submission_date?: string
           updated_at?: string
           visa_type?: string
+          whatsapp_number?: string | null
         }
         Relationships: [
           {
