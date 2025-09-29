@@ -74,17 +74,18 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <Button variant="premium" size="hero" className="shadow-luxury">
-                {t('hero.cta')}
-              </Button>
-              
-              {/* Discrete Guarantee Badge */}
-              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 text-xs text-white/90 flex items-center space-x-1">
-                  <span>🛡️ Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa</span>
-                </div>
+          <div className="flex flex-col items-center space-y-4">
+            <Button variant="premium" size="hero" className="shadow-luxury">
+              {t('hero.cta')}
+            </Button>
+            
+            {/* Elegant Guarantee Badge */}
+            <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3 max-w-md">
+              <div className="flex items-center space-x-2 text-white/90">
+                <span className="text-orange-400">🛡️</span>
+                <span className="text-sm font-medium">
+                  Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa
+                </span>
               </div>
             </div>
           </div>
