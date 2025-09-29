@@ -314,7 +314,7 @@ const TypeformStyleSimulator = () => {
   return (
     <div>
       {/* Header section - More compact */}
-      <section className="py-8 bg-background">
+      <section className="py-4 bg-background">
         <div className="container mx-auto px-4 text-center">
           <Badge variant="outline" className="mb-4">
             <Calculator className="w-4 h-4 mr-2" />
