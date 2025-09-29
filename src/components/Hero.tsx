@@ -83,8 +83,7 @@ const Hero = () => {
               {/* Discrete Guarantee Badge */}
               <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 text-xs text-white/90 flex items-center space-x-1">
-                  <Shield className="w-3 h-3 text-accent" />
-                  <span>100% garanti</span>
+                  <span>🛡️ Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa</span>
                 </div>
               </div>
             </div>
