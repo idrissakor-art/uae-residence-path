@@ -95,6 +95,16 @@ const Hero = () => {
               <span>{t('hero.trust.secure')}</span>
             </div>
           </div>
+
+          {/* Money-back Guarantee */}
+          <div className="mt-8 max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4">
+              <div className="flex items-center justify-center space-x-3 text-white">
+                <Shield className="w-5 h-5 text-accent" />
+                <span className="text-sm font-medium">{t('hero.guarantee')}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
