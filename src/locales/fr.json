@@ -11,8 +11,11 @@
     "cta": "Commencer"
   },
   "hero": {
-    "title": "Obtenez votre résidence aux EAU par investissement immobilier",
-    "subtitle": "Golden Visa 10 ans ou résidence 2 ans – Simulez votre éligibilité en 2 minutes, accompagnement complet pour AED 3,500",
+    "title": {
+      "line1": "Obtenez votre résidence aux Émirats",
+      "line2": "par investissement immobilier"
+    },
+    "subtitle": "Golden Visa 10 ans ou Résidence investisseur 2 ans. Vérifiez votre éligibilité en 2 minutes. Accompagnement complet pour AED 3 500.",
     "benefits": {
       "residence2": "≥ AED 750k → Résidence 2 ans",
       "golden10": "≥ AED 2M → Golden Visa 10 ans", 
@@ -20,9 +23,13 @@
     },
     "cta": "Simuler mon éligibilité",
     "trust": {
-      "cases": "+1,000 dossiers traités",
+      "cases": "+1 000 dossiers traités",
       "multilingual": "Support multilingue",
-      "secure": "100% sécurisé"
+      "secure": "100% sécurisé",
+      "guarantee": {
+        "title": "Garantie satisfait ou remboursé",
+        "subtitle": "Remboursement intégral en cas de refus de visa"
+      }
     },
     "guarantee": "🛡️ Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa"
   },

@@ -11,8 +11,11 @@
     "cta": "Get Started"
   },
   "hero": {
-    "title": "Get your UAE residency through real estate investment",
-    "subtitle": "Golden Visa 10 years or investor residence 2 years – Check your eligibility in 2 minutes, complete assistance for AED 3,500",
+    "title": {
+      "line1": "Get your UAE residency",
+      "line2": "through real estate investment"
+    },
+    "subtitle": "Golden Visa 10 years or Investor Residence 2 years. Check your eligibility in 2 minutes. Complete assistance for AED 3,500.",
     "benefits": {
       "residence2": "≥ AED 750k → 2-year Residence",
       "golden10": "≥ AED 2M → 10-year Golden Visa",
@@ -22,7 +25,11 @@
     "trust": {
       "cases": "+1,000 cases processed",
       "multilingual": "Multilingual support", 
-      "secure": "100% secure"
+      "secure": "100% secure",
+      "guarantee": {
+        "title": "Money-back guarantee",
+        "subtitle": "Full refund if visa application is rejected"
+      }
     },
     "guarantee": "🛡️ Money-back guarantee - Full refund if visa application is rejected"
   },

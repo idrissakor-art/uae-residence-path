@@ -27,49 +27,38 @@ const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
-          {/* Main Headline */}
+          {/* Main Headline - Split into 2 lines */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            {t('hero.title').split(' ').map((word, index, array) => {
-              // Highlight key terms in each language
-              const highlightWords = {
-                fr: ['résidence', 'EAU'],
-                en: ['residency', 'UAE'],
-                ar: ['إقامتك', 'الإمارات']
-              };
-              
-              const currentLang = t('header.brand').includes('UAE') ? 'fr' : 
-                               t('header.brand').includes('UAE') ? 'en' : 'ar';
-              
-              const shouldHighlight = word.includes('résidence') || word.includes('EAU') ||
-                                    word.includes('residency') || word.includes('UAE') ||
-                                    word.includes('إقامتك') || word.includes('الإمارات');
-              
-              return shouldHighlight ? (
-                <span key={index} className="text-accent">{word} </span>
-              ) : (
-                <span key={index}>{word} </span>
-              );
-            })}
+            <div className="text-white">
+              {t('hero.title.line1')}
+            </div>
+            <div className="text-white/80 font-medium">
+              {t('hero.title.line2')}
+            </div>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+          {/* Subtitle - Shorter and punchy */}
+          <h2 className="text-xl md:text-2xl mb-4 text-white/90 max-w-3xl mx-auto leading-relaxed">
             {t('hero.subtitle')}
-          </p>
+          </h2>
 
-          {/* Benefits */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div className="flex items-center justify-center space-x-2 text-white/90">
-              <CheckCircle className="w-5 h-5 text-accent" />
-              <span>{t('hero.benefits.residence2')}</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2 text-white/90">
-              <CheckCircle className="w-5 h-5 text-accent" />
-              <span>{t('hero.benefits.golden10')}</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2 text-white/90">
-              <CheckCircle className="w-5 h-5 text-accent" />
-              <span>{t('hero.benefits.support')}</span>
+          {/* Benefits - In translucent container */}
+          <div className="mt-4 mb-10">
+            <div className="bg-white/14 backdrop-blur-sm rounded-lg shadow-lg py-3 px-5 inline-block">
+              <div className="flex flex-wrap justify-center items-center gap-6 text-white/90">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-accent" />
+                  <span className="text-sm md:text-base">{t('hero.benefits.residence2')}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-accent" />
+                  <span className="text-sm md:text-base">{t('hero.benefits.golden10')}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-5 h-5 text-accent" />
+                  <span className="text-sm md:text-base">{t('hero.benefits.support')}</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -80,29 +69,24 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-white/70">
-            <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5" />
-              <span>{t('hero.trust.cases')}</span>
+          {/* Trust Indicators - 4 pillars including guarantee */}
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="text-center text-white/70">
+              <Users className="w-5 h-5 mx-auto mb-2" />
+              <div className="text-sm font-medium">{t('hero.trust.cases')}</div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="w-5 h-5" />
-              <span>{t('hero.trust.multilingual')}</span>
+            <div className="text-center text-white/70">
+              <Globe className="w-5 h-5 mx-auto mb-2" />
+              <div className="text-sm font-medium">{t('hero.trust.multilingual')}</div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Shield className="w-5 h-5" />
-              <span>{t('hero.trust.secure')}</span>
+            <div className="text-center text-white/70">
+              <Shield className="w-5 h-5 mx-auto mb-2" />
+              <div className="text-sm font-medium">{t('hero.trust.secure')}</div>
             </div>
-          </div>
-
-          {/* Money-back Guarantee */}
-          <div className="mt-8 max-w-2xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4">
-              <div className="flex items-center justify-center space-x-3 text-white">
-                <Shield className="w-5 h-5 text-accent" />
-                <span className="text-sm font-medium">{t('hero.guarantee')}</span>
-              </div>
+            <div className="text-center text-white/70">
+              <Shield className="w-5 h-5 mx-auto mb-2 text-accent" />
+              <div className="text-sm font-medium">{t('hero.trust.guarantee.title')}</div>
+              <div className="text-xs text-white/60 mt-1">{t('hero.trust.guarantee.subtitle')}</div>
             </div>
           </div>
         </div>
