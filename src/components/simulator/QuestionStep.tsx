@@ -131,14 +131,32 @@ export const TypeformInput: React.FC<{
 export const TypeformRadioGroup: React.FC<{
   value: string;
   onValueChange: (value: string) => void;
+  onNext?: () => void; // Nouvelle prop pour déclencher la navigation automatique
   options: Array<{ value: string; label: string; description?: string }>;
-}> = ({ value, onValueChange, options }) => (
-  <RadioGroup value={value} onValueChange={onValueChange} className="space-y-6">
+}> = ({ value, onValueChange, onNext, options }) => {
+
+  const handleOptionSelect = (selectedValue: string) => {
+    onValueChange(selectedValue);
+    
+    // Navigation automatique après sélection avec un délai pour le feedback visuel
+    if (onNext && selectedValue) {
+      setTimeout(() => {
+        onNext();
+      }, 600); // Délai de 600ms pour voir la sélection
+    }
+  };
+
+  return (
+  <RadioGroup value={value} onValueChange={handleOptionSelect} className="space-y-6">
     {options.map((option) => (
       <div
         key={option.value}
-        className="flex items-start space-x-5 p-6 border-2 border-gray-200 rounded-2xl hover:border-primary/50 hover:bg-primary/5 cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md"
-        onClick={() => onValueChange(option.value)}
+        className={`flex items-start space-x-5 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-200 shadow-sm hover:shadow-md ${
+          value === option.value 
+            ? 'border-primary bg-primary/5 shadow-md' 
+            : 'border-gray-200 hover:border-primary/50 hover:bg-primary/5'
+        }`}
+        onClick={() => handleOptionSelect(option.value)}
       >
         <RadioGroupItem value={option.value} className="mt-1" />
         <div className="flex-1">
@@ -154,7 +172,8 @@ export const TypeformRadioGroup: React.FC<{
       </div>
     ))}
   </RadioGroup>
-);
+  );
+};
 
 export const TypeformCheckbox: React.FC<{
   checked: boolean;

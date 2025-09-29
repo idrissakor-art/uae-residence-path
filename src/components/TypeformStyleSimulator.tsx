@@ -362,6 +362,7 @@ const TypeformStyleSimulator = () => {
           <TypeformRadioGroup
             value={formData.isMortgaged}
             onValueChange={(value) => setFormData(prev => ({ ...prev, isMortgaged: value }))}
+            onNext={handleNext} // Ajout de la navigation automatique
             options={[
               {
                 value: 'no',
@@ -423,6 +424,7 @@ const TypeformStyleSimulator = () => {
           <TypeformRadioGroup
             value={formData.propertyInName}
             onValueChange={(value) => setFormData(prev => ({ ...prev, propertyInName: value }))}
+            onNext={handleNext} // Ajout de la navigation automatique
             options={[
               {
                 value: 'yes',
@@ -457,6 +459,7 @@ const TypeformStyleSimulator = () => {
           <TypeformRadioGroup
             value={formData.presentInUAE}
             onValueChange={(value) => setFormData(prev => ({ ...prev, presentInUAE: value }))}
+            onNext={handleNext} // Ajout de la navigation automatique
             options={[
               {
                 value: 'yes',
