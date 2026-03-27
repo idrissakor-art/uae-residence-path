@@ -11,14 +11,25 @@
     "cta": "Commencer"
   },
   "hero": {
-    "title": "Obtenez votre résidence aux EAU par investissement immobilier",
+    "title": "Obtenez votre <1>Golden Visa Dubai</1> en 10 ans",
     "subtitle": "Golden Visa 10 ans ou résidence 2 ans – Simulez votre éligibilité en 2 minutes, accompagnement complet pour AED 3,500",
     "benefits": {
       "residence2": "≥ AED 750k → Résidence 2 ans",
-      "golden10": "≥ AED 2M → Golden Visa 10 ans", 
+      "golden10": "≥ AED 2M → Golden Visa 10 ans",
+      "support": "Accompagnement complet"
+    },
+    "benefitsList": {
+      "goldenVisa": "≥ AED 2M → Golden Visa 10 ans",
+      "categories": "12 catégories éligibles",
       "support": "Accompagnement complet"
     },
     "cta": "Simuler mon éligibilité",
+    "guarantee": "Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa",
+    "stats": {
+      "cases": "Dossiers traités",
+      "satisfaction": "De satisfaction",
+      "processing": "De traitement"
+    },
     "trust": {
       "cases": "+1,000 dossiers traités",
       "multilingual": "Support multilingue",
@@ -26,7 +37,7 @@
     }
   },
   "whyChooseUs": {
-    "title": "Pourquoi nous choisir ?",
+    "title": "Pourquoi choisir UAE-VisaServices pour votre Golden Visa",
     "subtitle": "Un accompagnement complet, sécurisé et garanti pour votre demande de résidence aux Émirats.",
     "features": {
       "cases": {
@@ -44,10 +55,112 @@
     },
     "guaranteeBanner": "Garantie satisfait ou remboursé – Remboursement intégral en cas de refus de visa."
   },
+  "testimonials": {
+    "title": "Ce que disent nos clients Golden Visa Dubai",
+    "subtitle": "Découvrez les témoignages de ceux qui nous ont fait confiance",
+    "clients": {
+      "c1": {
+        "name": "Mohammed Al-Rashid",
+        "country": "Maroc",
+        "visaType": "Golden Visa 10 ans",
+        "text": "Service exceptionnel ! Mon Golden Visa a été obtenu en moins de 48h. L'équipe m'a accompagné à chaque étape avec un professionnalisme remarquable."
+      },
+      "c2": {
+        "name": "Sophie Dubois",
+        "country": "France",
+        "visaType": "Golden Visa 10 ans",
+        "text": "Processus fluide et transparent. J'ai pu soumettre tous mes documents en ligne et suivre mon dossier en temps réel. Je recommande vivement."
+      },
+      "c3": {
+        "name": "Ahmed Hassan",
+        "country": "Égypte",
+        "visaType": "Golden Visa 10 ans",
+        "text": "La garantie satisfait ou remboursé m'a convaincu. Résultat : visa obtenu sans aucun problème. Une plateforme sérieuse et fiable."
+      }
+    }
+  },
+  "features": {
+    "goldenVisa": {
+      "badge": "Golden Visa UAE",
+      "title": "Les 4 catégories du Golden Visa UAE",
+      "subtitle": "Découvrez les différentes voies d'accès au Golden Visa 10 ans des Émirats Arabes Unis",
+      "categories": {
+        "investor": {
+          "title": "Investisseur Immobilier",
+          "threshold": "≥ AED 2,000,000",
+          "description": "Propriété résidentielle d'une valeur minimale de 2 millions AED, payée intégralement ou à 50% minimum si hypothéquée.",
+          "features": ["Résidence 10 ans renouvelable", "Sponsor famille inclus", "Facilités bancaires", "Éducation enfants"]
+        },
+        "entrepreneur": {
+          "title": "Entrepreneur / Startup",
+          "threshold": "Projet approuvé",
+          "description": "Fondateur ou dirigeant d'une startup innovante approuvée par un incubateur accrédité aux EAU.",
+          "features": ["Visa fondateur 10 ans", "Sponsor employés", "Accès zones franches", "Networking privilégié"]
+        },
+        "professional": {
+          "title": "Professionnel Qualifié",
+          "threshold": "≥ AED 30K/mois",
+          "description": "Professionnel avec un salaire mensuel de 30 000 AED minimum et un diplôme de niveau baccalauréat ou supérieur.",
+          "features": ["Indépendant du sponsor", "Résidence longue durée", "Mobilité professionnelle", "Avantages étendus"]
+        },
+        "academic": {
+          "title": "Chercheur / Médecin / Étudiant",
+          "threshold": "Excellence académique",
+          "description": "Chercheurs, médecins spécialistes et étudiants d'excellence des universités accréditées aux EAU.",
+          "features": ["Visa académique 10 ans", "Accès laboratoires", "Bourses complémentaires", "Réseau scientifique"]
+        }
+      },
+      "mostPopular": "⭐ Plus populaire"
+    },
+    "process": {
+      "badge": "Processus",
+      "title": "4 étapes simples",
+      "subtitle": "De la simulation à l'obtention de votre Golden Visa",
+      "steps": {
+        "s1": { "title": "Simulez", "desc": "Testez votre éligibilité en 2 minutes" },
+        "s2": { "title": "Soumettez votre dossier", "desc": "Uploadez vos documents en ligne" },
+        "s3": { "title": "Paiement sécurisé", "desc": "Payez uniquement si éligible" },
+        "s4": { "title": "Obtenez votre Golden Visa", "desc": "Recevez votre visa sous 48h" }
+      }
+    },
+    "platform": {
+      "badge": "Pourquoi Nous Choisir",
+      "title": "Plateforme complète et sécurisée",
+      "subtitle": "De la simulation à l'obtention de votre Golden Visa, nous vous accompagnons à chaque étape du processus",
+      "items": {
+        "secure": { "title": "Plateforme Sécurisée", "description": "Données chiffrées et conformité RGPD. Vos informations personnelles sont protégées selon les standards bancaires.", "badge": "Certifié" },
+        "upload": { "title": "Upload Simplifié", "description": "Interface intuitive pour télécharger tous vos documents. Validation automatique et feedback instantané.", "badge": "Simple" },
+        "payment": { "title": "Paiement Intégré", "description": "Règlement sécurisé par carte bancaire. Pas de paiement avant validation de votre éligibilité.", "badge": "Sécurisé" },
+        "support": { "title": "Support Expert", "description": "Conseillers spécialisés disponibles en français, anglais et arabe. Accompagnement personnalisé.", "badge": "24/7" },
+        "tracking": { "title": "Suivi en Temps Réel", "description": "Dashboard personnel pour suivre l'avancement de votre dossier étape par étape.", "badge": "Live" },
+        "multilingual": { "title": "Multilingue", "description": "Interface et support dans votre langue. Documentation officielle traduite et certifiée.", "badge": "Global" }
+      }
+    }
+  },
+  "footer": {
+    "description": "Votre partenaire de confiance pour l'obtention du Golden Visa UAE 10 ans par investissement immobilier.",
+    "navigation": "Navigation",
+    "links": {
+      "simulator": "Simulateur Golden Visa",
+      "services": "Services",
+      "faq": "FAQ Golden Visa",
+      "application": "Déposer un dossier"
+    },
+    "contact": "Contact",
+    "location": "Dubai, Émirats Arabes Unis",
+    "copyright": "© {year} UAE Visa Services — Golden Visa UAE. Tous droits réservés."
+  },
   "simulator": {
     "badge": "Simulateur Officiel",
     "title": "Simulez votre éligibilité en 2 minutes",
     "description": "Répondez aux questions ci-dessous pour découvrir si vous pouvez obtenir votre résidence par investissement immobilier aux EAU.",
+    "eligibleFor": "Éligible pour : Golden Visa 10 ans",
+    "eligibleForDesc": "Propriété de 2M AED+ = Golden Visa de 10 ans",
+    "insufficientAmount": "Montant insuffisant",
+    "insufficientAmountDesc": "Minimum 2,000,000 AED requis pour le Golden Visa",
+    "notEligibleWarning": "Non éligible",
+    "presenceRequired": "Présence obligatoire aux EAU",
+    "mortgageDetails": "Détails hypothèque requis",
     "form": {
       "title": "Simulateur d'éligibilité",
       "subtitle": "Toutes les informations sont traitées de manière confidentielle",
@@ -124,8 +237,24 @@
           "description": "Époux/épouse et enfants de moins de 18 ans"
         }
       },
+      "familySponsoring": {
+        "title": "Sponsoring Famille",
+        "subtitle": "Souhaitez-vous sponsoriser des membres de votre famille ? (Optionnel)"
+      },
+      "contactInfo": {
+        "title": "Informations de contact",
+        "subtitle": "Veuillez renseigner vos informations de contact",
+        "namePlaceholder": "Votre nom complet",
+        "emailPlaceholder": "Votre adresse email",
+        "phoneLabel": "Numéro de téléphone",
+        "phonePlaceholder": "Numéro de téléphone",
+        "whatsappLabel": "Numéro WhatsApp (optionnel)",
+        "whatsappPlaceholder": "Numéro WhatsApp"
+      },
       "submit": "Calculer mon éligibilité",
-      "loading": "Calcul en cours..."
+      "loading": "Calcul en cours...",
+      "required": "Requis",
+      "optional": "Optionnel"
     },
     "result": {
       "eligible": "Éligible !",
@@ -147,6 +276,15 @@
       "eligibleFor": "Vous êtes éligible à la {visaType} !",
       "notEligibleMsg": "❌ Non éligible",
       "seeConditions": "Consultez les conditions à remplir ci-dessous.",
+      "reasons": {
+        "insufficientValue": "Valeur propriété insuffisante ({value} AED). Minimum {min} AED requis pour le Golden Visa.",
+        "insufficientPaid": "Seulement {percent}% payé. Minimum 50% requis pour propriété hypothéquée.",
+        "nocRequired": "Lettre de non-objection (NOC) de la banque requise.",
+        "propertyNotInName": "La propriété doit être au nom du demandeur ou partagée (époux/épouse).",
+        "presenceRequired": "Présence physique aux EAU requise lors de la demande.",
+        "passportRequired": "Passeport valide requis.",
+        "insuranceRequired": "Assurance santé valide requise."
+      },
       "requirements": {
         "goldenVisa": "Golden Visa 10 ans éligible",
         "residence": "Résidence Investisseur 2 ans éligible",
@@ -297,5 +435,9 @@
         "answer": "C'est possible dans de nombreux cas : si le bien est partagé avec votre épouse ou époux, le dossier doit inclure un acte de mariage officiel, reconnu et conforme aux exigences légales."
       }
     }
+  },
+  "meta": {
+    "title": "Golden Visa Dubai 2026 | Obtenez votre Visa Or UAE en 48h | UAE-VisaServices",
+    "description": "Obtenez votre Golden Visa Dubai en 10 ans. Simulateur d'éligibilité gratuit, 12 catégories, accompagnement complet dès AED 3 500. +1000 dossiers traités. Garantie remboursée."
   }
 }

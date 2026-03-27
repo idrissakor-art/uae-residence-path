@@ -11,22 +11,33 @@
     "cta": "Get Started"
   },
   "hero": {
-    "title": "Get your UAE residency through real estate investment",
+    "title": "Get your <1>Golden Visa Dubai</1> in 10 years",
     "subtitle": "Golden Visa 10 years or investor residence 2 years – Check your eligibility in 2 minutes, complete assistance for AED 3,500",
     "benefits": {
       "residence2": "≥ AED 750k → 2-year Residence",
       "golden10": "≥ AED 2M → 10-year Golden Visa",
       "support": "Complete assistance"
     },
+    "benefitsList": {
+      "goldenVisa": "≥ AED 2M → 10-year Golden Visa",
+      "categories": "12 eligible categories",
+      "support": "Complete assistance"
+    },
     "cta": "Check my eligibility",
+    "guarantee": "Satisfaction guarantee – Full refund in case of visa rejection",
+    "stats": {
+      "cases": "Cases processed",
+      "satisfaction": "Satisfaction",
+      "processing": "Processing time"
+    },
     "trust": {
       "cases": "+1,000 cases processed",
-      "multilingual": "Multilingual support", 
+      "multilingual": "Multilingual support",
       "secure": "100% secure"
     }
   },
   "whyChooseUs": {
-    "title": "Why choose us?",
+    "title": "Why choose UAE-VisaServices for your Golden Visa",
     "subtitle": "Complete, secure and guaranteed assistance for your UAE residence application.",
     "features": {
       "cases": {
@@ -44,10 +55,112 @@
     },
     "guaranteeBanner": "Satisfaction guarantee – Full refund in case of visa rejection."
   },
+  "testimonials": {
+    "title": "What our Golden Visa Dubai clients say",
+    "subtitle": "Discover testimonials from those who trusted us",
+    "clients": {
+      "c1": {
+        "name": "Mohammed Al-Rashid",
+        "country": "Morocco",
+        "visaType": "Golden Visa 10 years",
+        "text": "Exceptional service! My Golden Visa was obtained in less than 48h. The team supported me at every step with remarkable professionalism."
+      },
+      "c2": {
+        "name": "Sophie Dubois",
+        "country": "France",
+        "visaType": "Golden Visa 10 years",
+        "text": "Smooth and transparent process. I was able to submit all my documents online and track my file in real time. Highly recommended."
+      },
+      "c3": {
+        "name": "Ahmed Hassan",
+        "country": "Egypt",
+        "visaType": "Golden Visa 10 years",
+        "text": "The satisfaction guarantee convinced me. Result: visa obtained without any issues. A serious and reliable platform."
+      }
+    }
+  },
+  "features": {
+    "goldenVisa": {
+      "badge": "Golden Visa UAE",
+      "title": "The 4 Golden Visa UAE categories",
+      "subtitle": "Discover the different pathways to the 10-year Golden Visa in the United Arab Emirates",
+      "categories": {
+        "investor": {
+          "title": "Real Estate Investor",
+          "threshold": "≥ AED 2,000,000",
+          "description": "Residential property with a minimum value of 2 million AED, fully paid or at least 50% if mortgaged.",
+          "features": ["10-year renewable residence", "Family sponsorship included", "Banking facilities", "Children's education"]
+        },
+        "entrepreneur": {
+          "title": "Entrepreneur / Startup",
+          "threshold": "Approved project",
+          "description": "Founder or director of an innovative startup approved by an accredited incubator in the UAE.",
+          "features": ["10-year founder visa", "Employee sponsorship", "Free zone access", "Privileged networking"]
+        },
+        "professional": {
+          "title": "Qualified Professional",
+          "threshold": "≥ AED 30K/month",
+          "description": "Professional with a minimum monthly salary of 30,000 AED and a bachelor's degree or higher.",
+          "features": ["Sponsor-independent", "Long-term residence", "Professional mobility", "Extended benefits"]
+        },
+        "academic": {
+          "title": "Researcher / Doctor / Student",
+          "threshold": "Academic excellence",
+          "description": "Researchers, specialist doctors and outstanding students from accredited universities in the UAE.",
+          "features": ["10-year academic visa", "Lab access", "Additional scholarships", "Scientific network"]
+        }
+      },
+      "mostPopular": "⭐ Most popular"
+    },
+    "process": {
+      "badge": "Process",
+      "title": "4 simple steps",
+      "subtitle": "From simulation to obtaining your Golden Visa",
+      "steps": {
+        "s1": { "title": "Simulate", "desc": "Test your eligibility in 2 minutes" },
+        "s2": { "title": "Submit your file", "desc": "Upload your documents online" },
+        "s3": { "title": "Secure payment", "desc": "Pay only if eligible" },
+        "s4": { "title": "Get your Golden Visa", "desc": "Receive your visa within 48h" }
+      }
+    },
+    "platform": {
+      "badge": "Why Choose Us",
+      "title": "Complete and secure platform",
+      "subtitle": "From simulation to obtaining your Golden Visa, we support you at every step of the process",
+      "items": {
+        "secure": { "title": "Secure Platform", "description": "Encrypted data and GDPR compliance. Your personal information is protected to banking standards.", "badge": "Certified" },
+        "upload": { "title": "Simplified Upload", "description": "Intuitive interface for uploading all your documents. Automatic validation and instant feedback.", "badge": "Simple" },
+        "payment": { "title": "Integrated Payment", "description": "Secure payment by credit card. No payment before eligibility validation.", "badge": "Secure" },
+        "support": { "title": "Expert Support", "description": "Specialized advisors available in French, English and Arabic. Personalized assistance.", "badge": "24/7" },
+        "tracking": { "title": "Real-Time Tracking", "description": "Personal dashboard to track your file progress step by step.", "badge": "Live" },
+        "multilingual": { "title": "Multilingual", "description": "Interface and support in your language. Official documentation translated and certified.", "badge": "Global" }
+      }
+    }
+  },
+  "footer": {
+    "description": "Your trusted partner for obtaining the 10-year Golden Visa UAE through real estate investment.",
+    "navigation": "Navigation",
+    "links": {
+      "simulator": "Golden Visa Simulator",
+      "services": "Services",
+      "faq": "Golden Visa FAQ",
+      "application": "Submit a file"
+    },
+    "contact": "Contact",
+    "location": "Dubai, United Arab Emirates",
+    "copyright": "© {year} UAE Visa Services — Golden Visa UAE. All rights reserved."
+  },
   "simulator": {
     "badge": "Official Simulator",
     "title": "Check your eligibility in 2 minutes",
     "description": "Answer the questions below to find out if you can obtain your residency through real estate investment in the UAE.",
+    "eligibleFor": "Eligible for: Golden Visa 10 years",
+    "eligibleForDesc": "Property of 2M AED+ = 10-year Golden Visa",
+    "insufficientAmount": "Insufficient amount",
+    "insufficientAmountDesc": "Minimum 2,000,000 AED required for Golden Visa",
+    "notEligibleWarning": "Not eligible",
+    "presenceRequired": "Presence required in UAE",
+    "mortgageDetails": "Mortgage details required",
     "form": {
       "title": "Eligibility Simulator",
       "subtitle": "All information is processed confidentially",
@@ -124,8 +237,24 @@
           "description": "Spouse and children under 18"
         }
       },
+      "familySponsoring": {
+        "title": "Family Sponsoring",
+        "subtitle": "Do you want to sponsor family members? (Optional)"
+      },
+      "contactInfo": {
+        "title": "Contact Information",
+        "subtitle": "Please provide your contact information",
+        "namePlaceholder": "Your full name",
+        "emailPlaceholder": "Your email address",
+        "phoneLabel": "Phone number",
+        "phonePlaceholder": "Phone number",
+        "whatsappLabel": "WhatsApp number (optional)",
+        "whatsappPlaceholder": "WhatsApp number"
+      },
       "submit": "Calculate my eligibility",
-      "loading": "Calculating..."
+      "loading": "Calculating...",
+      "required": "Required",
+      "optional": "Optional"
     },
     "result": {
       "eligible": "Eligible!",
@@ -147,6 +276,15 @@
       "eligibleFor": "You are eligible for the {visaType}!",
       "notEligibleMsg": "❌ Not eligible",
       "seeConditions": "See conditions to meet below.",
+      "reasons": {
+        "insufficientValue": "Insufficient property value ({value} AED). Minimum {min} AED required for Golden Visa.",
+        "insufficientPaid": "Only {percent}% paid. Minimum 50% required for mortgaged property.",
+        "nocRequired": "No-objection letter (NOC) from bank required.",
+        "propertyNotInName": "Property must be in the applicant's name or shared (spouse).",
+        "presenceRequired": "Physical presence in UAE required for the application.",
+        "passportRequired": "Valid passport required.",
+        "insuranceRequired": "Valid health insurance required."
+      },
       "requirements": {
         "goldenVisa": "Golden Visa 10 years eligible",
         "residence": "Investor Residence 2 years eligible",
@@ -297,5 +435,9 @@
         "answer": "It's acceptable in many cases: if the property is co-owned with your spouse, the dossier must include a valid marriage certificate recognized by UAE law, in compliance with requirements."
       }
     }
+  },
+  "meta": {
+    "title": "Golden Visa Dubai 2026 | Get your UAE Golden Visa in 48h | UAE-VisaServices",
+    "description": "Get your 10-year Golden Visa Dubai. Free eligibility simulator, 12 categories, complete assistance from AED 3,500. +1000 cases processed. Money-back guarantee."
   }
 }
