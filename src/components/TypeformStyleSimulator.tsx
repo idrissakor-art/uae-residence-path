@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, CheckCircle, XCircle, AlertCircle, Crown, Clock } from "lucide-react";
+import { Calculator, CheckCircle, XCircle, AlertCircle, Crown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { QuestionStep, TypeformInput, TypeformRadioGroup, TypeformCheckbox } from "./simulator/QuestionStep";
