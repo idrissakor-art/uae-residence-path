@@ -69,6 +69,7 @@ const Header = () => {
             <option value="fr">🇫🇷 FR</option>
             <option value="en">🇬🇧 EN</option>  
             <option value="ar">🇦🇪 AR</option>
+            <option value="ru">🇷🇺 RU</option>
           </select>
           <Button 
             variant="hero" 

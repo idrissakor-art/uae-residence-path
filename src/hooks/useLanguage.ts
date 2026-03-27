@@ -5,8 +5,8 @@ export const useLanguage = () => {
   
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
-    // Optionnel: ajuster la direction du texte pour l'arabe
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = language;
   };
   
   return {
