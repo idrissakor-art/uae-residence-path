@@ -94,15 +94,15 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>{t('hero.benefits.residence2')}</span>
+              <span>≥ AED 2M → Golden Visa 10 ans</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>{t('hero.benefits.golden10')}</span>
+              <span>12 catégories éligibles</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>{t('hero.benefits.support')}</span>
+              <span>Accompagnement complet</span>
             </div>
           </div>
 

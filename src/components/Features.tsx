@@ -2,7 +2,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { 
   Shield, FileCheck, CreditCard, Headphones, Clock, Globe,
-  CheckCircle, Crown, Users, FileText, Wallet, Home
+  CheckCircle, Crown, Users, FileText, Wallet, Home,
+  Building, Briefcase, GraduationCap, Stethoscope
 } from "lucide-react";
 
 const Features = () => {
@@ -15,73 +16,95 @@ const Features = () => {
     { icon: <Globe className="w-8 h-8 text-accent" />, title: "Multilingue", description: "Interface et support dans votre langue. Documentation officielle traduite et certifiée.", badge: "Global" },
   ];
 
-  const visaTypes = [
+  const goldenVisaCategories = [
     {
-      icon: <Clock className="w-12 h-12 text-primary" />,
-      title: "Résidence Investisseur", duration: "2 ans", threshold: "≥ AED 750,000",
-      features: ["Renouvelable", "Droits de propriétaire", "Accès aux services", "Sponsor famille possible"],
-      recommended: false,
+      icon: <Building className="w-10 h-10 text-accent" />,
+      title: "Investisseur Immobilier",
+      threshold: "≥ AED 2,000,000",
+      description: "Propriété résidentielle d'une valeur minimale de 2 millions AED, payée intégralement ou à 50% minimum si hypothéquée.",
+      features: ["Résidence 10 ans renouvelable", "Sponsor famille inclus", "Facilités bancaires", "Éducation enfants"],
     },
     {
-      icon: <Crown className="w-12 h-12 text-accent" />,
-      title: "Golden Visa", duration: "10 ans", threshold: "≥ AED 2,000,000",
-      features: ["Résidence longue durée", "Avantages étendus", "Facilités bancaires", "Éducation enfants"],
-      recommended: true,
-    }
+      icon: <Briefcase className="w-10 h-10 text-accent" />,
+      title: "Entrepreneur / Startup",
+      threshold: "Projet approuvé",
+      description: "Fondateur ou dirigeant d'une startup innovante approuvée par un incubateur accrédité aux EAU.",
+      features: ["Visa fondateur 10 ans", "Sponsor employés", "Accès zones franches", "Networking privilégié"],
+    },
+    {
+      icon: <Crown className="w-10 h-10 text-accent" />,
+      title: "Professionnel Qualifié",
+      threshold: "≥ AED 30K/mois",
+      description: "Professionnel avec un salaire mensuel de 30 000 AED minimum et un diplôme de niveau baccalauréat ou supérieur.",
+      features: ["Indépendant du sponsor", "Résidence longue durée", "Mobilité professionnelle", "Avantages étendus"],
+    },
+    {
+      icon: <GraduationCap className="w-10 h-10 text-accent" />,
+      title: "Chercheur / Médecin / Étudiant",
+      threshold: "Excellence académique",
+      description: "Chercheurs, médecins spécialistes et étudiants d'excellence des universités accréditées aux EAU.",
+      features: ["Visa académique 10 ans", "Accès laboratoires", "Bourses complémentaires", "Réseau scientifique"],
+    },
   ];
 
   const steps = [
     { num: 1, icon: <FileText className="w-6 h-6" />, title: "Simulez", desc: "Testez votre éligibilité en 2 minutes" },
     { num: 2, icon: <FileCheck className="w-6 h-6" />, title: "Soumettez votre dossier", desc: "Uploadez vos documents en ligne" },
     { num: 3, icon: <Wallet className="w-6 h-6" />, title: "Paiement sécurisé", desc: "Payez uniquement si éligible" },
-    { num: 4, icon: <Home className="w-6 h-6" />, title: "Obtenez votre résidence", desc: "Recevez votre visa sous 48h" },
+    { num: 4, icon: <Home className="w-6 h-6" />, title: "Obtenez votre Golden Visa", desc: "Recevez votre visa sous 48h" },
   ];
 
   return (
     <section id="features" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        {/* Visa Types */}
+        {/* Golden Visa Categories */}
         <div className="max-w-6xl mx-auto mb-20">
           <div className="text-center mb-12">
             <Badge variant="outline" className="mb-4">
               <Crown className="w-4 h-4 mr-2" />
-              Types de Résidence
+              Golden Visa UAE
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Deux options de résidence disponibles
+              4 catégories éligibles au Golden Visa
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Choisissez la formule adaptée à votre investissement immobilier
+              Découvrez les différentes voies d'accès au Golden Visa 10 ans des Émirats Arabes Unis
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {visaTypes.map((visa, index) => (
+            {goldenVisaCategories.map((category, index) => (
               <Card 
                 key={index} 
-                className={`relative overflow-hidden shadow-card hover:shadow-luxury hover:-translate-y-2 transition-all duration-300 ${
-                  visa.recommended ? 'border-2 border-accent ring-1 ring-accent/20' : ''
-                }`}
+                className="relative overflow-hidden shadow-card hover:shadow-luxury hover:-translate-y-2 transition-all duration-300 border-2 border-accent/20 hover:border-accent/50"
               >
-                {visa.recommended && (
+                {index === 0 && (
                   <div className="absolute top-4 right-4 z-10">
                     <Badge className="bg-accent text-accent-foreground font-bold px-3 py-1 text-xs uppercase tracking-wider shadow-glow">
-                      ⭐ Recommandé
+                      ⭐ Plus populaire
                     </Badge>
                   </div>
                 )}
-                <CardHeader className="text-center pb-4">
-                  <div className="flex justify-center mb-4">{visa.icon}</div>
-                  <CardTitle className="text-2xl mb-2">{visa.title}</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">{visa.duration}</div>
-                  <Badge variant="secondary" className="mb-4">{visa.threshold}</Badge>
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center">
+                      {category.icon}
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">{category.title}</CardTitle>
+                      <Badge variant="secondary" className="mt-1">{category.threshold}</Badge>
+                    </div>
+                  </div>
+                  <CardDescription className="text-muted-foreground leading-relaxed">
+                    {category.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3">
-                    {visa.features.map((feature, idx) => (
+                  <ul className="space-y-2">
+                    {category.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center space-x-2">
-                        <CheckCircle className="w-5 h-5 text-success" />
-                        <span>{feature}</span>
+                        <CheckCircle className="w-4 h-4 text-success" />
+                        <span className="text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -99,7 +122,7 @@ const Features = () => {
               4 étapes simples
             </h2>
             <p className="text-lg text-muted-foreground">
-              De la simulation à l'obtention de votre résidence
+              De la simulation à l'obtention de votre Golden Visa
             </p>
           </div>
 
@@ -130,7 +153,7 @@ const Features = () => {
               Plateforme complète et sécurisée
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              De la simulation à l'obtention de votre résidence, 
+              De la simulation à l'obtention de votre Golden Visa, 
               nous vous accompagnons à chaque étape du processus
             </p>
           </div>

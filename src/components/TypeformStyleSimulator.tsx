@@ -70,7 +70,6 @@ const TypeformStyleSimulator = () => {
   const getVisaType = (propertyValue: string) => {
     const value = parseInt(propertyValue.replace(/[^\d]/g, ''));
     if (value >= 2000000) return 'Golden Visa (10 ans)';
-    if (value >= 750000) return 'Visa résidence (2 ans)';
     return null;
   };
 
@@ -124,16 +123,13 @@ const TypeformStyleSimulator = () => {
     let eligible = true;
     let visaType: '2-year' | '10-year' | null = null;
 
-    // Check property value thresholds
+    // Check property value threshold for Golden Visa
     if (propertyValue >= 2000000) {
       visaType = '10-year';
       requirements.push(t('simulator.result.requirements.goldenVisa'));
-    } else if (propertyValue >= 750000) {
-      visaType = '2-year';
-      requirements.push(t('simulator.result.requirements.residence'));
     } else {
       eligible = false;
-      reasons.push(`Valeur propriété insuffisante (${propertyValue.toLocaleString()} AED). Minimum 750,000 AED requis.`);
+      reasons.push(`Valeur propriété insuffisante (${propertyValue.toLocaleString()} AED). Minimum 2,000,000 AED requis pour le Golden Visa.`);
     }
 
     // Check mortgage conditions
@@ -185,7 +181,7 @@ const TypeformStyleSimulator = () => {
       visaType,
       reasons,
       requirements,
-      totalCost: 3500 + (eligible && visaType === '10-year' ? 2000 : 1000)
+      totalCost: eligible ? 5500 : 0
     };
   };
 
@@ -213,7 +209,7 @@ const TypeformStyleSimulator = () => {
         toast({
           title: t('simulator.result.congratulations'),
           description: t('simulator.result.eligibleFor', { 
-            visaType: simulationResult.visaType === '10-year' ? t('simulator.result.goldenVisa10') : t('simulator.result.residence2')
+            visaType: t('simulator.result.goldenVisa10')
           }),
         });
       } else {
@@ -292,23 +288,16 @@ const TypeformStyleSimulator = () => {
               {result.eligible ? (
                 <div className="space-y-6">
                   <div className="flex items-center space-x-3 p-4 bg-success/10 rounded-lg">
-                    {result.visaType === '10-year' ? (
-                      <Crown className="w-8 h-8 text-success" />
-                    ) : (
-                      <Clock className="w-8 h-8 text-success" />
-                    )}
-                    <div>
-                      <h3 className="font-semibold text-lg">
-                        {result.visaType === '10-year' ? t('simulator.result.goldenVisa10') : t('simulator.result.residence2')}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {result.visaType === '10-year' 
-                          ? t('simulator.result.goldenVisaDesc')
-                          : t('simulator.result.residenceDesc')
-                        }
-                      </p>
-                    </div>
-                  </div>
+                     <Crown className="w-8 h-8 text-success" />
+                     <div>
+                       <h3 className="font-semibold text-lg">
+                         {t('simulator.result.goldenVisa10')}
+                       </h3>
+                       <p className="text-muted-foreground">
+                         {t('simulator.result.goldenVisaDesc')}
+                       </p>
+                     </div>
+                   </div>
 
                   <div>
                     <h4 className="font-medium mb-3">{t('simulator.result.documentsRequired')}</h4>
@@ -425,14 +414,11 @@ const TypeformStyleSimulator = () => {
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span className="text-green-700 font-medium">
-                    Éligible pour : {getVisaType(formData.propertyValue)}
+                    Éligible pour : Golden Visa 10 ans
                   </span>
                 </div>
                 <p className="text-sm text-green-600 mt-1">
-                  {parseInt(formData.propertyValue.replace(/[^\d]/g, '')) >= 2000000 
-                    ? "Propriété de 2M AED+ = Golden Visa de 10 ans"
-                    : "Propriété de 750K-2M AED = Visa de résidence de 2 ans"
-                  }
+                  Propriété de 2M AED+ = Golden Visa de 10 ans
                 </p>
               </div>
             )}
@@ -447,7 +433,7 @@ const TypeformStyleSimulator = () => {
                   </span>
                 </div>
                 <p className="text-sm text-red-600 mt-1">
-                  Minimum 750,000 AED requis pour obtenir un visa de résidence
+                  Minimum 2,000,000 AED requis pour le Golden Visa
                 </p>
               </div>
             )}

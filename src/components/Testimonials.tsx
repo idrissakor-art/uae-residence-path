@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: "Sophie Dubois",
     country: "France",
-    visaType: "Résidence Investisseur 2 ans",
+    visaType: "Golden Visa 10 ans",
     text: "Processus fluide et transparent. J'ai pu soumettre tous mes documents en ligne et suivre mon dossier en temps réel. Je recommande vivement.",
     initials: "SD",
     color: "bg-success",
