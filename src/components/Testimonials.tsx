@@ -59,7 +59,7 @@ const Testimonials = () => {
 
                 {/* Author */}
                 <div className="flex items-center gap-3">
-                  <div className={`w-11 h-11 ${t.color} rounded-full flex items-center justify-center text-white font-bold text-sm`}>
+                  <div className={`w-11 h-11 ${t.color} rounded-full flex items-center justify-center text-white font-bold text-sm`} role="img" aria-label={`Avatar de ${t.name} - client Golden Visa Dubai`}>
                     {t.initials}
                   </div>
                   <div>
