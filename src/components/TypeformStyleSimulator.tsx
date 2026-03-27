@@ -266,7 +266,7 @@ const TypeformStyleSimulator = () => {
 
   if (showResults && result) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-muted/30 flex items-center justify-center p-4">
         <div className="w-full max-w-4xl">
           <Card className={`${result.eligible ? 'border-success' : 'border-destructive'} shadow-luxury animate-fade-in`}>
             <CardHeader>
