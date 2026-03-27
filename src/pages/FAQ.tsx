@@ -114,6 +114,31 @@ const FAQ: React.FC = () => {
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  // Inject FAQ JSON-LD schema for Google rich snippets
+  useEffect(() => {
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'faq-jsonld';
+    script.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById('faq-jsonld');
+      if (el) el.remove();
+    };
+  }, [faqData]);
+
   const filteredFAQs = faqData.filter(faq => {
     const matchesSearch = searchQuery === '' || 
       faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
