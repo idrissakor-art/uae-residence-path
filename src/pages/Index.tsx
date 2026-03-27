@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -8,13 +9,15 @@ import TypeformStyleSimulator from "@/components/TypeformStyleSimulator";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    document.title = "Golden Visa Dubai 2026 | Obtenez votre Visa Or UAE en 48h | UAE-VisaServices";
+    document.title = t('meta.title');
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Obtenez votre Golden Visa Dubai en 10 ans. Simulateur d'éligibilité gratuit, 12 catégories, accompagnement complet dès AED 3 500. +1000 dossiers traités. Garantie remboursée.");
+      metaDesc.setAttribute("content", t('meta.description'));
     }
-  }, []);
+  }, [t]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -23,7 +26,7 @@ const Index = () => {
         <Hero />
         <WhyChooseUs />
         <Testimonials />
-        <section id="simulator" aria-label="Simulateur d'éligibilité Golden Visa">
+        <section id="simulator" aria-label={t('simulator.badge')}>
           <TypeformStyleSimulator />
         </section>
         <Features />

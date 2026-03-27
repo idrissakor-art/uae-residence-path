@@ -74,7 +74,11 @@ const Hero = () => {
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight" id="hero-title">
-            Obtenez votre <span className="text-accent">Golden Visa Dubai</span> en 10 ans
+            {t('hero.title').split('<1>').map((part, i) => {
+              if (i === 0) return part;
+              const [highlighted, rest] = part.split('</1>');
+              return <span key={i}><span className="text-accent">{highlighted}</span>{rest}</span>;
+            })}
           </h1>
 
           {/* Subtitle */}
@@ -86,15 +90,15 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>≥ AED 2M → Golden Visa 10 ans</span>
+              <span>{t('hero.benefitsList.goldenVisa')}</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>12 catégories éligibles</span>
+              <span>{t('hero.benefitsList.categories')}</span>
             </div>
             <div className="flex items-center justify-center space-x-2 text-white/90">
               <CheckCircle className="w-5 h-5 text-accent" />
-              <span>Accompagnement complet</span>
+              <span>{t('hero.benefitsList.support')}</span>
             </div>
           </div>
 
@@ -114,7 +118,7 @@ const Hero = () => {
               <div className="flex items-center space-x-2 text-white/90">
                 <span className="text-orange-400">🛡️</span>
                 <span className="text-sm font-medium">
-                  Garantie satisfait ou remboursé - Remboursement intégral en cas de refus de visa
+                  {t('hero.guarantee')}
                 </span>
               </div>
             </div>
@@ -125,15 +129,15 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <div className="text-center">
                 <AnimatedCounter target={1000} prefix="+" />
-                <p className="text-white/70 text-sm mt-1">Dossiers traités</p>
+                <p className="text-white/70 text-sm mt-1">{t('hero.stats.cases')}</p>
               </div>
               <div className="text-center md:border-x md:border-white/10">
                 <AnimatedCounter target={98} suffix="%" />
-                <p className="text-white/70 text-sm mt-1">De satisfaction</p>
+                <p className="text-white/70 text-sm mt-1">{t('hero.stats.satisfaction')}</p>
               </div>
               <div className="text-center">
                 <AnimatedCounter target={48} suffix="h" />
-                <p className="text-white/70 text-sm mt-1">De traitement</p>
+                <p className="text-white/70 text-sm mt-1">{t('hero.stats.processing')}</p>
               </div>
             </div>
           </div>

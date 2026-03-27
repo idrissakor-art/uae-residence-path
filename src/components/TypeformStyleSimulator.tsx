@@ -129,7 +129,7 @@ const TypeformStyleSimulator = () => {
       requirements.push(t('simulator.result.requirements.goldenVisa'));
     } else {
       eligible = false;
-      reasons.push(`Valeur propriété insuffisante (${propertyValue.toLocaleString()} AED). Minimum 2,000,000 AED requis pour le Golden Visa.`);
+      reasons.push(t('simulator.result.reasons.insufficientValue', { value: propertyValue.toLocaleString(), min: '2,000,000' }));
     }
 
     // Check mortgage conditions
@@ -137,33 +137,33 @@ const TypeformStyleSimulator = () => {
       const paidPercentage = (amountPaid / propertyValue) * 100;
       if (paidPercentage < 50) {
         eligible = false;
-        reasons.push(`Seulement ${paidPercentage.toFixed(1)}% payé. Minimum 50% requis pour propriété hypothéquée.`);
+        reasons.push(t('simulator.result.reasons.insufficientPaid', { percent: paidPercentage.toFixed(1) }));
       }
       if (!formData.hasNOC) {
         eligible = false;
-        reasons.push('Lettre de non-objection (NOC) de la banque requise.');
+        reasons.push(t('simulator.result.reasons.nocRequired'));
       }
     }
 
     // Check other requirements
     if (formData.propertyInName === 'no') {
       eligible = false;
-      reasons.push('La propriété doit être au nom du demandeur ou partagée (époux/épouse).');
+      reasons.push(t('simulator.result.reasons.propertyNotInName'));
     }
 
     if (formData.presentInUAE === 'no') {
       eligible = false;
-      reasons.push('Présence physique aux EAU requise lors de la demande.');
+      reasons.push(t('simulator.result.reasons.presenceRequired'));
     }
 
     if (!formData.hasValidPassport) {
       eligible = false;
-      reasons.push('Passeport valide requis.');
+      reasons.push(t('simulator.result.reasons.passportRequired'));
     }
 
     if (!formData.hasHealthInsurance) {
       eligible = false;
-      reasons.push('Assurance santé valide requise.');
+      reasons.push(t('simulator.result.reasons.insuranceRequired'));
     }
 
     // Additional requirements for eligible cases
@@ -266,7 +266,7 @@ const TypeformStyleSimulator = () => {
 
   if (showResults && result) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-muted/30 flex items-center justify-center p-4">
         <div className="w-full max-w-4xl">
           <Card className={`${result.eligible ? 'border-success' : 'border-destructive'} shadow-luxury animate-fade-in`}>
             <CardHeader>
@@ -409,31 +409,31 @@ const TypeformStyleSimulator = () => {
             />
             
             {/* Affichage du type de visa éligible */}
-            {formData.propertyValue && getVisaType(formData.propertyValue) && (
-              <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+             {formData.propertyValue && getVisaType(formData.propertyValue) && (
+              <div className="mt-4 p-4 bg-success/10 border border-success/30 rounded-lg">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-green-700 font-medium">
-                    Éligible pour : Golden Visa 10 ans
+                  <div className="w-2 h-2 bg-success rounded-full"></div>
+                  <span className="text-success font-medium">
+                    {t('simulator.eligibleFor')}
                   </span>
                 </div>
-                <p className="text-sm text-green-600 mt-1">
-                  Propriété de 2M AED+ = Golden Visa de 10 ans
+                <p className="text-sm text-success/80 mt-1">
+                  {t('simulator.eligibleForDesc')}
                 </p>
               </div>
             )}
 
             {/* Message si montant insuffisant */}
             {formData.propertyValue && !getVisaType(formData.propertyValue) && parseInt(formData.propertyValue.replace(/[^\d]/g, '')) > 0 && (
-              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="mt-4 p-4 bg-destructive/10 border border-destructive/30 rounded-lg">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                  <span className="text-red-700 font-medium">
-                    Montant insuffisant
+                  <div className="w-2 h-2 bg-destructive rounded-full"></div>
+                  <span className="text-destructive font-medium">
+                    {t('simulator.insufficientAmount')}
                   </span>
                 </div>
-                <p className="text-sm text-red-600 mt-1">
-                  Minimum 2,000,000 AED requis pour le Golden Visa
+                <p className="text-sm text-destructive/80 mt-1">
+                  {t('simulator.insufficientAmountDesc')}
                 </p>
               </div>
             )}
@@ -531,7 +531,7 @@ const TypeformStyleSimulator = () => {
               {
                 value: 'no',
                 label: t('simulator.form.step2.propertyInName.no.title'),
-                warning: 'Non éligible'
+                warning: t('simulator.notEligibleWarning')
               }
             ]}
           />
@@ -561,7 +561,7 @@ const TypeformStyleSimulator = () => {
               {
                 value: 'no',
                 label: t('simulator.form.step2.presentInUAE.no.title'),
-                warning: 'Présence obligatoire aux EAU'
+                warning: t('simulator.presenceRequired')
               }
             ]}
           />
@@ -601,8 +601,8 @@ const TypeformStyleSimulator = () => {
         <QuestionStep
           step={getDisplayStep()}
           totalSteps={getTotalDisplaySteps()}
-          title="Family Sponsoring"
-          subtitle="Do you want to sponsor family members? (Optional)"
+          title={t('simulator.form.familySponsoring.title')}
+          subtitle={t('simulator.form.familySponsoring.subtitle')}
           onNext={handleNext}
           onPrevious={handlePrevious}
           canGoNext={true}
@@ -622,8 +622,8 @@ const TypeformStyleSimulator = () => {
         <QuestionStep
           step={getDisplayStep()}
           totalSteps={getTotalDisplaySteps()}
-          title="Informations de contact"
-          subtitle="Veuillez renseigner vos informations de contact"
+          title={t('simulator.form.contactInfo.title')}
+          subtitle={t('simulator.form.contactInfo.subtitle')}
           onNext={handleNext}
           onPrevious={handlePrevious}
           canGoNext={canGoNext()}
@@ -632,23 +632,23 @@ const TypeformStyleSimulator = () => {
         >
           <div className="space-y-6">
             <TypeformInput
-              placeholder="Votre nom complet"
+              placeholder={t('simulator.form.contactInfo.namePlaceholder')}
               value={formData.clientName}
               onChange={(value) => setFormData(prev => ({ ...prev, clientName: value }))}
             />
             
             <TypeformInput
-              placeholder="Votre adresse email"
+              placeholder={t('simulator.form.contactInfo.emailPlaceholder')}
               value={formData.clientEmail}
               onChange={(value) => setFormData(prev => ({ ...prev, clientEmail: value }))}
             />
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Numéro de téléphone
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
+                {t('simulator.form.contactInfo.phoneLabel')}
               </label>
               <PhoneInput
-                placeholder="Numéro de téléphone"
+                placeholder={t('simulator.form.contactInfo.phonePlaceholder')}
                 value={formData.clientPhone}
                 onChange={(value) => setFormData(prev => ({ ...prev, clientPhone: value }))}
                 onCountryChange={(country) => setFormData(prev => ({ ...prev, clientPhoneCountry: country.dialCode }))}
@@ -656,11 +656,11 @@ const TypeformStyleSimulator = () => {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Numéro WhatsApp (optionnel)
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
+                {t('simulator.form.contactInfo.whatsappLabel')}
               </label>
               <PhoneInput
-                placeholder="Numéro WhatsApp"
+                placeholder={t('simulator.form.contactInfo.whatsappPlaceholder')}
                 value={formData.whatsappNumber}
                 onChange={(value) => setFormData(prev => ({ ...prev, whatsappNumber: value }))}
                 onCountryChange={(country) => setFormData(prev => ({ ...prev, whatsappCountry: country.dialCode }))}
