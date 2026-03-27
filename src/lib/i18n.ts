@@ -5,11 +5,13 @@ import { initializeLanguageFromIP } from '@/utils/languageDetection';
 import fr from '@/locales/fr.json';
 import en from '@/locales/en.json';
 import ar from '@/locales/ar.json';
+import ru from '@/locales/ru.json';
 
 const resources = {
   fr: { translation: fr },
   en: { translation: en },
-  ar: { translation: ar }
+  ar: { translation: ar },
+  ru: { translation: ru }
 };
 
 i18n
