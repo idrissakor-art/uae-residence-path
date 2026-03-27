@@ -57,6 +57,8 @@ const Hero = () => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0"
+        role="img"
+        aria-label="Skyline de Dubai - Golden Visa Dubai investissement immobilier Visa Or UAE"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
