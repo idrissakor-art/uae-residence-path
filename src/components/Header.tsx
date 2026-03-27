@@ -24,27 +24,32 @@ const Header = () => {
 
   const navLinks = [
     { href: "#simulator", label: t('header.nav.simulator') },
-    { href: "#eligibility", label: t('header.nav.eligibility') },
-    { href: "#faq", label: t('header.nav.faq') },
+    { href: "#features", label: t('header.nav.eligibility') },
+    { href: "/faq", label: t('header.nav.faq') },
     { href: "#contact", label: t('header.nav.contact') },
   ];
 
   return (
-    <header className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
+    <header 
+      className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow duration-300 ${scrolled ? 'shadow-lg' : ''}`}
+      role="banner"
+    >
       <div className="container flex h-16 items-center justify-between">
-        <div 
-          className="flex items-center space-x-2 cursor-pointer" 
-          onClick={() => navigate('/')}
+        <a 
+          href="/"
+          className="flex items-center space-x-2"
+          onClick={(e) => { e.preventDefault(); navigate('/'); }}
+          aria-label="Golden Visa UAE - Accueil"
         >
-          <div className="text-2xl font-bold gradient-text">
+          <span className="text-2xl font-bold gradient-text">
             {t('header.brand')}
-          </div>
+          </span>
           <span className="text-sm text-muted-foreground hidden sm:inline">
             {t('header.tagline')}
           </span>
-        </div>
+        </a>
         
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium" aria-label="Navigation principale">
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} className="transition-colors hover:text-primary">
               {link.label}
@@ -53,10 +58,13 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-2">
+          <label htmlFor="lang-select" className="sr-only">Choisir la langue</label>
           <select 
+            id="lang-select"
             className="text-sm bg-transparent border-none focus:outline-none cursor-pointer"
             value={currentLanguage}
             onChange={(e) => changeLanguage(e.target.value)}
+            aria-label="Sélection de la langue"
           >
             <option value="fr">🇫🇷 FR</option>
             <option value="en">🇬🇧 EN</option>  
@@ -74,7 +82,7 @@ const Header = () => {
           {/* Mobile hamburger */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Ouvrir le menu de navigation">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
@@ -83,7 +91,7 @@ const Header = () => {
                 <div className="text-xl font-bold gradient-text">
                   {t('header.brand')}
                 </div>
-                <nav className="flex flex-col gap-4">
+                <nav className="flex flex-col gap-4" aria-label="Navigation mobile">
                   {navLinks.map((link) => (
                     <a 
                       key={link.href} 
