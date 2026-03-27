@@ -72,17 +72,7 @@ const Hero = () => {
         <div className={`max-w-4xl mx-auto text-center text-white ${isRTL ? 'rtl' : ''}`}>
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight" id="hero-title">
-            {t('hero.title').split(' ').map((word, index) => {
-              const shouldHighlight = word.includes('résidence') || word.includes('EAU') ||
-                                    word.includes('residency') || word.includes('UAE') ||
-                                    word.includes('إقامتك') || word.includes('الإمارات');
-              
-              return shouldHighlight ? (
-                <span key={index} className="text-accent">{word} </span>
-              ) : (
-                <span key={index}>{word} </span>
-              );
-            })}
+            Obtenez votre <span className="text-accent">Golden Visa Dubai</span> en 10 ans
           </h1>
 
           {/* Subtitle */}
