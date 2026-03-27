@@ -129,7 +129,7 @@ const TypeformStyleSimulator = () => {
       requirements.push(t('simulator.result.requirements.goldenVisa'));
     } else {
       eligible = false;
-      reasons.push(`Valeur propriété insuffisante (${propertyValue.toLocaleString()} AED). Minimum 2,000,000 AED requis pour le Golden Visa.`);
+      reasons.push(t('simulator.result.reasons.insufficientValue', { value: propertyValue.toLocaleString(), min: '2,000,000' }));
     }
 
     // Check mortgage conditions
@@ -137,33 +137,33 @@ const TypeformStyleSimulator = () => {
       const paidPercentage = (amountPaid / propertyValue) * 100;
       if (paidPercentage < 50) {
         eligible = false;
-        reasons.push(`Seulement ${paidPercentage.toFixed(1)}% payé. Minimum 50% requis pour propriété hypothéquée.`);
+        reasons.push(t('simulator.result.reasons.insufficientPaid', { percent: paidPercentage.toFixed(1) }));
       }
       if (!formData.hasNOC) {
         eligible = false;
-        reasons.push('Lettre de non-objection (NOC) de la banque requise.');
+        reasons.push(t('simulator.result.reasons.nocRequired'));
       }
     }
 
     // Check other requirements
     if (formData.propertyInName === 'no') {
       eligible = false;
-      reasons.push('La propriété doit être au nom du demandeur ou partagée (époux/épouse).');
+      reasons.push(t('simulator.result.reasons.propertyNotInName'));
     }
 
     if (formData.presentInUAE === 'no') {
       eligible = false;
-      reasons.push('Présence physique aux EAU requise lors de la demande.');
+      reasons.push(t('simulator.result.reasons.presenceRequired'));
     }
 
     if (!formData.hasValidPassport) {
       eligible = false;
-      reasons.push('Passeport valide requis.');
+      reasons.push(t('simulator.result.reasons.passportRequired'));
     }
 
     if (!formData.hasHealthInsurance) {
       eligible = false;
-      reasons.push('Assurance santé valide requise.');
+      reasons.push(t('simulator.result.reasons.insuranceRequired'));
     }
 
     // Additional requirements for eligible cases
