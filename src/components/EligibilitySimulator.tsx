@@ -59,59 +59,55 @@ const EligibilitySimulator = () => {
     let eligible = true;
     let visaType: '2-year' | '10-year' | null = null;
 
-    // Check property value thresholds
     if (propertyValue >= 2000000) {
       visaType = '10-year';
-      requirements.push('Golden Visa 10 ans éligible');
+      requirements.push(t('simulator.result.requirements.goldenVisa'));
     } else if (propertyValue >= 750000) {
       visaType = '2-year';
-      requirements.push('Résidence Investisseur 2 ans éligible');
+      requirements.push(t('simulator.result.requirements.residence'));
     } else {
       eligible = false;
-      reasons.push(`Valeur propriété insuffisante (${propertyValue.toLocaleString()} AED). Minimum 750,000 AED requis.`);
+      reasons.push(t('simulator.result.reasons.insufficientValue', { value: propertyValue.toLocaleString(), min: '750,000' }));
     }
 
-    // Check mortgage conditions
     if (formData.isMortgaged === 'yes') {
       const paidPercentage = (amountPaid / propertyValue) * 100;
       if (paidPercentage < 50) {
         eligible = false;
-        reasons.push(`Seulement ${paidPercentage.toFixed(1)}% payé. Minimum 50% requis pour propriété hypothéquée.`);
+        reasons.push(t('simulator.result.reasons.insufficientPaid', { percent: paidPercentage.toFixed(1) }));
       }
       if (!formData.hasNOC) {
         eligible = false;
-        reasons.push('Lettre de non-objection (NOC) de la banque requise.');
+        reasons.push(t('simulator.result.reasons.nocRequired'));
       }
     }
 
-    // Check other requirements
     if (formData.propertyInName === 'no') {
       eligible = false;
-      reasons.push('La propriété doit être au nom du demandeur ou partagée (époux/épouse).');
+      reasons.push(t('simulator.result.reasons.propertyNotInName'));
     }
 
     if (formData.presentInUAE === 'no') {
       eligible = false;
-      reasons.push('Présence physique aux EAU requise lors de la demande.');
+      reasons.push(t('simulator.result.reasons.presenceRequired'));
     }
 
     if (!formData.hasValidPassport) {
       eligible = false;
-      reasons.push('Passeport valide requis.');
+      reasons.push(t('simulator.result.reasons.passportRequired'));
     }
 
     if (!formData.hasHealthInsurance) {
       eligible = false;
-      reasons.push('Assurance santé valide requise.');
+      reasons.push(t('simulator.result.reasons.insuranceRequired'));
     }
 
-    // Additional requirements for eligible cases
     if (eligible) {
-      requirements.push('Certificat de bonne conduite du pays d\'origine');
-      requirements.push('Photos conformes aux standards');
-      requirements.push('Formulaire de demande complété');
+      requirements.push(t('simulator.result.requirements.goodConduct'));
+      requirements.push(t('simulator.result.requirements.photos'));
+      requirements.push(t('simulator.result.requirements.application'));
       if (formData.sponsorFamily) {
-        requirements.push('Documents famille pour sponsoring (acte de mariage, actes de naissance)');
+        requirements.push(t('simulator.result.requirements.familyDocs'));
       }
     }
 
@@ -120,7 +116,7 @@ const EligibilitySimulator = () => {
       visaType,
       reasons,
       requirements,
-      totalCost: 3500 + (eligible && visaType === '10-year' ? 2000 : 1000) // Frais officiels estimés
+      totalCost: 3500 + (eligible && visaType === '10-year' ? 2000 : 1000)
     };
   };
 
@@ -128,7 +124,6 @@ const EligibilitySimulator = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     const simulationResult = calculateEligibility();
@@ -137,13 +132,15 @@ const EligibilitySimulator = () => {
 
     if (simulationResult.eligible) {
       toast({
-        title: "🎉 Félicitations !",
-        description: `Vous êtes éligible à la ${simulationResult.visaType === '10-year' ? 'Golden Visa 10 ans' : 'résidence 2 ans'} !`,
+        title: t('simulator.result.congratulations'),
+        description: t('simulator.result.eligibleFor', { 
+          visaType: simulationResult.visaType === '10-year' ? t('simulator.result.goldenVisa10') : t('simulator.result.residence2')
+        }),
       });
     } else {
       toast({
-        title: "❌ Non éligible",
-        description: "Consultez les conditions à remplir ci-dessous.",
+        title: t('simulator.result.notEligibleMsg'),
+        description: t('simulator.result.seeConditions'),
         variant: "destructive",
       });
     }
@@ -156,14 +153,13 @@ const EligibilitySimulator = () => {
           <div className="text-center mb-12">
             <Badge variant="outline" className="mb-4">
               <Calculator className="w-4 h-4 mr-2" />
-              Simulateur Officiel
+              {t('simulator.badge')}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Simulez votre éligibilité en 2 minutes
+              {t('simulator.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Répondez aux questions ci-dessous pour découvrir si vous pouvez obtenir 
-              votre résidence par investissement immobilier aux EAU.
+              {t('simulator.description')}
             </p>
           </div>
 
@@ -171,29 +167,29 @@ const EligibilitySimulator = () => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Calculator className="w-5 h-5" />
-                <span>Simulateur d'éligibilité</span>
+                <span>{t('simulator.form.title')}</span>
               </CardTitle>
               <CardDescription>
-                Toutes les informations sont traitées de manière confidentielle
+                {t('simulator.form.subtitle')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-10">
-                {/* Step 1: Property Information */}
+                {/* Step 1 */}
                 <div className="space-y-6 p-6 bg-muted/30 rounded-lg border">
                   <div className="flex items-center space-x-2 mb-4">
                     <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">1</div>
-                    <h3 className="text-lg font-semibold">Informations sur votre propriété</h3>
+                    <h3 className="text-lg font-semibold">{t('simulator.form.step1.title')}</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="space-y-3">
                       <Label htmlFor="propertyValue" className="text-sm font-medium">
-                        Valeur de votre bien immobilier (AED) *
+                        {t('simulator.form.step1.propertyValue.label')} *
                       </Label>
                       <Input
                         id="propertyValue"
-                        placeholder="ex: 1500000"
+                        placeholder={t('simulator.form.step1.propertyValue.placeholder')}
                         value={formData.propertyValue}
                         onChange={(e) => {
                           const numericValue = e.target.value.replace(/[^\d]/g, '');
@@ -203,12 +199,12 @@ const EligibilitySimulator = () => {
                         className="text-lg"
                       />
                       <p className="text-xs text-muted-foreground">
-                        💡 Seuils d'investissement immobilier: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans
+                        {t('simulator.form.step1.propertyValue.hint')}
                       </p>
                     </div>
 
                     <div className="space-y-3">
-                      <Label className="text-sm font-medium">Votre propriété est-elle hypothéquée ? *</Label>
+                      <Label className="text-sm font-medium">{t('simulator.form.step1.isMortgaged.label')} *</Label>
                       <RadioGroup
                         value={formData.isMortgaged}
                         onValueChange={(value) => setFormData(prev => ({ ...prev, isMortgaged: value }))}
@@ -217,15 +213,15 @@ const EligibilitySimulator = () => {
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="no" id="not-mortgaged" />
                           <Label htmlFor="not-mortgaged" className="cursor-pointer flex-1">
-                            <div className="font-medium">Non, propriété entièrement payée</div>
-                            <div className="text-sm text-muted-foreground">Vous êtes propriétaire à 100%</div>
+                            <div className="font-medium">{t('simulator.form.step1.isMortgaged.no.title')}</div>
+                            <div className="text-sm text-muted-foreground">{t('simulator.form.step1.isMortgaged.no.description')}</div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="yes" id="mortgaged" />
                           <Label htmlFor="mortgaged" className="cursor-pointer flex-1">
-                            <div className="font-medium">Oui, propriété hypothéquée</div>
-                            <div className="text-sm text-muted-foreground">Minimum 50% payé requis + NOC banque</div>
+                            <div className="font-medium">{t('simulator.form.step1.isMortgaged.yes.title')}</div>
+                            <div className="text-sm text-muted-foreground">{t('simulator.form.step1.isMortgaged.yes.description')}</div>
                           </Label>
                         </div>
                       </RadioGroup>
@@ -233,22 +229,22 @@ const EligibilitySimulator = () => {
                   </div>
                 </div>
 
-                {/* Mortgage Details (if mortgaged) */}
+                {/* Mortgage Details */}
                 {formData.isMortgaged === 'yes' && (
                   <div className="space-y-6 p-6 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
                     <div className="flex items-center space-x-2">
                       <AlertCircle className="w-5 h-5 text-amber-600" />
-                      <h4 className="font-medium text-amber-800 dark:text-amber-200">Détails hypothèque requis</h4>
+                      <h4 className="font-medium text-amber-800 dark:text-amber-200">{t('simulator.mortgageDetails')}</h4>
                     </div>
                     
                     <div className="space-y-4">
                       <div className="space-y-3">
                         <Label htmlFor="amountPaid" className="text-sm font-medium">
-                          Montant déjà payé (AED) *
+                          {t('simulator.form.step1.amountPaid.label')} *
                         </Label>
                         <Input
                           id="amountPaid"
-                          placeholder="Minimum 50% de la valeur totale"
+                          placeholder={t('simulator.form.step1.amountPaid.placeholder')}
                           value={formData.amountPaid}
                           onChange={(e) => {
                             const numericValue = e.target.value.replace(/[^\d]/g, '');
@@ -259,7 +255,9 @@ const EligibilitySimulator = () => {
                         />
                         {formData.propertyValue && formData.amountPaid && (
                           <p className="text-sm text-muted-foreground">
-                            Pourcentage payé: {((parseInt(formData.amountPaid.replace(/[^\d]/g, '')) / parseInt(formData.propertyValue.replace(/[^\d]/g, ''))) * 100).toFixed(1)}%
+                            {t('simulator.form.step1.amountPaid.percentage', {
+                              percent: ((parseInt(formData.amountPaid.replace(/[^\d]/g, '')) / parseInt(formData.propertyValue.replace(/[^\d]/g, ''))) * 100).toFixed(1)
+                            })}
                           </p>
                         )}
                       </div>
@@ -272,24 +270,24 @@ const EligibilitySimulator = () => {
                           className="mt-0.5"
                         />
                         <Label htmlFor="hasNOC" className="text-sm cursor-pointer">
-                          <div className="font-medium">J'ai la lettre de non-objection (NOC) de ma banque</div>
-                          <div className="text-xs text-muted-foreground">Document obligatoire pour propriété hypothéquée</div>
+                          <div className="font-medium">{t('simulator.form.step1.hasNOC.title')}</div>
+                          <div className="text-xs text-muted-foreground">{t('simulator.form.step1.hasNOC.description')}</div>
                         </Label>
                       </div>
                     </div>
                   </div>
                 )}
 
-                {/* Step 2: Legal Requirements */}
+                {/* Step 2 */}
                 <div className="space-y-6 p-6 bg-muted/30 rounded-lg border">
                   <div className="flex items-center space-x-2 mb-4">
                     <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">2</div>
-                    <h3 className="text-lg font-semibold">Conditions légales</h3>
+                    <h3 className="text-lg font-semibold">{t('simulator.form.step2.title')}</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="space-y-3">
-                      <Label className="text-sm font-medium">Le titre de propriété est-il à votre nom ? *</Label>
+                      <Label className="text-sm font-medium">{t('simulator.form.step2.propertyInName.label')} *</Label>
                       <RadioGroup
                         value={formData.propertyInName}
                         onValueChange={(value) => setFormData(prev => ({ ...prev, propertyInName: value }))}
@@ -298,29 +296,29 @@ const EligibilitySimulator = () => {
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="yes" id="in-my-name" />
                           <Label htmlFor="in-my-name" className="cursor-pointer flex-1">
-                            <div className="font-medium">Oui, à mon nom</div>
-                            <div className="text-sm text-muted-foreground">Title deed à votre nom uniquement</div>
+                            <div className="font-medium">{t('simulator.form.step2.propertyInName.yes.title')}</div>
+                            <div className="text-sm text-muted-foreground">{t('simulator.form.step2.propertyInName.yes.description')}</div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="shared" id="shared-name" />
                           <Label htmlFor="shared-name" className="cursor-pointer flex-1">
-                            <div className="font-medium">Partagé avec époux/épouse</div>
-                            <div className="text-sm text-muted-foreground">Acceptable avec certificat de mariage</div>
+                            <div className="font-medium">{t('simulator.form.step2.propertyInName.shared.title')}</div>
+                            <div className="text-sm text-muted-foreground">{t('simulator.form.step2.propertyInName.shared.description')}</div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="no" id="not-in-name" />
                           <Label htmlFor="not-in-name" className="cursor-pointer flex-1">
-                            <div className="font-medium">Non</div>
-                            <div className="text-sm text-destructive">Non éligible</div>
+                            <div className="font-medium">{t('simulator.form.step2.propertyInName.no.title')}</div>
+                            <div className="text-sm text-destructive">{t('simulator.form.step2.propertyInName.no.description')}</div>
                           </Label>
                         </div>
                       </RadioGroup>
                     </div>
 
                     <div className="space-y-3">
-                      <Label className="text-sm font-medium">Êtes-vous actuellement présent(e) aux EAU ? *</Label>
+                      <Label className="text-sm font-medium">{t('simulator.form.step2.presentInUAE.label')} *</Label>
                       <RadioGroup
                         value={formData.presentInUAE}
                         onValueChange={(value) => setFormData(prev => ({ ...prev, presentInUAE: value }))}
@@ -329,15 +327,15 @@ const EligibilitySimulator = () => {
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="yes" id="present-yes" />
                           <Label htmlFor="present-yes" className="cursor-pointer flex-1">
-                            <div className="font-medium">Oui</div>
-                            <div className="text-sm text-muted-foreground">Présence physique requise pour la demande</div>
+                            <div className="font-medium">{t('simulator.form.step2.presentInUAE.yes.title')}</div>
+                            <div className="text-sm text-muted-foreground">{t('simulator.form.step2.presentInUAE.yes.description')}</div>
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent/20 cursor-pointer">
                           <RadioGroupItem value="no" id="present-no" />
                           <Label htmlFor="present-no" className="cursor-pointer flex-1">
-                            <div className="font-medium">Non</div>
-                            <div className="text-sm text-destructive">Présence obligatoire aux EAU</div>
+                            <div className="font-medium">{t('simulator.form.step2.presentInUAE.no.title')}</div>
+                            <div className="text-sm text-destructive">{t('simulator.form.step2.presentInUAE.no.description')}</div>
                           </Label>
                         </div>
                       </RadioGroup>
@@ -345,15 +343,15 @@ const EligibilitySimulator = () => {
                   </div>
                 </div>
 
-                {/* Step 3: Documents & Family */}
+                {/* Step 3 */}
                 <div className="space-y-6 p-6 bg-muted/30 rounded-lg border">
                   <div className="flex items-center space-x-2 mb-4">
                     <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">3</div>
-                    <h3 className="text-lg font-semibold">Documents et famille</h3>
+                    <h3 className="text-lg font-semibold">{t('simulator.form.step3.title')}</h3>
                   </div>
                   
                   <div className="space-y-4">
-                    <Label className="text-sm font-medium">Cochez les documents que vous possédez *</Label>
+                    <Label className="text-sm font-medium">{t('simulator.form.step3.documentsLabel')} *</Label>
                     
                     <div className="grid gap-3">
                       <div className="flex items-start space-x-3 p-3 border rounded-lg hover:bg-accent/20">
@@ -364,11 +362,11 @@ const EligibilitySimulator = () => {
                           className="mt-0.5"
                         />
                         <Label htmlFor="hasValidPassport" className="cursor-pointer flex-1">
-                          <div className="font-medium">Passeport valide</div>
-                          <div className="text-sm text-muted-foreground">Minimum 6 mois de validité restante</div>
+                          <div className="font-medium">{t('simulator.form.step3.hasValidPassport.title')}</div>
+                          <div className="text-sm text-muted-foreground">{t('simulator.form.step3.hasValidPassport.description')}</div>
                         </Label>
                         <Badge variant={formData.hasValidPassport ? "default" : "outline"}>
-                          {formData.hasValidPassport ? "✓" : "Requis"}
+                          {formData.hasValidPassport ? "✓" : t('simulator.form.required')}
                         </Badge>
                       </div>
 
@@ -380,11 +378,11 @@ const EligibilitySimulator = () => {
                           className="mt-0.5"
                         />
                         <Label htmlFor="hasHealthInsurance" className="cursor-pointer flex-1">
-                          <div className="font-medium">Assurance santé EAU</div>
-                          <div className="text-sm text-muted-foreground">Couverture médicale valide aux Émirats</div>
+                          <div className="font-medium">{t('simulator.form.step3.hasHealthInsurance.title')}</div>
+                          <div className="text-sm text-muted-foreground">{t('simulator.form.step3.hasHealthInsurance.description')}</div>
                         </Label>
                         <Badge variant={formData.hasHealthInsurance ? "default" : "outline"}>
-                          {formData.hasHealthInsurance ? "✓" : "Requis"}
+                          {formData.hasHealthInsurance ? "✓" : t('simulator.form.required')}
                         </Badge>
                       </div>
 
@@ -396,10 +394,10 @@ const EligibilitySimulator = () => {
                           className="mt-0.5"
                         />
                         <Label htmlFor="sponsorFamily" className="cursor-pointer flex-1">
-                          <div className="font-medium">Sponsoring famille</div>
-                          <div className="text-sm text-muted-foreground">Épouse/enfants (documents mariage/naissance requis)</div>
+                          <div className="font-medium">{t('simulator.form.step3.sponsorFamily.title')}</div>
+                          <div className="text-sm text-muted-foreground">{t('simulator.form.step3.sponsorFamily.description')}</div>
                         </Label>
-                        <Badge variant="outline">Optionnel</Badge>
+                        <Badge variant="outline">{t('simulator.form.optional')}</Badge>
                       </div>
                     </div>
                   </div>
@@ -412,7 +410,7 @@ const EligibilitySimulator = () => {
                   disabled={isLoading}
                   className="w-full"
                 >
-                  {isLoading ? "Calcul en cours..." : "Calculer mon éligibilité"}
+                  {isLoading ? t('simulator.form.loading') : t('simulator.form.submit')}
                 </Button>
               </form>
             </CardContent>
@@ -426,12 +424,12 @@ const EligibilitySimulator = () => {
                   {result.eligible ? (
                     <>
                       <CheckCircle className="w-6 h-6 text-success" />
-                      <span className="text-success">Éligible !</span>
+                      <span className="text-success">{t('simulator.result.eligible')}</span>
                     </>
                   ) : (
                     <>
                       <XCircle className="w-6 h-6 text-destructive" />
-                      <span className="text-destructive">Non éligible</span>
+                      <span className="text-destructive">{t('simulator.result.notEligible')}</span>
                     </>
                   )}
                 </CardTitle>
@@ -447,19 +445,16 @@ const EligibilitySimulator = () => {
                       )}
                       <div>
                         <h3 className="font-semibold text-lg">
-                          {result.visaType === '10-year' ? 'Golden Visa 10 ans' : 'Résidence Investisseur 2 ans'}
+                          {result.visaType === '10-year' ? t('simulator.result.goldenVisa10') : t('simulator.result.residence2')}
                         </h3>
                         <p className="text-muted-foreground">
-                          {result.visaType === '10-year' 
-                            ? 'Résidence longue durée avec avantages étendus' 
-                            : 'Résidence renouvelable avec droits de propriétaire'
-                          }
+                          {result.visaType === '10-year' ? t('simulator.result.goldenVisaDesc') : t('simulator.result.residenceDesc')}
                         </p>
                       </div>
                     </div>
 
                     <div>
-                      <h4 className="font-medium mb-3">Documents requis :</h4>
+                      <h4 className="font-medium mb-3">{t('simulator.result.documentsRequired')}</h4>
                       <ul className="space-y-2">
                         {result.requirements.map((req, idx) => (
                           <li key={idx} className="flex items-center space-x-2">
@@ -471,12 +466,12 @@ const EligibilitySimulator = () => {
                     </div>
 
                     <div className="p-4 bg-card rounded-lg border">
-                      <h4 className="font-medium mb-2">Coût total estimé :</h4>
+                      <h4 className="font-medium mb-2">{t('simulator.result.totalCost')}</h4>
                       <div className="text-2xl font-bold text-primary">
                         AED {result.totalCost.toLocaleString()}
                       </div>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Incluant frais de service (AED 3,500) + frais officiels estimés
+                        {t('simulator.result.totalCostDesc')}
                       </p>
                     </div>
 
@@ -487,10 +482,10 @@ const EligibilitySimulator = () => {
                         className="flex-1"
                         onClick={() => navigate('/application')}
                       >
-                        Lancer ma demande
+                        {t('simulator.result.startApplication')}
                       </Button>
                       <Button variant="outline" size="lg" className="flex-1">
-                        Télécharger le rapport
+                        {t('simulator.result.downloadReport')}
                       </Button>
                     </div>
                   </div>
@@ -499,7 +494,7 @@ const EligibilitySimulator = () => {
                     <div>
                       <h4 className="font-medium mb-3 flex items-center space-x-2">
                         <AlertCircle className="w-5 h-5 text-destructive" />
-                        <span>Conditions non remplies :</span>
+                        <span>{t('simulator.result.conditionsNotMet')}</span>
                       </h4>
                       <ul className="space-y-2">
                         {result.reasons.map((reason, idx) => (
@@ -512,15 +507,14 @@ const EligibilitySimulator = () => {
                     </div>
 
                     <div className="p-4 bg-muted rounded-lg">
-                      <h4 className="font-medium mb-2">Que faire ?</h4>
+                      <h4 className="font-medium mb-2">{t('simulator.result.whatToDo')}</h4>
                       <p className="text-sm text-muted-foreground">
-                        Contactez nos conseillers pour explorer vos options et obtenir 
-                        des recommandations personnalisées pour devenir éligible.
+                        {t('simulator.result.contactAdvice')}
                       </p>
                     </div>
 
                     <Button variant="outline" size="lg" className="w-full">
-                      Consulter un conseiller
+                      {t('simulator.result.consultAdvisor')}
                     </Button>
                   </div>
                 )}
