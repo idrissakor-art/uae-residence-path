@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Golden Visa UAE | Obtenez votre Visa Or Dubai 10 ans";
+    document.title = "Golden Visa Dubai 2026 | Obtenez votre Visa Or UAE en 48h | UAE-VisaServices";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Obtenez votre Golden Visa UAE 10 ans par investissement immobilier (≥2M AED). Simulateur d'éligibilité gratuit, accompagnement complet. +1000 dossiers traités.");
