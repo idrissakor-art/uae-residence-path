@@ -467,7 +467,7 @@
         "answer": "Le paiement de la prestation (AED 3 500) est effectué après que vous ayez validé votre éligibilité et uploadé les documents requis, via un module de paiement sécurisé (Stripe / carte bancaire)."
       },
       "q11": {
-        "question": "Combien de temps prend le traitement du dossier ?",
+        "question": "Quel est le délai d'obtention ?",
         "answer": "Le délai varie selon les autorités émiraties, mais généralement entre quelques semaines et quelques mois. Nous vous fournissons un suivi du dossier via notre interface."
       },
       "q12": {
