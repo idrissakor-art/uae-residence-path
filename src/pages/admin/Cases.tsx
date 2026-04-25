@@ -184,7 +184,6 @@ const AdminCases = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">Tous les types</SelectItem>
-                    <SelectItem value="residence_investors">Résidence Investisseurs</SelectItem>
                     <SelectItem value="golden_visa">Golden Visa</SelectItem>
                     <SelectItem value="family_reunion">Regroupement Familial</SelectItem>
                   </SelectContent>
