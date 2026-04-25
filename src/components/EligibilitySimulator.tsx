@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, CheckCircle, XCircle, AlertCircle, Crown, Clock } from "lucide-react";
+import { Calculator, CheckCircle, XCircle, AlertCircle, Crown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
