@@ -128,7 +128,7 @@ const Hero = () => {
           <div className="bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 max-w-3xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               <div className="text-center">
-                <AnimatedCounter target={1000} prefix="+" />
+                <AnimatedCounter target={500} prefix="+" />
                 <p className="text-white/70 text-sm mt-1">{t('hero.stats.cases')}</p>
               </div>
               <div className="text-center md:border-x md:border-white/10">
