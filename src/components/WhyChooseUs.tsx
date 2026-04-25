@@ -88,7 +88,7 @@ const WhyChooseUs = () => {
               </div>
               <h3 className="font-semibold text-foreground mb-2 text-lg">
                 {feature.hasCounter ? (
-                  <><AnimatedNumber target={1000} /> {t(feature.titleKey).replace(/^\+?\d[\d\s,.]*/,'')}</>
+                  <><AnimatedNumber target={500} /> {t(feature.titleKey).replace(/^\+?\d[\d\s,.]*/,'')}</>
                 ) : (
                   t(feature.titleKey)
                 )}
