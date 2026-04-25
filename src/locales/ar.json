@@ -22,6 +22,11 @@
       "cases": "+1,000 ملف تم معالجته",
       "multilingual": "دعم متعدد اللغات",
       "secure": "آمن 100%"
+    },
+    "stats": {
+      "cases": "ملفات تمت معالجتها",
+      "satisfaction": "نسبة الرضا",
+      "processing": "متوسط وقت المعالجة"
     }
   },
   "whyChooseUs": {
