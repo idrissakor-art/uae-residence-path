@@ -12,9 +12,8 @@
   },
   "hero": {
     "title": "Get your <1>Golden Visa Dubai</1> in 10 years",
-    "subtitle": "Golden Visa 10 years or investor residence 2 years – Check your eligibility in 2 minutes, complete assistance for AED 3,500",
+    "subtitle": "Golden Visa 10 years – Check your eligibility in 2 minutes, complete assistance for AED 3,500",
     "benefits": {
-      "residence2": "≥ AED 750k → 2-year Residence",
       "golden10": "≥ AED 2M → 10-year Golden Visa",
       "support": "Complete assistance"
     },
@@ -89,25 +88,45 @@
           "title": "Real Estate Investor",
           "threshold": "≥ AED 2,000,000",
           "description": "Residential property with a minimum value of 2 million AED, fully paid or at least 50% if mortgaged.",
-          "features": ["10-year renewable residence", "Family sponsorship included", "Banking facilities", "Children's education"]
+          "features": [
+            "10-year renewable residence",
+            "Family sponsorship included",
+            "Banking facilities",
+            "Children's education"
+          ]
         },
         "entrepreneur": {
           "title": "Entrepreneur / Startup",
           "threshold": "Approved project",
           "description": "Founder or director of an innovative startup approved by an accredited incubator in the UAE.",
-          "features": ["10-year founder visa", "Employee sponsorship", "Free zone access", "Privileged networking"]
+          "features": [
+            "10-year founder visa",
+            "Employee sponsorship",
+            "Free zone access",
+            "Privileged networking"
+          ]
         },
         "professional": {
           "title": "Qualified Professional",
           "threshold": "≥ AED 30K/month",
           "description": "Professional with a minimum monthly salary of 30,000 AED and a bachelor's degree or higher.",
-          "features": ["Sponsor-independent", "Long-term residence", "Professional mobility", "Extended benefits"]
+          "features": [
+            "Sponsor-independent",
+            "Long-term residence",
+            "Professional mobility",
+            "Extended benefits"
+          ]
         },
         "academic": {
           "title": "Researcher / Doctor / Student",
           "threshold": "Academic excellence",
           "description": "Researchers, specialist doctors and outstanding students from accredited universities in the UAE.",
-          "features": ["10-year academic visa", "Lab access", "Additional scholarships", "Scientific network"]
+          "features": [
+            "10-year academic visa",
+            "Lab access",
+            "Additional scholarships",
+            "Scientific network"
+          ]
         }
       },
       "mostPopular": "⭐ Most popular"
@@ -117,10 +136,22 @@
       "title": "4 simple steps",
       "subtitle": "From simulation to obtaining your Golden Visa",
       "steps": {
-        "s1": { "title": "Simulate", "desc": "Test your eligibility in 2 minutes" },
-        "s2": { "title": "Submit your file", "desc": "Upload your documents online" },
-        "s3": { "title": "Secure payment", "desc": "Pay only if eligible" },
-        "s4": { "title": "Get your Golden Visa", "desc": "Receive your visa within 48h" }
+        "s1": {
+          "title": "Simulate",
+          "desc": "Test your eligibility in 2 minutes"
+        },
+        "s2": {
+          "title": "Submit your file",
+          "desc": "Upload your documents online"
+        },
+        "s3": {
+          "title": "Secure payment",
+          "desc": "Pay only if eligible"
+        },
+        "s4": {
+          "title": "Get your Golden Visa",
+          "desc": "Receive your visa within 48h"
+        }
       }
     },
     "platform": {
@@ -128,12 +159,36 @@
       "title": "Complete and secure platform",
       "subtitle": "From simulation to obtaining your Golden Visa, we support you at every step of the process",
       "items": {
-        "secure": { "title": "Secure Platform", "description": "Encrypted data and GDPR compliance. Your personal information is protected to banking standards.", "badge": "Certified" },
-        "upload": { "title": "Simplified Upload", "description": "Intuitive interface for uploading all your documents. Automatic validation and instant feedback.", "badge": "Simple" },
-        "payment": { "title": "Integrated Payment", "description": "Secure payment by credit card. No payment before eligibility validation.", "badge": "Secure" },
-        "support": { "title": "Expert Support", "description": "Specialized advisors available in French, English and Arabic. Personalized assistance.", "badge": "24/7" },
-        "tracking": { "title": "Real-Time Tracking", "description": "Personal dashboard to track your file progress step by step.", "badge": "Live" },
-        "multilingual": { "title": "Multilingual", "description": "Interface and support in your language. Official documentation translated and certified.", "badge": "Global" }
+        "secure": {
+          "title": "Secure Platform",
+          "description": "Encrypted data and GDPR compliance. Your personal information is protected to banking standards.",
+          "badge": "Certified"
+        },
+        "upload": {
+          "title": "Simplified Upload",
+          "description": "Intuitive interface for uploading all your documents. Automatic validation and instant feedback.",
+          "badge": "Simple"
+        },
+        "payment": {
+          "title": "Integrated Payment",
+          "description": "Secure payment by credit card. No payment before eligibility validation.",
+          "badge": "Secure"
+        },
+        "support": {
+          "title": "Expert Support",
+          "description": "Specialized advisors available in French, English and Arabic. Personalized assistance.",
+          "badge": "24/7"
+        },
+        "tracking": {
+          "title": "Real-Time Tracking",
+          "description": "Personal dashboard to track your file progress step by step.",
+          "badge": "Live"
+        },
+        "multilingual": {
+          "title": "Multilingual",
+          "description": "Interface and support in your language. Official documentation translated and certified.",
+          "badge": "Global"
+        }
       }
     }
   },
@@ -169,7 +224,7 @@
         "propertyValue": {
           "label": "Your property value (AED)",
           "placeholder": "e.g: 1500000",
-          "hint": "💡 Real estate investment thresholds: ≥750k AED = 2-year Residence • ≥2M AED = 10-year Golden Visa"
+          "hint": "💡 Minimum real estate investment: ≥ 2M AED for the 10-year Golden Visa"
         },
         "isMortgaged": {
           "label": "Is your property mortgaged?",
@@ -260,9 +315,7 @@
       "eligible": "Eligible!",
       "notEligible": "Not eligible",
       "goldenVisa10": "Golden Visa 10 years",
-      "residence2": "Investor Residence 2 years",
       "goldenVisaDesc": "Long-term residence with extended benefits",
-      "residenceDesc": "Renewable residence with property owner rights",
       "documentsRequired": "Required documents:",
       "totalCost": "Estimated total cost:",
       "totalCostDesc": "Including service fees (AED 3,500) + estimated official fees",
@@ -277,7 +330,7 @@
       "notEligibleMsg": "❌ Not eligible",
       "seeConditions": "See conditions to meet below.",
       "reasons": {
-        "insufficientValue": "Insufficient property value ({value} AED). Minimum {min} AED required for Golden Visa.",
+        "insufficientValue": "Insufficient property value ({value} AED). Minimum {min} AED required for the 10-year Golden Visa.",
         "insufficientPaid": "Only {percent}% paid. Minimum 50% required for mortgaged property.",
         "nocRequired": "No-objection letter (NOC) from bank required.",
         "propertyNotInName": "Property must be in the applicant's name or shared (spouse).",
@@ -287,7 +340,6 @@
       },
       "requirements": {
         "goldenVisa": "Golden Visa 10 years eligible",
-        "residence": "Investor Residence 2 years eligible",
         "goodConduct": "Good conduct certificate from country of origin",
         "photos": "Photos meeting standards",
         "application": "Completed application form",
@@ -375,12 +427,12 @@
     },
     "questions": {
       "q1": {
-        "question": "What is the Residence by Property Investment in the UAE?",
-        "answer": "The Residence by Property Investment (Investor Residence) allows an investor owning real estate in the UAE to obtain a residence permit (e.g. 2 years or 10-year Golden Visa), subject to meeting specific criteria and thresholds."
+        "question": "What is the Golden Visa Dubai by Property Investment?",
+        "answer": "The Golden Visa Dubai is a 10-year residence permit granted to real estate investors in the UAE who own property worth at least AED 2,000,000, subject to meeting legal criteria."
       },
       "q2": {
-        "question": "What are the minimum amounts required for 2-year residence and 10-year Golden Visa?",
-        "answer": "For 2-year residence: invest in a property worth at least AED 750,000 (or equivalent).\nFor the 10-year Golden Visa: the minimum investment is approximately AED 2,000,000 (which can be across multiple properties)."
+        "question": "What is the minimum amount required for the 10-year Golden Visa?",
+        "answer": "To obtain the 10-year Golden Visa, you must invest in real estate worth at least AED 2,000,000 (or combine multiple properties to reach this threshold)."
       },
       "q3": {
         "question": "Can a mortgaged property be accepted for the application?",
@@ -400,7 +452,7 @@
       },
       "q7": {
         "question": "Can I sponsor my family under this investor residence?",
-        "answer": "Yes, a valid investor residence (2-year or Golden Visa) often enables you to sponsor your family (spouse, children, sometimes parents) subject to conditions (documentation, eligibility, age, etc.)."
+        "answer": "Yes, a valid Golden Visa allows you to sponsor your family (spouse, children, sometimes parents) subject to certain conditions (financial capacity, documentation, age, etc.)."
       },
       "q8": {
         "question": "What happens if the visa application is rejected?",
@@ -419,7 +471,7 @@
         "answer": "The processing time varies based on UAE authorities, but typically it ranges from a few weeks to a few months. We provide a status tracker for your application."
       },
       "q12": {
-        "question": "Can I work or get a business license with this investor residence?",
+        "question": "Can I work or get a business license with the Golden Visa?",
         "answer": "Yes, in many cases you can request a temporary work permit from the UAE Ministry of Human Resources, and obtain a commercial license if you meet the relevant conditions."
       },
       "q13": {

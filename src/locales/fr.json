@@ -12,9 +12,8 @@
   },
   "hero": {
     "title": "Obtenez votre <1>Golden Visa Dubai</1> en 10 ans",
-    "subtitle": "Golden Visa 10 ans ou résidence 2 ans – Simulez votre éligibilité en 2 minutes, accompagnement complet pour AED 3,500",
+    "subtitle": "Golden Visa 10 ans – Simulez votre éligibilité en 2 minutes, accompagnement complet pour AED 3,500",
     "benefits": {
-      "residence2": "≥ AED 750k → Résidence 2 ans",
       "golden10": "≥ AED 2M → Golden Visa 10 ans",
       "support": "Accompagnement complet"
     },
@@ -89,25 +88,45 @@
           "title": "Investisseur Immobilier",
           "threshold": "≥ AED 2,000,000",
           "description": "Propriété résidentielle d'une valeur minimale de 2 millions AED, payée intégralement ou à 50% minimum si hypothéquée.",
-          "features": ["Résidence 10 ans renouvelable", "Sponsor famille inclus", "Facilités bancaires", "Éducation enfants"]
+          "features": [
+            "Résidence 10 ans renouvelable",
+            "Sponsor famille inclus",
+            "Facilités bancaires",
+            "Éducation enfants"
+          ]
         },
         "entrepreneur": {
           "title": "Entrepreneur / Startup",
           "threshold": "Projet approuvé",
           "description": "Fondateur ou dirigeant d'une startup innovante approuvée par un incubateur accrédité aux EAU.",
-          "features": ["Visa fondateur 10 ans", "Sponsor employés", "Accès zones franches", "Networking privilégié"]
+          "features": [
+            "Visa fondateur 10 ans",
+            "Sponsor employés",
+            "Accès zones franches",
+            "Networking privilégié"
+          ]
         },
         "professional": {
           "title": "Professionnel Qualifié",
           "threshold": "≥ AED 30K/mois",
           "description": "Professionnel avec un salaire mensuel de 30 000 AED minimum et un diplôme de niveau baccalauréat ou supérieur.",
-          "features": ["Indépendant du sponsor", "Résidence longue durée", "Mobilité professionnelle", "Avantages étendus"]
+          "features": [
+            "Indépendant du sponsor",
+            "Résidence longue durée",
+            "Mobilité professionnelle",
+            "Avantages étendus"
+          ]
         },
         "academic": {
           "title": "Chercheur / Médecin / Étudiant",
           "threshold": "Excellence académique",
           "description": "Chercheurs, médecins spécialistes et étudiants d'excellence des universités accréditées aux EAU.",
-          "features": ["Visa académique 10 ans", "Accès laboratoires", "Bourses complémentaires", "Réseau scientifique"]
+          "features": [
+            "Visa académique 10 ans",
+            "Accès laboratoires",
+            "Bourses complémentaires",
+            "Réseau scientifique"
+          ]
         }
       },
       "mostPopular": "⭐ Plus populaire"
@@ -117,10 +136,22 @@
       "title": "4 étapes simples",
       "subtitle": "De la simulation à l'obtention de votre Golden Visa",
       "steps": {
-        "s1": { "title": "Simulez", "desc": "Testez votre éligibilité en 2 minutes" },
-        "s2": { "title": "Soumettez votre dossier", "desc": "Uploadez vos documents en ligne" },
-        "s3": { "title": "Paiement sécurisé", "desc": "Payez uniquement si éligible" },
-        "s4": { "title": "Obtenez votre Golden Visa", "desc": "Recevez votre visa sous 48h" }
+        "s1": {
+          "title": "Simulez",
+          "desc": "Testez votre éligibilité en 2 minutes"
+        },
+        "s2": {
+          "title": "Soumettez votre dossier",
+          "desc": "Uploadez vos documents en ligne"
+        },
+        "s3": {
+          "title": "Paiement sécurisé",
+          "desc": "Payez uniquement si éligible"
+        },
+        "s4": {
+          "title": "Obtenez votre Golden Visa",
+          "desc": "Recevez votre visa sous 48h"
+        }
       }
     },
     "platform": {
@@ -128,12 +159,36 @@
       "title": "Plateforme complète et sécurisée",
       "subtitle": "De la simulation à l'obtention de votre Golden Visa, nous vous accompagnons à chaque étape du processus",
       "items": {
-        "secure": { "title": "Plateforme Sécurisée", "description": "Données chiffrées et conformité RGPD. Vos informations personnelles sont protégées selon les standards bancaires.", "badge": "Certifié" },
-        "upload": { "title": "Upload Simplifié", "description": "Interface intuitive pour télécharger tous vos documents. Validation automatique et feedback instantané.", "badge": "Simple" },
-        "payment": { "title": "Paiement Intégré", "description": "Règlement sécurisé par carte bancaire. Pas de paiement avant validation de votre éligibilité.", "badge": "Sécurisé" },
-        "support": { "title": "Support Expert", "description": "Conseillers spécialisés disponibles en français, anglais et arabe. Accompagnement personnalisé.", "badge": "24/7" },
-        "tracking": { "title": "Suivi en Temps Réel", "description": "Dashboard personnel pour suivre l'avancement de votre dossier étape par étape.", "badge": "Live" },
-        "multilingual": { "title": "Multilingue", "description": "Interface et support dans votre langue. Documentation officielle traduite et certifiée.", "badge": "Global" }
+        "secure": {
+          "title": "Plateforme Sécurisée",
+          "description": "Données chiffrées et conformité RGPD. Vos informations personnelles sont protégées selon les standards bancaires.",
+          "badge": "Certifié"
+        },
+        "upload": {
+          "title": "Upload Simplifié",
+          "description": "Interface intuitive pour télécharger tous vos documents. Validation automatique et feedback instantané.",
+          "badge": "Simple"
+        },
+        "payment": {
+          "title": "Paiement Intégré",
+          "description": "Règlement sécurisé par carte bancaire. Pas de paiement avant validation de votre éligibilité.",
+          "badge": "Sécurisé"
+        },
+        "support": {
+          "title": "Support Expert",
+          "description": "Conseillers spécialisés disponibles en français, anglais et arabe. Accompagnement personnalisé.",
+          "badge": "24/7"
+        },
+        "tracking": {
+          "title": "Suivi en Temps Réel",
+          "description": "Dashboard personnel pour suivre l'avancement de votre dossier étape par étape.",
+          "badge": "Live"
+        },
+        "multilingual": {
+          "title": "Multilingue",
+          "description": "Interface et support dans votre langue. Documentation officielle traduite et certifiée.",
+          "badge": "Global"
+        }
       }
     }
   },
@@ -169,7 +224,7 @@
         "propertyValue": {
           "label": "Valeur de votre bien immobilier (AED)",
           "placeholder": "ex: 1500000",
-          "hint": "💡 Seuils d'investissement immobilier: ≥750k AED = Résidence 2 ans • ≥2M AED = Golden Visa 10 ans"
+          "hint": "💡 Investissement immobilier minimum: ≥ 2M AED pour le Golden Visa 10 ans"
         },
         "isMortgaged": {
           "label": "Votre propriété est-elle hypothéquée ?",
@@ -260,9 +315,7 @@
       "eligible": "Éligible !",
       "notEligible": "Non éligible",
       "goldenVisa10": "Golden Visa 10 ans",
-      "residence2": "Résidence Investisseur 2 ans",
       "goldenVisaDesc": "Résidence longue durée avec avantages étendus",
-      "residenceDesc": "Résidence renouvelable avec droits de propriétaire",
       "documentsRequired": "Documents requis :",
       "totalCost": "Coût total estimé :",
       "totalCostDesc": "Incluant frais de service (AED 3,500) + frais officiels estimés",
@@ -277,7 +330,7 @@
       "notEligibleMsg": "❌ Non éligible",
       "seeConditions": "Consultez les conditions à remplir ci-dessous.",
       "reasons": {
-        "insufficientValue": "Valeur propriété insuffisante ({value} AED). Minimum {min} AED requis pour le Golden Visa.",
+        "insufficientValue": "Valeur propriété insuffisante ({value} AED). Minimum {min} AED requis pour le Golden Visa 10 ans.",
         "insufficientPaid": "Seulement {percent}% payé. Minimum 50% requis pour propriété hypothéquée.",
         "nocRequired": "Lettre de non-objection (NOC) de la banque requise.",
         "propertyNotInName": "La propriété doit être au nom du demandeur ou partagée (époux/épouse).",
@@ -287,7 +340,6 @@
       },
       "requirements": {
         "goldenVisa": "Golden Visa 10 ans éligible",
-        "residence": "Résidence Investisseur 2 ans éligible",
         "goodConduct": "Certificat de bonne conduite du pays d'origine",
         "photos": "Photos conformes aux standards",
         "application": "Formulaire de demande complété",
@@ -375,12 +427,12 @@
     },
     "questions": {
       "q1": {
-        "question": "Qu'est-ce que la résidence par investissement immobilier aux EAU ?",
-        "answer": "La résidence par investissement immobilier (Investor Residence) permet à un investisseur possédant un bien immobilier aux Émirats Arabes Unis d'obtenir une autorisation de séjour (par exemple 2 ans ou Golden Visa 10 ans), à condition de respecter certains seuils et critères légaux."
+        "question": "Qu'est-ce que le Golden Visa Dubai par investissement immobilier ?",
+        "answer": "Le Golden Visa Dubai est une autorisation de séjour de 10 ans accordée aux investisseurs immobiliers aux Émirats Arabes Unis qui possèdent un bien d'une valeur minimale de 2 000 000 AED, sous réserve de respecter les critères légaux."
       },
       "q2": {
-        "question": "Quels sont les montants minimum exigés pour la résidence 2 ans et le Golden Visa 10 ans ?",
-        "answer": "Pour la résidence 2 ans : vous devez investir dans un bien immobilier d'une valeur minimale d'environ AED 750 000 (ou son équivalent).\nPour le Golden Visa 10 ans : la valeur minimum est d'environ AED 2 000 000 (ou plusieurs biens cumulés)."
+        "question": "Quel est le montant minimum requis pour le Golden Visa 10 ans ?",
+        "answer": "Pour obtenir le Golden Visa 10 ans, vous devez investir dans un bien immobilier d'une valeur minimale de 2 000 000 AED (ou cumuler plusieurs biens atteignant ce seuil)."
       },
       "q3": {
         "question": "Un bien hypothéqué est-il accepté pour la demande ?",
@@ -400,7 +452,7 @@
       },
       "q7": {
         "question": "Est-ce que je peux parrainer ma famille avec cette résidence ?",
-        "answer": "Oui, une résidence investisseur valide (2 ans ou Golden Visa) permet souvent de sponsoriser votre famille (épouse, enfants, parfois parents) sous réserve de certaines conditions (capacité, documents, âge, etc.)."
+        "answer": "Oui, un Golden Visa valide vous permet de sponsoriser votre famille (épouse, enfants, parfois parents) sous réserve de certaines conditions (capacité financière, documents, âge, etc.)."
       },
       "q8": {
         "question": "Que se passe-t-il si la demande de visa est refusée ?",
@@ -419,7 +471,7 @@
         "answer": "Le délai varie selon les autorités émiraties, mais généralement entre quelques semaines et quelques mois. Nous vous fournissons un suivi du dossier via notre interface."
       },
       "q12": {
-        "question": "Puis-je travailler ou obtenir une licence d'activité avec cette résidence investisseur ?",
+        "question": "Puis-je travailler ou obtenir une licence d'activité avec le Golden Visa ?",
         "answer": "Oui, dans de nombreux cas vous pouvez demander un permis de travail temporaire via le ministère du travail des EAU. Vous pouvez aussi obtenir une licence commerciale si vous remplissez les conditions."
       },
       "q13": {
