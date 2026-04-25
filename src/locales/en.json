@@ -224,7 +224,7 @@
         "propertyValue": {
           "label": "Your property value (AED)",
           "placeholder": "e.g: 1500000",
-          "hint": "💡 Minimum real estate investment: ≥ 2M AED for the 10-year Golden Visa"
+          "hint": "💡 ≥ AED 2,000,000 = Golden Visa eligible"
         },
         "isMortgaged": {
           "label": "Is your property mortgaged?",

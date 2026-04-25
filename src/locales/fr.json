@@ -224,7 +224,7 @@
         "propertyValue": {
           "label": "Valeur de votre bien immobilier (AED)",
           "placeholder": "ex: 1500000",
-          "hint": "💡 Investissement immobilier minimum: ≥ 2M AED pour le Golden Visa 10 ans"
+          "hint": "💡 ≥ AED 2 000 000 = éligible au Golden Visa 10 ans"
         },
         "isMortgaged": {
           "label": "Votre propriété est-elle hypothéquée ?",
