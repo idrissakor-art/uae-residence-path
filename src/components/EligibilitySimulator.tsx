@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, CheckCircle, XCircle, AlertCircle, Crown, Clock } from "lucide-react";
+import { Calculator, CheckCircle, XCircle, AlertCircle, Crown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
@@ -25,7 +25,7 @@ interface FormData {
 
 interface SimulationResult {
   eligible: boolean;
-  visaType: '2-year' | '10-year' | null;
+  visaType: '10-year' | null;
   reasons: string[];
   requirements: string[];
   totalCost: number;
@@ -57,17 +57,14 @@ const EligibilitySimulator = () => {
     const reasons: string[] = [];
     const requirements: string[] = [];
     let eligible = true;
-    let visaType: '2-year' | '10-year' | null = null;
+    let visaType: '10-year' | null = null;
 
     if (propertyValue >= 2000000) {
       visaType = '10-year';
       requirements.push(t('simulator.result.requirements.goldenVisa'));
-    } else if (propertyValue >= 750000) {
-      visaType = '2-year';
-      requirements.push(t('simulator.result.requirements.residence'));
     } else {
       eligible = false;
-      reasons.push(t('simulator.result.reasons.insufficientValue', { value: propertyValue.toLocaleString(), min: '750,000' }));
+      reasons.push(t('simulator.result.reasons.insufficientValue', { value: propertyValue.toLocaleString(), min: '2,000,000' }));
     }
 
     if (formData.isMortgaged === 'yes') {
@@ -116,7 +113,7 @@ const EligibilitySimulator = () => {
       visaType,
       reasons,
       requirements,
-      totalCost: 3500 + (eligible && visaType === '10-year' ? 2000 : 1000)
+      totalCost: 3500 + (eligible ? 2000 : 0)
     };
   };
 
@@ -134,7 +131,7 @@ const EligibilitySimulator = () => {
       toast({
         title: t('simulator.result.congratulations'),
         description: t('simulator.result.eligibleFor', { 
-          visaType: simulationResult.visaType === '10-year' ? t('simulator.result.goldenVisa10') : t('simulator.result.residence2')
+          visaType: t('simulator.result.goldenVisa10')
         }),
       });
     } else {
@@ -438,17 +435,13 @@ const EligibilitySimulator = () => {
                 {result.eligible ? (
                   <div className="space-y-6">
                     <div className="flex items-center space-x-3 p-4 bg-success/10 rounded-lg">
-                      {result.visaType === '10-year' ? (
-                        <Crown className="w-8 h-8 text-success" />
-                      ) : (
-                        <Clock className="w-8 h-8 text-success" />
-                      )}
+                      <Crown className="w-8 h-8 text-success" />
                       <div>
                         <h3 className="font-semibold text-lg">
-                          {result.visaType === '10-year' ? t('simulator.result.goldenVisa10') : t('simulator.result.residence2')}
+                          {t('simulator.result.goldenVisa10')}
                         </h3>
                         <p className="text-muted-foreground">
-                          {result.visaType === '10-year' ? t('simulator.result.goldenVisaDesc') : t('simulator.result.residenceDesc')}
+                          {t('simulator.result.goldenVisaDesc')}
                         </p>
                       </div>
                     </div>

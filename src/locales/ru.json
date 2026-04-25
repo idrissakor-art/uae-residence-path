@@ -12,9 +12,8 @@
   },
   "hero": {
     "title": "Получите Golden Visa Dubai через инвестиции в недвижимость",
-    "subtitle": "Golden Visa на 10 лет – Проверьте свою допустимость за 2 минуты, полное сопровождение от AED 3,500",
+    "subtitle": "Golden Visa 10 лет – Проверьте свою допустимость за 2 минуты, полное сопровождение от AED 3,500",
     "benefits": {
-      "residence2": "≥ AED 2M → Golden Visa 10 лет",
       "golden10": "≥ AED 2M → Golden Visa 10 лет",
       "support": "Полное сопровождение"
     },
@@ -124,9 +123,7 @@
       "congratulations": "Поздравляем!",
       "eligibleFor": "Вы допущены к {{visaType}}",
       "goldenVisa10": "Golden Visa 10 лет",
-      "residence2": "Golden Visa 10 лет",
       "goldenVisaDesc": "Долгосрочная резиденция с расширенными привилегиями",
-      "residenceDesc": "Golden Visa на 10 лет через инвестиции в недвижимость",
       "documentsRequired": "Необходимые документы",
       "totalCost": "Общая стоимость услуг",
       "totalCostDesc": "Включая полное сопровождение и подачу документов",

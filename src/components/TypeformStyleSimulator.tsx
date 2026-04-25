@@ -30,7 +30,7 @@ interface FormData {
 
 interface SimulationResult {
   eligible: boolean;
-  visaType: '2-year' | '10-year' | null;
+  visaType: '10-year' | null;
   reasons: string[];
   requirements: string[];
   totalCost: number;
@@ -121,7 +121,7 @@ const TypeformStyleSimulator = () => {
     const reasons: string[] = [];
     const requirements: string[] = [];
     let eligible = true;
-    let visaType: '2-year' | '10-year' | null = null;
+    let visaType: '10-year' | null = null;
 
     // Check property value threshold for Golden Visa
     if (propertyValue >= 2000000) {
