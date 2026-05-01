@@ -68,10 +68,15 @@ const EligibilitySimulator = () => {
     }
 
     if (formData.isMortgaged === 'yes') {
-      const paidPercentage = (amountPaid / propertyValue) * 100;
-      if (paidPercentage < 50) {
+      // 2026 DLD rule: paid-up equity must be >= AED 2,000,000 (not 50%).
+      if (amountPaid < 2000000) {
         eligible = false;
-        reasons.push(t('simulator.result.reasons.insufficientPaid', { percent: paidPercentage.toFixed(1) }));
+        reasons.push(
+          t('simulator.result.reasons.insufficientPaid', {
+            equity: amountPaid.toLocaleString(),
+            min: '2,000,000',
+          })
+        );
       }
       if (!formData.hasNOC) {
         eligible = false;
