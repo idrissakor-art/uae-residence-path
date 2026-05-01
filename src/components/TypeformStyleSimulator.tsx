@@ -134,10 +134,17 @@ const TypeformStyleSimulator = () => {
 
     // Check mortgage conditions
     if (formData.isMortgaged === 'yes') {
-      const paidPercentage = (amountPaid / propertyValue) * 100;
-      if (paidPercentage < 50) {
+      // 2026 DLD rule: paid-up equity must be >= AED 2,000,000
+      // (NOT a percentage). Source: Dubai Land Department.
+      const paidUpEquity = amountPaid;
+      if (paidUpEquity < 2000000) {
         eligible = false;
-        reasons.push(t('simulator.result.reasons.insufficientPaid', { percent: paidPercentage.toFixed(1) }));
+        reasons.push(
+          t('simulator.result.reasons.insufficientPaid', {
+            equity: paidUpEquity.toLocaleString(),
+            min: '2,000,000',
+          })
+        );
       }
       if (!formData.hasNOC) {
         eligible = false;
