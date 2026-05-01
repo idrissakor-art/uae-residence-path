@@ -601,7 +601,7 @@ const TypeformStyleSimulator = () => {
       )}
 
       {/* Step - Family sponsoring (optional) */}
-      {((currentStep === 5 && formData.isMortgaged === 'no') || (currentStep === 6 && formData.isMortgaged === 'yes')) && (
+      {((currentStep === 6 && formData.isMortgaged === 'no') || (currentStep === 7 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
           step={getDisplayStep()}
           totalSteps={getTotalDisplaySteps()}
@@ -622,7 +622,7 @@ const TypeformStyleSimulator = () => {
       )}
 
       {/* Step - Contact information */}
-      {((currentStep === 6 && formData.isMortgaged === 'no') || (currentStep === 7 && formData.isMortgaged === 'yes')) && (
+      {((currentStep === 7 && formData.isMortgaged === 'no') || (currentStep === 8 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
           step={getDisplayStep()}
           totalSteps={getTotalDisplaySteps()}
