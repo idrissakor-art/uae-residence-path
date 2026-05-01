@@ -243,13 +243,15 @@ const TypeformStyleSimulator = () => {
       case 5:
         return formData.presentInUAE.length > 0;
       case 6:
+        // no = family sponsoring (optional, always true) ; yes = documents
         return formData.isMortgaged === 'no'
-          ? (formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0)
+          ? true
           : (formData.hasValidPassport && formData.hasHealthInsurance);
       case 7:
+        // no = contact (last) ; yes = family sponsoring (optional)
         return formData.isMortgaged === 'no'
           ? (formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0)
-          : (formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0);
+          : true;
       case 8:
         return formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0;
       default:
