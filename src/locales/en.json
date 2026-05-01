@@ -331,7 +331,7 @@
       "seeConditions": "See conditions to meet below.",
       "reasons": {
         "insufficientValue": "Insufficient property value ({value} AED). Minimum {min} AED required for the 10-year Golden Visa.",
-        "insufficientPaid": "Only {percent}% paid. Minimum 50% required for mortgaged property.",
+        "insufficientPaid": "Paid-up equity is only AED {equity}. DLD requires at least AED {min} of equity for a mortgaged property.",
         "nocRequired": "No-objection letter (NOC) from bank required.",
         "propertyNotInName": "Property must be in the applicant's name or shared (spouse).",
         "presenceRequired": "Physical presence in UAE required for the application.",

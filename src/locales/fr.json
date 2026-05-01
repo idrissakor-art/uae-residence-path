@@ -331,7 +331,7 @@
       "seeConditions": "Consultez les conditions à remplir ci-dessous.",
       "reasons": {
         "insufficientValue": "Valeur propriété insuffisante ({value} AED). Minimum {min} AED requis pour le Golden Visa 10 ans.",
-        "insufficientPaid": "Seulement {percent}% payé. Minimum 50% requis pour propriété hypothéquée.",
+        "insufficientPaid": "Capital remboursé : seulement {equity} AED. Le DLD exige au moins {min} AED de capital remboursé pour un bien hypothéqué.",
         "nocRequired": "Lettre de non-objection (NOC) de la banque requise.",
         "propertyNotInName": "La propriété doit être au nom du demandeur ou partagée (époux/épouse).",
         "presenceRequired": "Présence physique aux EAU requise lors de la demande.",
