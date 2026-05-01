@@ -141,7 +141,8 @@ const TypeformStyleSimulator = () => {
         eligible = false;
         reasons.push(
           t('simulator.result.reasons.insufficientPaid', {
-            percent: ((paidUpEquity / 2000000) * 100).toFixed(1),
+            equity: paidUpEquity.toLocaleString(),
+            min: '2,000,000',
           })
         );
       }
