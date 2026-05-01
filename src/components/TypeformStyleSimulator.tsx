@@ -243,11 +243,17 @@ const TypeformStyleSimulator = () => {
       case 5:
         return formData.presentInUAE.length > 0;
       case 6:
-        return formData.hasValidPassport && formData.hasHealthInsurance;
+        // no = family sponsoring (optional, always true) ; yes = documents
+        return formData.isMortgaged === 'no'
+          ? true
+          : (formData.hasValidPassport && formData.hasHealthInsurance);
       case 7:
-        return formData.clientName.length > 0 && formData.clientEmail.length > 0;
+        // no = contact (last) ; yes = family sponsoring (optional)
+        return formData.isMortgaged === 'no'
+          ? (formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0)
+          : true;
       case 8:
-        return formData.clientPhone.length > 0;
+        return formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0;
       default:
         return false;
     }
@@ -597,7 +603,7 @@ const TypeformStyleSimulator = () => {
       )}
 
       {/* Step - Family sponsoring (optional) */}
-      {((currentStep === 5 && formData.isMortgaged === 'no') || (currentStep === 6 && formData.isMortgaged === 'yes')) && (
+      {((currentStep === 6 && formData.isMortgaged === 'no') || (currentStep === 7 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
           step={getDisplayStep()}
           totalSteps={getTotalDisplaySteps()}
@@ -618,7 +624,7 @@ const TypeformStyleSimulator = () => {
       )}
 
       {/* Step - Contact information */}
-      {((currentStep === 6 && formData.isMortgaged === 'no') || (currentStep === 7 && formData.isMortgaged === 'yes')) && (
+      {((currentStep === 7 && formData.isMortgaged === 'no') || (currentStep === 8 && formData.isMortgaged === 'yes')) && (
         <QuestionStep
           step={getDisplayStep()}
           totalSteps={getTotalDisplaySteps()}
