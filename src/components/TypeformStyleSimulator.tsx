@@ -257,10 +257,10 @@ const TypeformStyleSimulator = () => {
       case 7:
         // no = contact (last) ; yes = family sponsoring (optional)
         return formData.isMortgaged === 'no'
-          ? (formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0)
+          ? isContactValid()
           : true;
       case 8:
-        return formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0;
+        return isContactValid();
       default:
         return false;
     }
