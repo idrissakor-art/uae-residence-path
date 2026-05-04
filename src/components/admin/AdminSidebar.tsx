@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   LayoutDashboard, 
   FileText, 
@@ -15,22 +17,48 @@ import {
 
 const AdminSidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [newCasesCount, setNewCasesCount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
 
   const adminSession = localStorage.getItem('admin_session');
   const admin = adminSession ? JSON.parse(adminSession) : null;
 
+  useEffect(() => {
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from('visa_cases')
+        .select('id', { count: 'exact', head: true })
+        .in('status', ['nouveau', 'dossier_complet']);
+      setNewCasesCount(count ?? 0);
+    };
+    fetchCount();
+
+    const channel = supabase
+      .channel('sidebar-cases')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'visa_cases' },
+        () => fetchCount()
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
   const menuItems = [
     {
       icon: LayoutDashboard,
       label: "Dashboard",
-      path: "/admin/dashboard"
+      path: "/admin/dashboard",
     },
     {
       icon: FileText,
       label: "Dossiers",
-      path: "/admin/cases"
+      path: "/admin/cases",
+      badge: newCasesCount > 0 ? newCasesCount : undefined,
     },
     {
       icon: Users,
@@ -47,7 +75,7 @@ const AdminSidebar = () => {
       label: "Paramètres",
       path: "/admin/settings"
     }
-  ];
+  ] as const;
 
   const handleLogout = () => {
     localStorage.removeItem('admin_session');
@@ -95,6 +123,7 @@ const AdminSidebar = () => {
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
             const Icon = item.icon;
+            const badge = (item as any).badge as number | undefined;
             
             return (
               <Button
@@ -108,7 +137,17 @@ const AdminSidebar = () => {
               >
                 <Icon className="h-4 w-4 flex-shrink-0" />
                 {!isCollapsed && (
-                  <span className="truncate">{item.label}</span>
+                  <>
+                    <span className="truncate flex-1 text-left">{item.label}</span>
+                    {badge !== undefined && (
+                      <Badge variant="destructive" className="ml-auto h-5 px-1.5 text-xs">
+                        {badge}
+                      </Badge>
+                    )}
+                  </>
+                )}
+                {isCollapsed && badge !== undefined && (
+                  <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-destructive" />
                 )}
               </Button>
             );

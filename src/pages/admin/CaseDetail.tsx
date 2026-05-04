@@ -19,7 +19,9 @@ import {
   Shield,
   DollarSign,
   Calendar,
-  MapPin
+  MapPin,
+  Download,
+  Paperclip
 } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { useToast } from "@/hooks/use-toast";
@@ -51,9 +53,21 @@ interface VisaCaseDetail {
   updated_at: string;
 }
 
+interface CaseDocument {
+  id: string;
+  document_type: string;
+  document_name: string;
+  file_path: string;
+  file_size: number | null;
+  mime_type: string | null;
+  upload_date: string;
+  is_verified: boolean;
+}
+
 const AdminCaseDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [caseDetail, setCaseDetail] = useState<VisaCaseDetail | null>(null);
+  const [documents, setDocuments] = useState<CaseDocument[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -92,6 +106,17 @@ const AdminCaseDetail = () => {
         }
 
         setCaseDetail(data);
+
+        const { data: docs, error: docsError } = await supabase
+          .from('case_documents')
+          .select('*')
+          .eq('case_id', id)
+          .order('upload_date', { ascending: false });
+        if (docsError) {
+          console.error('Error fetching documents:', docsError);
+        } else {
+          setDocuments(docs || []);
+        }
       } catch (error) {
         console.error('Error fetching case detail:', error);
         toast({
@@ -107,9 +132,38 @@ const AdminCaseDetail = () => {
     fetchCaseDetail();
   }, [id, navigate, toast]);
 
+  const downloadDocument = async (doc: CaseDocument) => {
+    try {
+      const { data, error } = await supabase.storage
+        .from('case-documents')
+        .createSignedUrl(doc.file_path, 60 * 10);
+      if (error || !data?.signedUrl) throw error || new Error('No signed URL');
+      window.open(data.signedUrl, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      toast({
+        title: 'Erreur de téléchargement',
+        description: err instanceof Error ? err.message : 'Erreur inconnue',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const formatBytes = (bytes: number | null) => {
+    if (!bytes) return '';
+    const units = ['B', 'KB', 'MB', 'GB'];
+    let i = 0;
+    let n = bytes;
+    while (n >= 1024 && i < units.length - 1) {
+      n /= 1024;
+      i++;
+    }
+    return `${n.toFixed(1)} ${units[i]}`;
+  };
+
   const getStatusBadge = (status: string) => {
     const statusMap = {
       nouveau: { label: "Nouveau", variant: "secondary" as const, icon: FileText },
+      dossier_complet: { label: "Dossier complet", variant: "default" as const, icon: FileText },
       en_cours: { label: "En cours", variant: "default" as const, icon: FileText },
       valide: { label: "Validé", variant: "outline" as const, icon: CheckCircle },
       refuse: { label: "Refusé", variant: "destructive" as const, icon: XCircle },
@@ -432,6 +486,50 @@ const AdminCaseDetail = () => {
               </CardContent>
             </Card>
           )}
+
+          {/* Documents uploadés */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Paperclip className="h-5 w-5" />
+                Documents du dossier ({documents.length})
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {documents.length === 0 ? (
+                <p className="text-sm text-muted-foreground">
+                  Aucun document n'a encore été uploadé pour ce dossier.
+                </p>
+              ) : (
+                <div className="space-y-2">
+                  {documents.map((doc) => (
+                    <div
+                      key={doc.id}
+                      className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/50 transition-colors"
+                    >
+                      <div className="flex items-center gap-3 min-w-0 flex-1">
+                        <FileText className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium truncate">{doc.document_name}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {doc.document_type} · {formatBytes(doc.file_size)} · {formatDate(doc.upload_date)}
+                          </p>
+                        </div>
+                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => downloadDocument(doc)}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Télécharger
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </main>
     </div>
