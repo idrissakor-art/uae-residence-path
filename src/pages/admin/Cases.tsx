@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Search, Filter, Eye, Plus } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { useToast } from "@/hooks/use-toast";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 
 interface VisaCase {
   id: string;
@@ -32,20 +33,11 @@ const AdminCases = () => {
   const [visaTypeFilter, setVisaTypeFilter] = useState("all");
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { checking } = useAdminAuth();
 
   useEffect(() => {
-    const checkAdminAuth = () => {
-      const adminSession = localStorage.getItem('admin_session');
-      if (!adminSession) {
-        navigate('/admin/login');
-        return false;
-      }
-      return true;
-    };
-
+    if (checking) return;
     const fetchCases = async () => {
-      if (!checkAdminAuth()) return;
-
       try {
         const { data, error } = await supabase
           .from('visa_cases')
@@ -68,7 +60,7 @@ const AdminCases = () => {
     };
 
     fetchCases();
-  }, [navigate, toast]);
+  }, [checking, toast]);
 
   useEffect(() => {
     let filtered = cases;
