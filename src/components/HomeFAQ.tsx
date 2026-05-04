@@ -19,6 +19,10 @@ const faqs = [
     a: "The minimum threshold is AED 2,000,000 (approx. USD 545,000). The property can be off-plan or ready, freehold, and held individually or jointly with a spouse.",
   },
   {
+    q: "Can I apply with a mortgaged property?",
+    a: "Yes. A mortgaged property is accepted as long as it was purchased through an approved UAE bank and the paid amount (equity) is at least AED 2,000,000.",
+  },
+  {
     q: "Can I sponsor my family with the Golden Visa?",
     a: "Yes. Golden Visa holders can sponsor their spouse, children (no age limit for unmarried daughters), and parents under the same 10-year residency, with no UAE salary requirement.",
   },
