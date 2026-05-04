@@ -136,7 +136,7 @@ const Hero = () => {
                 <p className="text-white/70 text-sm mt-1">{t('hero.stats.satisfaction')}</p>
               </div>
               <div className="text-center">
-                <AnimatedCounter target={48} suffix="h" />
+                <AnimatedCounter target={2} suffix=" min" />
                 <p className="text-white/70 text-sm mt-1">{t('hero.stats.processing')}</p>
               </div>
             </div>
