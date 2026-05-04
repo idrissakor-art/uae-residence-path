@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { useToast } from "@/hooks/use-toast";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 
 interface VisaCaseDetail {
   id: string;
@@ -71,19 +72,12 @@ const AdminCaseDetail = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { checking } = useAdminAuth();
 
   useEffect(() => {
-    const checkAdminAuth = () => {
-      const adminSession = localStorage.getItem('admin_session');
-      if (!adminSession) {
-        navigate('/admin/login');
-        return false;
-      }
-      return true;
-    };
-
+    if (checking) return;
     const fetchCaseDetail = async () => {
-      if (!checkAdminAuth() || !id) return;
+      if (!id) return;
 
       try {
         const { data, error } = await supabase
@@ -130,7 +124,7 @@ const AdminCaseDetail = () => {
     };
 
     fetchCaseDetail();
-  }, [id, navigate, toast]);
+  }, [id, checking, navigate, toast]);
 
   const downloadDocument = async (doc: CaseDocument) => {
     try {

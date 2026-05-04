@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { FileText, Users, Clock, CheckCircle, XCircle, TrendingUp } from "lucide-react";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import { useToast } from "@/hooks/use-toast";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 
 interface DashboardStats {
   totalCases: number;
@@ -30,20 +31,11 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { checking } = useAdminAuth();
 
   useEffect(() => {
-    const checkAdminAuth = () => {
-      const adminSession = localStorage.getItem('admin_session');
-      if (!adminSession) {
-        navigate('/admin/login');
-        return false;
-      }
-      return true;
-    };
-
+    if (checking) return;
     const fetchDashboardData = async () => {
-      if (!checkAdminAuth()) return;
-
       try {
         // Fetch case statistics
         const { data: cases, error: casesError } = await supabase
@@ -94,7 +86,7 @@ const AdminDashboard = () => {
     };
 
     fetchDashboardData();
-  }, [navigate, toast]);
+  }, [checking, toast]);
 
   const getStatusBadge = (status: string) => {
     const statusMap = {

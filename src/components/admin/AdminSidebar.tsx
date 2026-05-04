@@ -18,11 +18,21 @@ import {
 const AdminSidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [newCasesCount, setNewCasesCount] = useState(0);
+  const [adminEmail, setAdminEmail] = useState<string | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const adminSession = localStorage.getItem('admin_session');
-  const admin = adminSession ? JSON.parse(adminSession) : null;
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setAdminEmail(session?.user?.email ?? null);
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
+      setAdminEmail(session?.user?.email ?? null);
+    });
+    return () => {
+      sub.subscription.unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -77,8 +87,8 @@ const AdminSidebar = () => {
     }
   ] as const;
 
-  const handleLogout = () => {
-    localStorage.removeItem('admin_session');
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
     navigate('/admin/login');
   };
 
@@ -95,9 +105,9 @@ const AdminSidebar = () => {
               <h2 className="text-lg font-semibold text-sidebar-foreground">
                 UAE Visa Admin
               </h2>
-              {admin && (
+              {adminEmail && (
                 <p className="text-sm text-sidebar-foreground/70">
-                  {admin.full_name}
+                  {adminEmail}
                 </p>
               )}
             </div>
