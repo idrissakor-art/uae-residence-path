@@ -188,7 +188,7 @@ const TypeformStyleSimulator = () => {
       visaType,
       reasons,
       requirements,
-      totalCost: eligible ? 5500 : 0
+      totalCost: eligible ? 13500 : 0
     };
   };
 
