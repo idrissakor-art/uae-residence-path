@@ -62,7 +62,7 @@
         "name": "Mohammed Al-Rashid",
         "country": "Morocco",
         "visaType": "Golden Visa 10 years",
-        "text": "Exceptional service! My Golden Visa was obtained in less than 48h. The team supported me at every step with remarkable professionalism."
+        "text": "Exceptional service! My case was handled with remarkable responsiveness and professionalism at every step."
       },
       "c2": {
         "name": "Sophie Dubois",
@@ -150,7 +150,7 @@
         },
         "s4": {
           "title": "Get your Golden Visa",
-          "desc": "Receive your visa within 48h"
+          "desc": "Authorities respond within ~48h, visa issued per legal timelines (~1 week)"
         }
       }
     },
@@ -380,7 +380,7 @@
       "orderSummary": "Order Summary",
       "totalFees": "Complete service fees",
       "securePayment": "100% secure payment",
-      "guaranteedProcessing": "48h processing guaranteed",
+      "guaranteedProcessing": "Your file processed by our team within 48h",
       "servicesIncluded": "Our included services",
       "services": {
         "verification": "Complete file verification",
@@ -392,7 +392,7 @@
     },
     "confirmation": {
       "title": "Application submitted successfully!",
-      "description": "Your file has been received and will be processed within 48h. You will receive a confirmation email.",
+      "description": "Your file has been received. Our team processes it within 48h and submits it to the authorities (response in ~48h, visa issued per legal timelines, ~1 week). You will receive a confirmation email.",
       "backToHome": "Back to home"
     },
     "steps": {
@@ -489,7 +489,7 @@
     }
   },
   "meta": {
-    "title": "Golden Visa Dubai 2026 | Get your UAE Golden Visa in 48h | UAE-VisaServices",
+    "title": "Golden Visa Dubai 2026 | Instant Eligibility Check | UAE-VisaServices",
     "description": "Get your 10-year Golden Visa Dubai. Free eligibility simulator, 12 categories, complete assistance from AED 3,500. +1000 cases processed. Money-back guarantee."
   }
 }

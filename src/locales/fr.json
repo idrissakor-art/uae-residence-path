@@ -62,7 +62,7 @@
         "name": "Mohammed Al-Rashid",
         "country": "Maroc",
         "visaType": "Golden Visa 10 ans",
-        "text": "Service exceptionnel ! Mon Golden Visa a été obtenu en moins de 48h. L'équipe m'a accompagné à chaque étape avec un professionnalisme remarquable."
+        "text": "Service exceptionnel ! Mon dossier a été traité avec une réactivité et un professionnalisme remarquables, à chaque étape."
       },
       "c2": {
         "name": "Sophie Dubois",
@@ -150,7 +150,7 @@
         },
         "s4": {
           "title": "Obtenez votre Golden Visa",
-          "desc": "Recevez votre visa sous 48h"
+          "desc": "Réponse des autorités sous ~48h, visa délivré selon les délais légaux (~1 semaine)"
         }
       }
     },
@@ -380,7 +380,7 @@
       "orderSummary": "Récapitulatif de commande",
       "totalFees": "Frais de service complet",
       "securePayment": "Paiement 100% sécurisé",
-      "guaranteedProcessing": "Traitement sous 48h garanties",
+      "guaranteedProcessing": "Votre dossier traité par nos équipes sous 48h",
       "servicesIncluded": "Nos services inclus",
       "services": {
         "verification": "Vérification complète du dossier",
@@ -392,7 +392,7 @@
     },
     "confirmation": {
       "title": "Demande soumise avec succès !",
-      "description": "Votre dossier a été reçu et sera traité sous 48h. Vous recevrez un email de confirmation.",
+      "description": "Votre dossier a bien été reçu. Nos équipes le traitent sous 48h, puis le soumettent aux autorités (réponse sous ~48h, délivrance du visa selon les délais légaux ~1 semaine). Vous recevrez un email de confirmation.",
       "backToHome": "Retour à l'accueil"
     },
     "steps": {
@@ -489,7 +489,7 @@
     }
   },
   "meta": {
-    "title": "Golden Visa Dubai 2026 | Obtenez votre Visa Or UAE en 48h | UAE-VisaServices",
+    "title": "Golden Visa Dubai 2026 | Éligibilité immédiate au Visa Or UAE | UAE-VisaServices",
     "description": "Obtenez votre Golden Visa Dubai en 10 ans. Simulateur d'éligibilité gratuit, 12 catégories, accompagnement complet dès AED 3 500. +1000 dossiers traités. Garantie remboursée."
   }
 }
