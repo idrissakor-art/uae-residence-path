@@ -365,7 +365,7 @@ export type Database = {
     }
     Functions: {
       admin_bootstrap_available: { Args: never; Returns: boolean }
-      bootstrap_first_admin: { Args: { _user_id: string }; Returns: boolean }
+      bootstrap_first_admin: { Args: never; Returns: boolean }
       generate_case_number: { Args: never; Returns: string }
       has_role: {
         Args: {
