@@ -72,10 +72,23 @@ const AdminSetup = () => {
         return;
       }
 
-      // Bootstrap as first admin (server-side, self-locks once an admin exists)
+      // Ensure we have an authenticated session so auth.uid() is set inside the RPC.
+      // (When email confirmations are disabled, signUp returns a session; otherwise we sign in.)
+      if (!signUpData.session) {
+        const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+        if (signInError) {
+          toast({
+            title: "Confirmez votre email",
+            description: "Vérifiez votre boîte mail, puis revenez sur cette page pour finaliser la configuration.",
+          });
+          return;
+        }
+      }
+
+      // Bootstrap as first admin — promotes the *currently signed-in* user only.
+      // Self-locks once any admin exists.
       const { data: ok, error: bootstrapError } = await (supabase.rpc as any)(
-        'bootstrap_first_admin',
-        { _user_id: signUpData.user.id }
+        'bootstrap_first_admin'
       );
 
       if (bootstrapError || !ok) {
