@@ -58,7 +58,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         role="img"
-        aria-label="Skyline de Dubai - Golden Visa Dubai investissement immobilier Visa Or UAE"
+        aria-label="Skyline de Dubai au coucher du soleil - Golden Visa Dubai 10 ans, Visa Or UAE, investissement immobilier Émirats Arabes Unis, résidence longue durée Dubaï"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
