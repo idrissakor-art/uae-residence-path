@@ -19,15 +19,13 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      // Check admin credentials against admin_users table
-      const { data: adminUser, error } = await supabase
-        .from('admin_users')
-        .select('*')
-        .eq('email', email)
-        .eq('is_active', true)
-        .single();
+      // Server-side authentication via Supabase Auth
+      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-      if (error || !adminUser) {
+      if (signInError || !signInData.user) {
         toast({
           title: "Erreur de connexion",
           description: "Identifiants invalides",
@@ -36,23 +34,25 @@ const AdminLogin = () => {
         return;
       }
 
-      // Store admin session in localStorage (temporary solution)
-      localStorage.setItem('admin_session', JSON.stringify({
-        id: adminUser.id,
-        email: adminUser.email,
-        full_name: adminUser.full_name,
-        role: adminUser.role
-      }));
+      // Verify the user has the 'admin' role (server-side check via RLS-backed function)
+      const { data: isAdmin, error: roleError } = await supabase.rpc('has_role', {
+        _user_id: signInData.user.id,
+        _role: 'admin',
+      });
 
-      // Update last login
-      await supabase
-        .from('admin_users')
-        .update({ last_login: new Date().toISOString() })
-        .eq('id', adminUser.id);
+      if (roleError || !isAdmin) {
+        await supabase.auth.signOut();
+        toast({
+          title: "Accès refusé",
+          description: "Ce compte n'a pas les droits administrateur.",
+          variant: "destructive",
+        });
+        return;
+      }
 
       toast({
         title: "Connexion réussie",
-        description: `Bienvenue ${adminUser.full_name}`,
+        description: `Bienvenue ${signInData.user.email}`,
       });
 
       navigate('/admin/dashboard');
