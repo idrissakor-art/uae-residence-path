@@ -301,9 +301,9 @@
         "subtitle": "Please provide your contact information",
         "namePlaceholder": "Your full name",
         "emailPlaceholder": "Your email address",
-        "phoneLabel": "Phone number",
+        "phoneLabel": "Phone number *",
         "phonePlaceholder": "Phone number",
-        "whatsappLabel": "WhatsApp number (optional)",
+        "whatsappLabel": "WhatsApp number *",
         "whatsappPlaceholder": "WhatsApp number"
       },
       "submit": "Calculate my eligibility",
