@@ -42,7 +42,7 @@ const Testimonials = () => {
                     "{text}"
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className={`w-11 h-11 ${item.color} rounded-full flex items-center justify-center text-white font-bold text-sm`} role="img" aria-label={`Avatar de ${name} - client Golden Visa Dubai`}>
+                    <div className={`w-11 h-11 ${item.color} rounded-full flex items-center justify-center text-white font-bold text-sm`} role="img" aria-label={`Avatar de ${name}, ${country} - témoignage client Golden Visa Dubai 10 ans, ${visaType} UAE`}>
                       {item.initials}
                     </div>
                     <div>
