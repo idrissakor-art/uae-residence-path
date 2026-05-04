@@ -486,6 +486,50 @@ const AdminCaseDetail = () => {
               </CardContent>
             </Card>
           )}
+
+          {/* Documents uploadés */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Paperclip className="h-5 w-5" />
+                Documents du dossier ({documents.length})
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {documents.length === 0 ? (
+                <p className="text-sm text-muted-foreground">
+                  Aucun document n'a encore été uploadé pour ce dossier.
+                </p>
+              ) : (
+                <div className="space-y-2">
+                  {documents.map((doc) => (
+                    <div
+                      key={doc.id}
+                      className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/50 transition-colors"
+                    >
+                      <div className="flex items-center gap-3 min-w-0 flex-1">
+                        <FileText className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium truncate">{doc.document_name}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {doc.document_type} · {formatBytes(doc.file_size)} · {formatDate(doc.upload_date)}
+                          </p>
+                        </div>
+                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => downloadDocument(doc)}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Télécharger
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </main>
     </div>
