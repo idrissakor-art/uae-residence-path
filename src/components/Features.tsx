@@ -20,7 +20,7 @@ const Features = () => {
     multilingual: <Globe className="w-8 h-8 text-accent" />,
   };
 
-  const categoryKeys = ['investor', 'entrepreneur', 'professional', 'academic'];
+  const categoryKeys = ['investor'];
   const categoryIcons: Record<string, React.ReactNode> = {
     investor: <Building className="w-10 h-10 text-accent" />,
     entrepreneur: <Briefcase className="w-10 h-10 text-accent" />,
@@ -53,19 +53,12 @@ const Features = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
             {categoryKeys.map((key, index) => (
               <Card 
                 key={key} 
                 className="relative overflow-hidden shadow-card hover:shadow-luxury hover:-translate-y-2 transition-all duration-300 border-2 border-accent/20 hover:border-accent/50"
               >
-                {index === 0 && (
-                  <div className="absolute top-4 right-4 z-10">
-                    <Badge className="bg-accent text-accent-foreground font-bold px-3 py-1 text-xs uppercase tracking-wider shadow-glow">
-                      {t('features.goldenVisa.mostPopular')}
-                    </Badge>
-                  </div>
-                )}
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center">
