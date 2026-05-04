@@ -34,8 +34,8 @@ const AdminLogin = () => {
         return;
       }
 
-      // Verify the user has the 'admin' role (server-side check via RLS-backed function)
-      const { data: isAdmin, error: roleError } = await supabase.rpc('has_role', {
+      // Verify the user has the 'admin' role (server-side check via SECURITY DEFINER function)
+      const { data: isAdmin, error: roleError } = await (supabase.rpc as any)('has_role', {
         _user_id: signInData.user.id,
         _role: 'admin',
       });
