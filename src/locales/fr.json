@@ -301,9 +301,9 @@
         "subtitle": "Veuillez renseigner vos informations de contact",
         "namePlaceholder": "Votre nom complet",
         "emailPlaceholder": "Votre adresse email",
-        "phoneLabel": "Numéro de téléphone",
+        "phoneLabel": "Numéro de téléphone *",
         "phonePlaceholder": "Numéro de téléphone",
-        "whatsappLabel": "Numéro WhatsApp (optionnel)",
+        "whatsappLabel": "Numéro WhatsApp *",
         "whatsappPlaceholder": "Numéro WhatsApp"
       },
       "submit": "Calculer mon éligibilité",

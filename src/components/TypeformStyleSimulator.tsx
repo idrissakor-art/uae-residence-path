@@ -238,6 +238,18 @@ const TypeformStyleSimulator = () => {
   };
 
   const canGoNext = () => {
+    const isContactValid = () => {
+      // Strip dial code prefix to ensure an actual phone number was entered
+      const phoneDigits = formData.clientPhone.replace(formData.clientPhoneCountry, '').replace(/\D/g, '');
+      const whatsappDigits = formData.whatsappNumber.replace(formData.whatsappCountry, '').replace(/\D/g, '');
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.clientEmail.trim());
+      return (
+        formData.clientName.trim().length > 0 &&
+        emailValid &&
+        phoneDigits.length >= 6 &&
+        whatsappDigits.length >= 6
+      );
+    };
     switch (currentStep) {
       case 1:
         return formData.propertyValue.length > 0;
@@ -257,10 +269,10 @@ const TypeformStyleSimulator = () => {
       case 7:
         // no = contact (last) ; yes = family sponsoring (optional)
         return formData.isMortgaged === 'no'
-          ? (formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0)
+          ? isContactValid()
           : true;
       case 8:
-        return formData.clientName.length > 0 && formData.clientEmail.length > 0 && formData.clientPhone.length > 0;
+        return isContactValid();
       default:
         return false;
     }
