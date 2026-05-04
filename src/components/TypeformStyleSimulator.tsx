@@ -238,6 +238,18 @@ const TypeformStyleSimulator = () => {
   };
 
   const canGoNext = () => {
+    const isContactValid = () => {
+      // Strip dial code prefix to ensure an actual phone number was entered
+      const phoneDigits = formData.clientPhone.replace(formData.clientPhoneCountry, '').replace(/\D/g, '');
+      const whatsappDigits = formData.whatsappNumber.replace(formData.whatsappCountry, '').replace(/\D/g, '');
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.clientEmail.trim());
+      return (
+        formData.clientName.trim().length > 0 &&
+        emailValid &&
+        phoneDigits.length >= 6 &&
+        whatsappDigits.length >= 6
+      );
+    };
     switch (currentStep) {
       case 1:
         return formData.propertyValue.length > 0;
