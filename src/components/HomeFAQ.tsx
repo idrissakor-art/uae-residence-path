@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const faqs = [
   {
@@ -47,11 +47,19 @@ const HomeFAQ = () => {
     })),
   };
 
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "home-faq-jsonld";
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+    return () => {
+      document.getElementById("home-faq-jsonld")?.remove();
+    };
+  }, []);
+
   return (
     <section className="py-16 bg-muted/30" aria-label="Dubai Golden Visa FAQ">
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
