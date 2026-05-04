@@ -6,6 +6,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import Features from "@/components/Features";
 import TypeformStyleSimulator from "@/components/TypeformStyleSimulator";
+import HomeFAQ from "@/components/HomeFAQ";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -30,6 +31,7 @@ const Index = () => {
           <TypeformStyleSimulator />
         </section>
         <Features />
+        <HomeFAQ />
       </main>
       <Footer />
     </div>
