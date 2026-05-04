@@ -78,7 +78,7 @@ const Application = () => {
       console.error('Upload error:', err);
       toast({
         title: "Échec de l'upload",
-        description: err instanceof Error ? err.message : 'Erreur inconnue',
+        description: "Une erreur est survenue. Veuillez réessayer.",
         variant: "destructive",
       });
     } finally {
@@ -125,7 +125,7 @@ const Application = () => {
       console.error('Submission error:', err);
       toast({
         title: "Erreur lors de la soumission",
-        description: err instanceof Error ? err.message : 'Erreur inconnue',
+        description: "Une erreur est survenue. Veuillez réessayer.",
         variant: "destructive",
       });
     } finally {
