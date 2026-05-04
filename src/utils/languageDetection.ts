@@ -107,35 +107,32 @@ export const detectLanguageFromIP = async (): Promise<string> => {
     const countryCode = data.country_code;
     const detectedLanguage = countryToLanguage[countryCode];
     
-    console.log(`IP Detection: Country ${countryCode} -> Language ${detectedLanguage || 'fr (default)'}`);
-    
-    // Retourner la langue détectée ou français par défaut
-    return detectedLanguage || 'fr';
+    console.log(`IP Detection: Country ${countryCode} -> Language ${detectedLanguage || 'en (default)'}`);
+
+    // Return detected language or English by default
+    return detectedLanguage || 'en';
   } catch (error) {
-    console.error('Erreur lors de la détection de la langue via IP:', error);
-    // En cas d'erreur, retourner français par défaut
-    return 'fr';
+    console.error('Error detecting language via IP:', error);
+    // On error, default to English
+    return 'en';
   }
 };
 
 // Fonction pour initialiser la langue au démarrage de l'app
 export const initializeLanguageFromIP = async (i18n: any) => {
-  // Vérifier si une langue est déjà stockée en localStorage
+  // If user already picked a language, respect it
   const storedLanguage = localStorage.getItem('i18nextLng');
-  
-  if (!storedLanguage || storedLanguage === 'fr') {
-    // Si aucune langue n'est stockée ou si c'est français par défaut,
-    // tenter la détection par IP
-    const detectedLanguage = await detectLanguageFromIP();
-    
-    if (detectedLanguage !== 'fr') {
-      // Changer la langue seulement si ce n'est pas français
-      i18n.changeLanguage(detectedLanguage);
-      // Ajuster la direction du texte pour l'arabe
-      document.documentElement.dir = detectedLanguage === 'ar' ? 'rtl' : 'ltr';
-    }
-  } else {
-    // Si une langue est déjà stockée, l'utiliser
+
+  if (storedLanguage) {
     document.documentElement.dir = storedLanguage === 'ar' ? 'rtl' : 'ltr';
+    return;
   }
+
+  // Otherwise, try IP-based detection (defaults to English)
+  const detectedLanguage = await detectLanguageFromIP();
+
+  if (detectedLanguage && detectedLanguage !== 'en') {
+    i18n.changeLanguage(detectedLanguage);
+  }
+  document.documentElement.dir = detectedLanguage === 'ar' ? 'rtl' : 'ltr';
 };
