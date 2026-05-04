@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Upload, FileText, Check, CreditCard, Shield, Clock } from 'lucide-react';
+import { Upload, FileText, Check, CreditCard, Shield, Clock, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Application = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   const { t } = useTranslation();
   const [currentStep, setCurrentStep] = useState(1);
   const [uploadedDocuments, setUploadedDocuments] = useState<{[key: string]: File}>({});
+  const [caseId, setCaseId] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const stateCaseId = (location.state as { caseId?: string } | null)?.caseId;
+    if (stateCaseId) {
+      setCaseId(stateCaseId);
+    } else {
+      // No case context — redirect back to simulator so a case gets created first
+      toast({
+        title: "Veuillez d'abord vérifier votre éligibilité",
+        description: "Le simulateur va créer votre dossier en quelques minutes.",
+      });
+      navigate('/#simulator');
+    }
+  }, [location.state, navigate, toast]);
 
   const requiredDocuments = [
     { id: 'passport', name: t('application.documents.passport.name'), description: t('application.documents.passport.description') },
@@ -20,23 +39,98 @@ const Application = () => {
     { id: 'property_deed', name: t('application.documents.propertyDeed.name'), description: t('application.documents.propertyDeed.description') },
   ];
 
-  const handleFileUpload = (documentId: string, file: File) => {
-    setUploadedDocuments(prev => ({
-      ...prev,
-      [documentId]: file
-    }));
-    toast({
-      title: t('application.uploaded'),
-      description: `${file.name} ${t('application.uploaded')}`,
-    });
+  const handleFileUpload = async (documentId: string, file: File) => {
+    if (!caseId) {
+      toast({
+        title: "Dossier introuvable",
+        description: "Veuillez recommencer la simulation d'éligibilité.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setIsUploading(true);
+    try {
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+      const path = `${caseId}/${documentId}-${Date.now()}-${safeName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('case-documents')
+        .upload(path, file, { upsert: false, contentType: file.type });
+      if (uploadError) throw uploadError;
+
+      const { error: insertError } = await supabase.from('case_documents').insert({
+        case_id: caseId,
+        document_type: documentId,
+        document_name: file.name,
+        file_path: path,
+        file_size: file.size,
+        mime_type: file.type || null,
+        is_required: true,
+      });
+      if (insertError) throw insertError;
+
+      setUploadedDocuments(prev => ({ ...prev, [documentId]: file }));
+      toast({
+        title: t('application.uploaded'),
+        description: file.name,
+      });
+    } catch (err) {
+      console.error('Upload error:', err);
+      toast({
+        title: "Échec de l'upload",
+        description: err instanceof Error ? err.message : 'Erreur inconnue',
+        variant: "destructive",
+      });
+    } finally {
+      setIsUploading(false);
+    }
   };
 
-  const handleSubmitApplication = () => {
-    toast({
-      title: t('application.confirmation.title'),
-      description: t('application.confirmation.description'),
-    });
-    navigate('/');
+  const handleSubmitApplication = async () => {
+    if (!caseId) return;
+    setIsSubmitting(true);
+    try {
+      // Record a pending payment (Stripe to be wired later)
+      const { error: payErr } = await supabase.from('payments').insert({
+        case_id: caseId,
+        amount: 3500,
+        currency: 'AED',
+        status: 'pending',
+        payment_method: 'stripe_pending',
+      });
+      if (payErr) throw payErr;
+
+      // Mark the case as a complete submitted file
+      const { error: caseErr } = await supabase
+        .from('visa_cases')
+        .update({ status: 'dossier_complet' })
+        .eq('id', caseId);
+      if (caseErr) throw caseErr;
+
+      // Internal notification row (admin will see this in /admin)
+      await supabase.from('email_notifications').insert({
+        case_id: caseId,
+        recipient_email: 'team@uae-visaservices.com',
+        subject: 'Nouveau dossier complet à traiter',
+        template_name: 'new_case_internal',
+        status: 'pending',
+      });
+
+      setCurrentStep(4);
+      toast({
+        title: t('application.confirmation.title'),
+        description: t('application.confirmation.description'),
+      });
+    } catch (err) {
+      console.error('Submission error:', err);
+      toast({
+        title: "Erreur lors de la soumission",
+        description: err instanceof Error ? err.message : 'Erreur inconnue',
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getStepProgress = () => {
@@ -75,6 +169,7 @@ const Application = () => {
                     <Button
                       variant="outline"
                       size="sm"
+                      disabled={isUploading || !caseId}
                       onClick={() => {
                         const input = document.createElement('input');
                         input.type = 'file';
@@ -88,7 +183,11 @@ const Application = () => {
                         input.click();
                       }}
                     >
-                      <Upload className="w-4 h-4 mr-2" />
+                      {isUploading ? (
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      ) : (
+                        <Upload className="w-4 h-4 mr-2" />
+                      )}
                       {t('application.upload')}
                     </Button>
                   )}
@@ -220,7 +319,8 @@ const Application = () => {
         <Button variant="outline" onClick={() => setCurrentStep(2)}>
           {t('application.back')}
         </Button>
-        <Button onClick={handleSubmitApplication} className="bg-primary">
+        <Button onClick={handleSubmitApplication} className="bg-primary" disabled={isSubmitting}>
+          {isSubmitting && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
           {t('application.payment.payNow')}
         </Button>
       </div>
