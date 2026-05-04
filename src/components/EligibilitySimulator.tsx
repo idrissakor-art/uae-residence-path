@@ -118,7 +118,7 @@ const EligibilitySimulator = () => {
       visaType,
       reasons,
       requirements,
-      totalCost: 3500 + (eligible ? 2000 : 0)
+      totalCost: 13500 + (eligible ? 2000 : 0)
     };
   };
 

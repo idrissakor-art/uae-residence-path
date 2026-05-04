@@ -93,7 +93,7 @@ const Application = () => {
       // Record a pending payment (Stripe to be wired later)
       const { error: payErr } = await supabase.from('payments').insert({
         case_id: caseId,
-        amount: 3500,
+        amount: 13500,
         currency: 'AED',
         status: 'pending',
         payment_method: 'stripe_pending',
@@ -273,7 +273,7 @@ const Application = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span>{t('application.payment.totalFees')}</span>
-              <span className="font-bold text-lg">3,500 AED</span>
+              <span className="font-bold text-lg">13,500 AED</span>
             </div>
             <div className="pt-4 border-t">
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
