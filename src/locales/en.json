@@ -12,7 +12,7 @@
   },
   "hero": {
     "title": "<1>Dubai Golden Visa</1> — 10-Year Residency for Property Investors",
-    "subtitle": "Own property ≥ AED 2M in Dubai → qualify for a 10-year renewable Golden Visa. Free eligibility check in 2 minutes. Full assistance included from AED 3,500.",
+    "subtitle": "Own property ≥ AED 2M in Dubai → qualify for a 10-year renewable Golden Visa. Free eligibility check in 2 minutes. Full assistance included from AED 13,500.",
     "benefits": {
       "golden10": "≥ AED 2M → 10-year Golden Visa",
       "support": "Complete assistance"
@@ -20,7 +20,7 @@
     "benefitsList": {
       "goldenVisa": "≥ AED 2M property → 10-year Golden Visa",
       "categories": "Indians, British, Chinese & all nationalities welcome",
-      "support": "Complete assistance — AED 3,500 all-inclusive"
+      "support": "Complete assistance — AED 13,500 all-inclusive"
     },
     "cta": "Check my eligibility",
     "guarantee": "Satisfaction guarantee – Full refund in case of visa rejection",
@@ -388,7 +388,7 @@
         "tracking": "Personalized tracking until approval",
         "guarantee": "Refund guarantee in case of rejection"
       },
-      "payNow": "Pay now - 3,500 AED"
+      "payNow": "Pay now - 13,500 AED"
     },
     "confirmation": {
       "title": "Application submitted successfully!",
@@ -464,7 +464,7 @@
       },
       "q10": {
         "question": "How and when do I pay the service fee?",
-        "answer": "The service fee (AED 3,500) is paid after you confirm eligibility and upload all required documents, via a secure payment module (Stripe / credit card)."
+        "answer": "The service fee (AED 13,500) is paid after you confirm eligibility and upload all required documents, via a secure payment module (Stripe / credit card)."
       },
       "q11": {
         "question": "How long does it take?",
@@ -490,6 +490,6 @@
   },
   "meta": {
     "title": "Golden Visa Dubai 2026 | Instant Eligibility Check | UAE-VisaServices",
-    "description": "Get your 10-year Golden Visa Dubai. Free eligibility simulator, 12 categories, complete assistance from AED 3,500. +1000 cases processed. Money-back guarantee."
+    "description": "Get your 10-year Golden Visa Dubai. Free eligibility simulator, 12 categories, complete assistance from AED 13,500. +1000 cases processed. Money-back guarantee."
   }
 }

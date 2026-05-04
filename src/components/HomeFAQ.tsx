@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: "How much does your full assistance service cost?",
-    a: "Our all-inclusive service fee is AED 3,500. It covers eligibility check, document review, official submission, and personal follow-up until visa stamping. Full refund if the application is refused.",
+    a: "Our all-inclusive service fee is AED 13,500. It covers eligibility check, document review, official submission, and personal follow-up until visa stamping. Full refund if the application is refused.",
   },
   {
     q: "Do I need to live in the UAE to keep the Golden Visa?",
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "What happens if my Golden Visa application is refused?",
-    a: "We offer a 100% refund guarantee on our AED 3,500 service fee in the rare event of a refusal. Government fees paid to UAE authorities are non-refundable as per official regulations.",
+    a: "We offer a 100% refund guarantee on our AED 13,500 service fee in the rare event of a refusal. Government fees paid to UAE authorities are non-refundable as per official regulations.",
   },
 ];
 
