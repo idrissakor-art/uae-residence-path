@@ -107,14 +107,8 @@ const Application = () => {
         .eq('id', caseId);
       if (caseErr) throw caseErr;
 
-      // Internal notification row (admin will see this in /admin)
-      await supabase.from('email_notifications').insert({
-        case_id: caseId,
-        recipient_email: 'team@uae-visaservices.com',
-        subject: 'Nouveau dossier complet à traiter',
-        template_name: 'new_case_internal',
-        status: 'pending',
-      });
+      // Internal notification (recipient/subject/template hardcoded server-side)
+      await supabase.rpc('queue_internal_case_notification', { _case_id: caseId });
 
       setCurrentStep(4);
       toast({
