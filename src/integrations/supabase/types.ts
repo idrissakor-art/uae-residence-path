@@ -371,6 +371,10 @@ export type Database = {
         }
         Returns: boolean
       }
+      queue_internal_case_notification: {
+        Args: { _case_id: string }
+        Returns: string
+      }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
